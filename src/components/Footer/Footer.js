@@ -58,7 +58,7 @@ export default function footer() {
                     </div>
                     <br />
                     <div className="row">
-                        <p className="col-sm">
+                        <p className="col-sm text-center">
                             &copy;{new Date().getFullYear()} THICC MEMES INC | All right reserved | Terms Of
                             Service
                         </p>
