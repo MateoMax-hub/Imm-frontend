@@ -13,3 +13,8 @@
   border: 2px solid rgba(49, 48, 48, 0.705);
   border-radius: 1rem;
 }
+.Footer{
+  background: rgba(19, 18, 18, 0.897);
+  padding: 2% 0%;
+  color: aliceblue;
+}

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Header from './components/Header/NavBar';
+import Footer from './components/Footer/Footer';
 
 function App() {
     const [routes, setRoutes] = useState();
@@ -22,6 +23,7 @@ function App() {
                     {routes === 'register' && <Register setRoutes={setRoutes} setToken={setToken} />}
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     );
 }
