@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useState } from 'react';
+
+//extraer
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import Header from './components/Header/NavBar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [routes, setRoutes] = useState();
+    const [token, setToken] = useState(localStorage.getItem('token'));
+
+    return (
+        <Router>
+            <Header setRoutes={setRoutes} token={token} />
+            <Switch>
+                <Route path="/" exact>
+                    {routes === 'home' && <div>Hola estas en home</div>}
+                    {routes === 'login' && <Login setRoutes={setRoutes} setToken={setToken} />}
+                    {routes === 'register' && <Register setRoutes={setRoutes} setToken={setToken} />}
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
