@@ -1,0 +1,14 @@
+.Barra{
+    text-align: center;
+    background: rgba(5, 5, 5, 0.616);
+    width: 300px;
+    text-decoration: none
+}
+a { 
+    color: #d3d0d0; 
+}
+.TituloBorder{
+    color: rgb(212, 208, 201);
+    background: rgba(56, 54, 54, 0.658);
+    padding: 4% 0px;
+}

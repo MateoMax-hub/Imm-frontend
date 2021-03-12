@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Header from './components/Header/NavBar';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -17,7 +18,7 @@ function App() {
             <Switch>
                 <Route path="/" exact>
                     <Header token={token} />
-                    <div>Hola estas en home</div>
+                    <Home />
                 </Route>
                 <Route path="/login">
                     <Login setToken={setToken} />
