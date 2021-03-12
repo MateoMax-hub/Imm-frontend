@@ -33,9 +33,27 @@ const Register = ({ setToken }) => {
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
-              name="name"
+              name="nombre"
               type="text"
               placeholder="Nombre"
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Apellido</Form.Label>
+            <Form.Control
+              onChange={(e) => HandleChange(e)}
+              name="apellido"
+              type="text"
+              placeholder="Apellido"
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Edad</Form.Label>
+            <Form.Control
+              onChange={(e) => HandleChange(e)}
+              name="edad"
+              type="text"
+              placeholder="Edad"
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
