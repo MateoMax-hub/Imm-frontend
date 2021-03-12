@@ -2,7 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
-const Register = ({ setRoutes, setToken }) => {
+const Register = ({ setToken }) => {
   const [input, setInput] = useState({});
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +13,6 @@ const Register = ({ setRoutes, setToken }) => {
         input
       );
       localStorage.setItem("token", data);
-      setRoutes('login')
       setToken(data)
     } catch (error) {
       console.log("datos de error", error);
@@ -62,6 +61,9 @@ const Register = ({ setRoutes, setToken }) => {
             <b>Register</b>
           </Button>
         </Form>
+        <div className="mt-2">
+          <a href="/login">Si ya tienes cuenta, click me</a>
+        </div>
       </div>
     </div>
   );

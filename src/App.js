@@ -10,17 +10,20 @@ import Header from './components/Header/NavBar';
 import Footer from './components/Footer/Footer';
 
 function App() {
-    const [routes, setRoutes] = useState();
     const [token, setToken] = useState(localStorage.getItem('token'));
 
     return (
         <Router>
-            <Header setRoutes={setRoutes} token={token} />
             <Switch>
                 <Route path="/" exact>
-                    {routes === 'home' && <div>Hola estas en home</div>}
-                    {routes === 'login' && <Login setRoutes={setRoutes} setToken={setToken} />}
-                    {routes === 'register' && <Register setRoutes={setRoutes} setToken={setToken} />}
+                    <Header token={token} />
+                    <div>Hola estas en home</div>
+                </Route>
+                <Route path="/login">
+                    <Login setToken={setToken} />
+                </Route>
+                <Route path="/register">
+                    <Register setToken={setToken} />
                 </Route>
             </Switch>
             <Footer />

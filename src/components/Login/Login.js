@@ -2,7 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
-const Login = ({ setRoutes, setToken }) => {
+const Login = ({ setToken }) => {
   const [input, setInput] = useState({ });
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -12,8 +12,8 @@ const Login = ({ setRoutes, setToken }) => {
         input
       );
       localStorage.setItem("token", data);
-      setRoutes('home')
       setToken(data)
+      window.location.href="/"
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +51,9 @@ const Login = ({ setRoutes, setToken }) => {
             <b> Iniciar Sesion</b>
           </Button>
         </Form>
+        <div className="mt-2">
+          <a href="/register">aun no tienes cuenta, registrate ahora mismo?</a>
+        </div>
       </div>
     </div>
   );

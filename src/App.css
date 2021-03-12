@@ -5,11 +5,11 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 2% 0px;
+  margin: 4% 0px;
 }
 .DentroDeForm{
   width: 50%;
-  padding: 4%;
+  padding: 3%;
   border: 2px solid rgba(49, 48, 48, 0.705);
   border-radius: 1rem;
 }
@@ -17,4 +17,8 @@
   background: rgba(19, 18, 18, 0.897);
   padding: 2% 0%;
   color: aliceblue;
+}
+.navBar{
+  display: flex;
+  justify-content: space-between;
 }
