@@ -1,11 +1,13 @@
 import BarraLateral from '../../components/BarraLateral/BarraLateral';
 
-const Home = () => {
+const Home = ({ token }) => {
     return (
         <div className="d-flex">
-            <div>
-                <BarraLateral />
-            </div>
+            {token && (
+                <div>
+                    <BarraLateral />
+                </div>
+            )}
             <div>Hola sou Home</div>
         </div>
     );
