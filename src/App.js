@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 //extraer
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
-import Header from './components/Header/NavBar';
-import Footer from './components/Footer/Footer';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import Header from './components/common/Header/NavBar';
+import Footer from './components/common/Footer/Footer';
+import HeaderSencillo from './components/common/HeaderSencillo/HeaderSencillo';
 import Home from './pages/Home/Home';
+import Servicios from './pages/Servicios/Servicios';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -16,18 +18,31 @@ function App() {
     return (
         <Router>
             <Switch>
+
                 <Route path="/" exact>
                     <Header token={token} />
                     <Home token={token} />
                 </Route>
+
                 <Route path="/login">
+                    <HeaderSencillo />
                     <Login setToken={setToken} />
                 </Route>
+
                 <Route path="/register">
+                    <HeaderSencillo />
                     <Register setToken={setToken} />
                 </Route>
+
+                <Route path="/servicios">
+                    <Header token={token} />
+                    <Servicios token={token} />
+                </Route>
+
             </Switch>
-            <Footer />
+
+                <Footer />
+
         </Router>
     );
 }

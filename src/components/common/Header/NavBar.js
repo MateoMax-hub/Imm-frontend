@@ -1,6 +1,6 @@
 import { Navbar, Nav, Button, Form, Dropdown, FormControl } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = ({ token }) => {
@@ -34,7 +34,7 @@ const Login = ({ token }) => {
                     <div>
                         <Nav className="mr-auto">
                             <Form inline>
-                                <Button variant="success">
+                                <Button variant="success" as={Link} to="/">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="20"
@@ -88,10 +88,10 @@ const Login = ({ token }) => {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item href="/">Pedidos</Dropdown.Item>
-                                            <Dropdown.Item href="/">Galeria</Dropdown.Item>
-                                            <Dropdown.Item href="/">Configuraciones</Dropdown.Item>
-                                            <Dropdown.Item href="/">Soporte</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios">Pedidos</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios">Galeria</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios">Configuraciones</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios">Soporte</Dropdown.Item>
                                             <Dropdown.Item onClick={handleLogOut}>
                                                 Cerrar sesion
                                             </Dropdown.Item>

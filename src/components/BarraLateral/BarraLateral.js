@@ -9,9 +9,9 @@ const Register = () => {
                     <b><i>Clientes</i></b>
                 </div>
                 <div>
-                    <Nav.Link href="#home">Pedidos pendientes</Nav.Link>
-                    <Nav.Link href="#home">Mensajes pendientes</Nav.Link>
-                    <Nav.Link href="#home">Mensajes clientes</Nav.Link>
+                    <Nav.Link href="/servicios/pedidos">Pedidos pendientes</Nav.Link>
+                    <Nav.Link href="/servicios/pedidos">Mensajes pendientes</Nav.Link>
+                    <Nav.Link href="/servicios/pedidos">Mensajes clientes</Nav.Link>
                 </div>
             </div>
             <div className="cartera">
@@ -19,10 +19,10 @@ const Register = () => {
                     <b><i>Cartera</i></b>
                 </div>
                 <div>
-                    <Nav.Link href="#home">Depositar dinero</Nav.Link>
-                    <Nav.Link href="#home">Extraer dinero</Nav.Link>
-                    <Nav.Link href="#home">Historial</Nav.Link>
-                    <Nav.Link href="#home">Publicidad</Nav.Link>
+                    <Nav.Link href="/servicios/cartera">Depositar dinero</Nav.Link>
+                    <Nav.Link href="/servicios/cartera">Extraer dinero</Nav.Link>
+                    <Nav.Link href="/servicios/cartera">Historial</Nav.Link>
+                    <Nav.Link href="/servicios/cartera">Publicidad</Nav.Link>
                 </div>
             </div>
             <div className="configuracion">
@@ -30,9 +30,9 @@ const Register = () => {
                     <b><i>Configuracion</i></b>
                 </div>
                 <div>
-                    <Nav.Link href="#home">Mis datos</Nav.Link>
-                    <Nav.Link href="#home">Seguridad</Nav.Link>
-                    <Nav.Link href="#home">Privacidad</Nav.Link>
+                    <Nav.Link href="/servicios/config">Mis datos</Nav.Link>
+                    <Nav.Link href="/servicios/config">Seguridad</Nav.Link>
+                    <Nav.Link href="/servicios/config">Privacidad</Nav.Link>
                 </div>
             </div>
             <div className="ayuda">
@@ -40,9 +40,9 @@ const Register = () => {
                     <b><i>Ayuda</i></b>
                 </div>
                 <div>
-                    <Nav.Link href="#home">FAQ</Nav.Link>
-                    <Nav.Link href="#home">About us</Nav.Link>
-                    <Nav.Link href="#home">Contactos</Nav.Link>
+                    <Nav.Link href="/servicios/soporte">FAQ</Nav.Link>
+                    <Nav.Link href="/servicios/soporte">About us</Nav.Link>
+                    <Nav.Link href="/servicios/soporte">Contactos</Nav.Link>
                 </div>
             </div>
         </div>
