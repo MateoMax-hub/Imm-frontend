@@ -14,6 +14,7 @@ const Register = ({ setToken }) => {
       );
       localStorage.setItem("token", data);
       setToken(data)
+      window.location = "./"
     } catch (error) {
       console.log("datos de error", error);
     }
