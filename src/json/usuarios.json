@@ -5,26 +5,9 @@
         "apellido": "max",
         "email": "max@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     },
     {
         "id": "22",
@@ -32,26 +15,9 @@
         "apellido": "mateo",
         "email": "mateo@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "suspendida",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "suspendida"
     },
     {
         "id": "33",
@@ -59,26 +25,9 @@
         "apellido": "andres",
         "email": "andres@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "suspendida",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "suspendida"
     },
     {
         "id": "44",
@@ -86,26 +35,9 @@
         "apellido": "tadeo",
         "email": "tadeo@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     },
     {
         "id": "55",
@@ -113,26 +45,9 @@
         "apellido": "juan",
         "email": "juan@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     },
     {
         "id": "66",
@@ -140,26 +55,9 @@
         "apellido": "james",
         "email": "james@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "suspendida",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "suspendida"
     },
     {
         "id": "77",
@@ -167,26 +65,9 @@
         "apellido": "wonder",
         "email": "wonder@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "suspendida",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "suspendida"
     },
     {
         "id": "88",
@@ -194,26 +75,9 @@
         "apellido": "ben",
         "email": "ben@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     },
     {
         "id": "99",
@@ -221,26 +85,9 @@
         "apellido": "lucas",
         "email": "lucas@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     },
     {
         "id": "100",
@@ -248,25 +95,8 @@
         "apellido": "marcos",
         "email": "marcos@gmail.com",
         "contraseña": "123456",
-        "usoWeb": "consumidor",
+        "rol": "consumidor",
         "balance": 220,
-        "estadoCuenta": "normal",
-        "packs": [
-            {
-                "pack": "pack1",
-                "datos": "aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaa",
-                "precio": 10
-            },
-            {
-                "pack": "pack2",
-                "datos": "aaaaaaaaa aaaa aaaaaa aaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaaaaa aaaaaa aaaaaa aaaaaaaaa aaaaaaa aaa ",
-                "precio": 20
-            },
-            {
-                "pack": "pack3",
-                "datos": "aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaa a a aaaaaaa aaaaaaaaa aaaaaaaaaaaa a",
-                "precio": 30
-            }
-        ]
+        "estadoCuenta": "normal"
     }
 ]
