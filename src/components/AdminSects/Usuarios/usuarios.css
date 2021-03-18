@@ -1,0 +1,9 @@
+.thead {
+    background-color: rgb(50, 65, 88);
+    color: white;
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+}
+.w-95 {
+    width: 95%;
+}
