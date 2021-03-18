@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const Login = ({ token }) => {
     const [user, Setuser] = useState('');
+    const [rol, SetRol] = useState('usuario')
+    const isAdmin = rol === "admin"
 
     useEffect(() => {
         if (token) {
@@ -19,6 +21,7 @@ const Login = ({ token }) => {
                 headers,
             });
             Setuser(data.nombre);
+            SetRol(data.rol)
         } catch (error) {
             console.log(error);
         }
@@ -88,10 +91,11 @@ const Login = ({ token }) => {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
+                                            <Dropdown.Item href="/servicios">Perfil</Dropdown.Item>
                                             <Dropdown.Item href="/servicios">Pedidos</Dropdown.Item>
-                                            <Dropdown.Item href="/servicios">Galeria</Dropdown.Item>
                                             <Dropdown.Item href="/servicios">Configuraciones</Dropdown.Item>
                                             <Dropdown.Item href="/servicios">Soporte</Dropdown.Item>
+                                            {isAdmin && (<Dropdown.Item href="/admin/users">Pagina admin</Dropdown.Item>)}
                                             <Dropdown.Item onClick={handleLogOut}>
                                                 Cerrar sesion
                                             </Dropdown.Item>

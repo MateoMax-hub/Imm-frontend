@@ -15,6 +15,7 @@ import Admin from './pages/Admin/Admin';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
+    
 
     return (
         <Router>
@@ -30,6 +31,7 @@ function App() {
                     <Switch>
 
                         <Route path="/" exact>
+                            
                             <Header token={token} />
                             <Home token={token} />
                         </Route>
