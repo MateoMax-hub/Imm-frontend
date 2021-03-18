@@ -48,7 +48,6 @@ const Register = ({ setToken }) => {
               placeholder="Apellido"
             />
           </Form.Group>
-          </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
