@@ -1,0 +1,33 @@
+.a-barraL {
+    height: 709px;
+    width: 300px;
+    background-color: rgb(50, 65, 88);
+    border-right: 3px black solid;
+}
+.a-br-custom-button {
+    width: 300px;
+    border-radius: 0;
+    color: white;
+    border-color: black;
+    border-width: 3px;
+}
+
+.abr-my {
+    margin: 60px 0 140px 0;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled).active, 
+.btn-outline-danger:not(:disabled):not(.disabled):active, 
+.show>.btn-outline-danger.dropdown-toggle {
+    color: #fff;
+    background-color: rgb(29, 44, 70);
+    border-color: black;
+}
+.btn-outline-danger:hover {
+    color: #fff;
+    background-color: rgb(35, 53, 83);
+    border-color: black;
+}
+.btn-outline-danger.focus, .btn-outline-danger:focus {
+    box-shadow: 0 0 0 0.2rem rgba(67, 99, 153, 0.459);
+}

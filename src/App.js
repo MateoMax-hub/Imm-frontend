@@ -11,38 +11,51 @@ import Footer from './components/common/Footer/Footer';
 import HeaderSencillo from './components/common/HeaderSencillo/HeaderSencillo';
 import Home from './pages/Home/Home';
 import Servicios from './pages/Servicios/Servicios';
+import Admin from './pages/Admin/Admin';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
+    
 
     return (
         <Router>
+            {/* switch entre admin o no  */}
             <Switch>
 
-                <Route path="/" exact>
-                    <Header token={token} />
-                    <Home token={token} />
+                <Route path="/admin">
+                    <Admin />
                 </Route>
 
-                <Route path="/login">
-                    <HeaderSencillo />
-                    <Login setToken={setToken} />
-                </Route>
+                <Route path="/">
+                    {/* switch entre las paginas para todo usuario no admin  */}
+                    <Switch>
 
-                <Route path="/register">
-                    <HeaderSencillo />
-                    <Register setToken={setToken} />
-                </Route>
+                        <Route path="/" exact>
+                            
+                            <Header token={token} />
+                            <Home token={token} />
+                        </Route>
 
-                <Route path="/servicios">
-                    <Header token={token} />
-                    <Servicios token={token} />
-                </Route>
+                        <Route path="/login">
+                            <HeaderSencillo />
+                            <Login setToken={setToken} />
+                        </Route>
 
+                        <Route path="/register">
+                            <HeaderSencillo />
+                            <Register setToken={setToken} />
+                        </Route>
+
+                        <Route path="/servicios">
+                            <Header token={token} />
+                            <Servicios token={token} />
+                        </Route>
+
+                    </Switch>
+                    <Footer />
+
+                </Route>
             </Switch>
-
-                <Footer />
-
         </Router>
     );
 }

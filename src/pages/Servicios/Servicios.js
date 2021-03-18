@@ -14,29 +14,33 @@ function Servicios({ token }) {
         <Router>
             <div className="d-flex">
                 {token && (
-                    <div>
-                        <BarraLateral />
-                    </div>
+                    <>
+                    
+                        <div>
+                            <BarraLateral />
+                        </div>
+                
+                        <Switch>
+
+                            <Route path="/servicios/pedidos">
+                                <Pedidos />
+                            </Route>
+
+                            <Route path="/servicios/cartera">
+                                <Cartera />
+                            </Route>
+
+                            <Route path="/servicios/config">
+                                <Config />
+                            </Route>
+
+                            <Route path="/servicios/soporte">
+                                <Soporte />
+                            </Route>
+                        </Switch>
+
+                    </>
                 )}
-            
-                <Switch>
-
-                    <Route path="/servicios/pedidos">
-                        <Pedidos />
-                    </Route>
-
-                    <Route path="/servicios/cartera">
-                        <Cartera />
-                    </Route>
-
-                    <Route path="/servicios/config">
-                        <Config />
-                    </Route>
-
-                    <Route path="/servicios/soporte">
-                        <Soporte />
-                    </Route>
-                </Switch>
             </div>
         </Router>
     )

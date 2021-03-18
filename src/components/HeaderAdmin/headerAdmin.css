@@ -1,0 +1,30 @@
+.a-nav {
+    background-color: rgb(50, 65, 88);
+    height: 50px;
+}
+.a-nav-logo,
+.a-nav-logoS{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.a-nav-logo {
+    margin-left: 10px;
+    color: white;
+}
+.a-nav-logoS {
+    color:  rgb(151, 159, 172);
+}
+.a-logo-border {
+    border-right: 2px black solid;
+    width: 300px;
+}
+.a-nav-border {
+    border-bottom: 3px black solid;
+}
+
+.custom-button-2 {
+    border-radius: 0;
+    color: white;
+    border-color: black;
+    border-width: 0 0 0 2px;
+    height: 50px;
+}
