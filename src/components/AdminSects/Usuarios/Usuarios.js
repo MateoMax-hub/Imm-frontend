@@ -1,18 +1,37 @@
-import { React , useState , useEffect} from 'react'
-import './usuarios.css'
-import axios from 'axios'
+import { React, useState, useEffect } from 'react';
+import './usuarios.css';
+import axios from 'axios';
+import { Button, Modal } from 'react-bootstrap';
 
 function Usuarios() {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
+    const [user, setUser] = useState([])
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     
+    
+    useEffect(() => {
+        if (show === false){
+            setUser([])
+        }
+    }, [show])
+
     useEffect(() => {
         const getUsers = async () => {
             const { data } = await axios.get('http://localhost:4000/api/usuarios/admin');
-            setUsers(data)
-        }
-        getUsers()
-    }, [])
+            setUsers(data);
+        };
+        getUsers();
+    }, []);
 
+    useEffect(() => {
+        if (user.length !== 0){
+            handleShow()
+        }
+    }, [user])
 
     return (
         <div className="mt-5 w-100">
@@ -27,21 +46,47 @@ function Usuarios() {
                     </tr>
                 </thead>
                 <tbody className=" bg-secondary">
-                    {users.map((u) =>(
+                    {users.map((u) => (
                         <>
                             <tr>
                                 <th className="text-center">{u.nombre}</th>
                                 <th className="text-center">{u.apellido}</th>
                                 <th className="text-center">{u.rol}</th>
                                 <th className="text-center">{u.estadoCuenta}</th>
-                                <th className="text-center"></th>
+                                <th className="text-center">
+                                    <Button variant="outline-dark" onClick={() => setUser(u)}>
+                                        mas info
+                                    </Button>
+                                </th>
                             </tr>
                         </>
                     ))}
                 </tbody>
             </table>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Body>
+                    <div className="text-center">
+                        <b>
+                            <i>
+                                Datos de usuario
+                            </i>
+                        </b>
+                    </div>
+                    <hr />
+                    <div className="d-flex flex-column ml-2">
+                        <p>Nombre: {user.nombre}</p>
+                        <p>Apellido: {user.apellido}</p>
+                        <p>Rol: {user.rol}</p>
+                        <p>Estado de cuenta: {user.estadoCuenta}</p>
+                        <p>Email: {user.email}</p>
+                        <p>Balance: {user.balance}</p>
+                    </div>
+                    
+                </Modal.Body>
+            </Modal>
         </div>
-    )
+    );
 }
 
-export default Usuarios
+export default Usuarios;
