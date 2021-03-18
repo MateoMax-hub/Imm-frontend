@@ -71,14 +71,14 @@ const Login = ({ token }) => {
                         <div className="ml-2">
                             {!token && (
                                 <Button as={NavLink} to="/login">
-                                    <b>Sing up</b>
+                                    <b>Ingresar</b>
                                 </Button>
                             )}
                         </div>
                         <div className="ml-2">
                             {!token && (
                                 <Button as={NavLink} to="/register">
-                                    <b>Register</b>
+                                    <b>Registrarse</b>
                                 </Button>
                             )}
                         </div>
