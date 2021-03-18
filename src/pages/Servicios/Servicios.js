@@ -27,7 +27,7 @@ function Servicios({ token }) {
                             </Route>
 
                             <Route path="/servicios/cartera">
-                                <Cartera />
+                                <Cartera token={token} />
                             </Route>
 
                             <Route path="/servicios/config">
