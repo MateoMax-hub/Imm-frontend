@@ -25,10 +25,10 @@ function Cartera() {
                 </thead>
                 <div>
                     <div className="m-2">
-                        <button className="btn btn-outline-dark"><b> Deposito</b></button>
+                        <button className="btn btn-outline-dark"><b>Depositos</b></button>
                     </div>
                     <div className="m-2">
-                        <button className="btn btn-outline-dark"><b>Cobransa</b></button>
+                        <button className="btn btn-outline-dark"><b>Cobranzas</b></button>
                     </div>
                 </div>
             </div>
