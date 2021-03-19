@@ -1,5 +1,6 @@
 import { Dropdown, Form, Modal, Button } from 'react-bootstrap';
 import UseCard from '../../../UseForm/UseCard';
+import Tarjet from './Target';
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -100,24 +101,29 @@ function Cartera({ token }) {
 
                     <Modal.Footer className="d-flex justify-content-center">
                         <Form>
-                            <Form.Group controlId="validationCustom02">
-                                <Form.Label>Ingresar importe para subir a la cuenta</Form.Label>
-                                <Form.Control
-                                    name="balance"
-                                    onChange={(e) => Valor(e)}
-                                    type="number"
-                                    placeholder="new balans..."
-                                    className="w-100"
-                                />
-                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            <Form.Group className="card m-2" controlId="validationCustom02">
+                                <Tarjet />
+                                <div className="m-2">
+                                    <div className="form-group col-md-12">
+                                        <label>Ingresar importe para subir a la cuenta</label>
+                                        <input
+                                            name="balance"
+                                            onChange={(e) => Valor(e)}
+                                            type="number"
+                                            placeholder="Ingresar saldo..."
+                                            className="w-100 form-control"
+                                        />
+                                    </div>
+                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                </div>
                             </Form.Group>
                         </Form>
                     </Modal.Footer>
                     <Modal.Footer>
-                        <button className="w-100 btn btn-danger" onClick={(handleClose, DepositoBalance)}>
+                        <button className="w-100 btn btn-primary" onClick={(handleClose, DepositoBalance)}>
                             Depositar
                         </button>
-                        <button className="w-100 btn btn-danger" onClick={(handleClose, ExtractBalance)}>
+                        <button className="w-100 btn btn-primary" onClick={(handleClose, ExtractBalance)}>
                             Extraccion
                         </button>
                     </Modal.Footer>
