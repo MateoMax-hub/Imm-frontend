@@ -6,16 +6,22 @@ import { Button, Modal } from 'react-bootstrap';
 function Usuarios() {
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState([])
+    const [editing, setEditing] = useState(false)
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
+    const editModal = () => {
+        setEditing(true)
+        setShow(true)
+    }
     
     useEffect(() => {
         if (show === false){
             setUser([])
+            setEditing(false)
         }
     }, [show])
 
@@ -56,6 +62,9 @@ function Usuarios() {
                                 <th className="text-center">
                                     <Button variant="outline-dark" onClick={() => setUser(u)}>
                                         mas info
+                                    </Button>
+                                    <Button variant="outline-warning" onClick={() => editModal()}>
+                                        editar
                                     </Button>
                                 </th>
                             </tr>
