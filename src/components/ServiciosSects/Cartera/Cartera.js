@@ -7,6 +7,7 @@ import axios from 'axios';
 
 function Cartera({ token }) {
     const [depo, setDepo] = useState({ balance: 0 });
+    const [depoTwo, setDepoTwo] = useState();
     const { card, user, lastName } = UseCard({ token });
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -16,13 +17,13 @@ function Cartera({ token }) {
         const { name, value } = e.target;
         const changedInput = { ...depo, [name]: value };
         setDepo(changedInput);
+        setDepoTwo(changedInput.balance * -1)
     };
     const DepositoBalance = async () => {
         try {
             const headers = { 'x-auth-token': token };
             await axios.put('http://localhost:4000/api/usuarios/cartera', depo, { headers });
             window.location.reload();
-            alert('Deposito realizado con exito');
         } catch (error) {
             console.log(error);
         }
@@ -30,13 +31,13 @@ function Cartera({ token }) {
     const ExtractBalance = async () => {
         try {
             const headers = { 'x-auth-token': token };
-            await axios.put('http://localhost:4000/api/usuarios', depo, { headers });
+            await axios.put('http://localhost:4000/api/usuarios/cartera', {balance: depoTwo}, { headers });
             window.location.reload();
-            alert('Deposito realizado con exito');
         } catch (error) {
             console.log(error);
         }
     };
+    console.log(depoTwo)
     return (
         <div className="card mt-2">
             <div className="w-100  mt-2 d-flex justify-content-center align-items-center">
