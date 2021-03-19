@@ -1,12 +1,15 @@
-import { Dropdown, Form } from 'react-bootstrap';
+import { Dropdown, Form, Modal, Button } from 'react-bootstrap';
 import UseCard from '../../../UseForm/UseCard';
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Cartera({ token }) {
-    const [depo, setDepo] = useState({balance: 0});
+    const [depo, setDepo] = useState({ balance: 0 });
     const { card, user, lastName } = UseCard({ token });
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const Valor = (e) => {
         const { name, value } = e.target;
@@ -52,12 +55,12 @@ function Cartera({ token }) {
                     </thead>
                     <div>
                         <div className="m-2">
-                            <button onClick={DepositoBalance} className="btn btn-outline-dark">
+                            <button onClick={handleShow} className="btn btn-outline-dark">
                                 <b>Depositos</b>
                             </button>
                         </div>
                         <div className="m-2">
-                            <button onClick={ExtractBalance} className="btn btn-outline-dark">
+                            <button onClick={handleShow} className="btn btn-outline-dark">
                                 <b>Cobranzas</b>
                             </button>
                         </div>
@@ -91,18 +94,35 @@ function Cartera({ token }) {
                     </tbody>
                 </Table>
             </div>
-            <Form>
-                <Form.Group controlId="validationCustom02">
-                    <Form.Label>Balance</Form.Label>
-                    <Form.Control
-                        name="balance"
-                        onChange={(e) => Valor(e)}
-                        type="number"
-                        placeholder="new balans..."
-                    />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Form.Group>
-            </Form>
+            <div className="d-flex">
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Body>Deposito</Modal.Body>
+
+                    <Modal.Footer className="d-flex justify-content-center">
+                        <Form>
+                            <Form.Group controlId="validationCustom02">
+                                <Form.Label>Ingresar importe para subir a la cuenta</Form.Label>
+                                <Form.Control
+                                    name="balance"
+                                    onChange={(e) => Valor(e)}
+                                    type="number"
+                                    placeholder="new balans..."
+                                    className="w-100"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                        </Form>
+                    </Modal.Footer>
+                    <Modal.Footer>
+                        <button className="w-100 btn btn-danger" onClick={(handleClose, DepositoBalance)}>
+                            Depositar
+                        </button>
+                        <button className="w-100 btn btn-danger" onClick={(handleClose, ExtractBalance)}>
+                            Extraccion
+                        </button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
         </div>
     );
 }
