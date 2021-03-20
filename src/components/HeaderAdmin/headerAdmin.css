@@ -20,3 +20,11 @@
 .a-nav-border {
     border-bottom: 3px black solid;
 }
+
+.custom-button-2 {
+    border-radius: 0;
+    color: white;
+    border-color: black;
+    border-width: 0 0 0 2px;
+    height: 50px;
+}
