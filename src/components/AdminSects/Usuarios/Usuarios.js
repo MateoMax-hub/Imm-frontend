@@ -48,7 +48,11 @@ function Usuarios() {
         event.preventDefault();
         console.log(input);
         try {
-            const 
+            const { data } = await axios.put(`http://localhost:4000/api/usuarios/admin/usuario/${user._id}`, input)
+            handleClose()
+            window.location.reload()
+        } catch (error) {
+            console.log(error);
         }
     }
 
