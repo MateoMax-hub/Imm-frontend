@@ -2,8 +2,11 @@ import { React, useState, useEffect } from 'react';
 import './usuarios.css';
 import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
+import Option1 from './Option1';
+import Option2 from './Option2';
 
 function Usuarios() {
+    const [input, setInput] = useState({})
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState([])
     const [editing, setEditing] = useState(false)
@@ -13,9 +16,11 @@ function Usuarios() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-    const editModal = () => {
+
+    const editModal = (u) => {
         setEditing(true)
         setShow(true)
+        setUser(u)
     }
     
     useEffect(() => {
@@ -38,6 +43,20 @@ function Usuarios() {
             handleShow()
         }
     }, [user])
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(input);
+        try {
+            const 
+        }
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const changedInput = { ...input, [name]: value };
+        setInput(changedInput);
+    };
 
     return (
         <div className="mt-5 w-100">
@@ -63,7 +82,7 @@ function Usuarios() {
                                     <Button variant="outline-dark" onClick={() => setUser(u)}>
                                         mas info
                                     </Button>
-                                    <Button variant="outline-warning" onClick={() => editModal()}>
+                                    <Button variant="outline-warning" onClick={() => editModal(u)}>
                                         editar
                                     </Button>
                                 </th>
@@ -84,12 +103,36 @@ function Usuarios() {
                     </div>
                     <hr />
                     <div className="d-flex flex-column ml-2">
-                        <p>Nombre: {user.nombre}</p>
-                        <p>Apellido: {user.apellido}</p>
-                        <p>Rol: {user.rol}</p>
-                        <p>Estado de cuenta: {user.estadoCuenta}</p>
-                        <p>Email: {user.email}</p>
-                        <p>Balance: {user.balance}</p>
+                        {editing?
+                            <>
+                                <form onSubmit={handleSubmit}>
+                                    <p>Nombre: {user.nombre}</p>
+                                    <p>Apellido: {user.apellido}</p>
+                                    <div className="d-flex flex-column">
+                                        <label>rol</label>
+                                        <select onChange={(e) => handleChange(e)} name="rol" className="mb-3">
+                                            <Option1 rol={user.rol}/>
+                                        </select>
+                                        <label>estado de cuenta</label>
+                                        <select onChange={(e) => handleChange(e)} name="estadoCuenta" className="mb-3">
+                                            <Option2 estado={user.estadoCuenta}/>
+                                        </select>
+                                    </div>
+                                    <p>Email: {user.email}</p>
+                                    <input onChange={(e) => handleChange(e)} name="balance" placeholder="balance" type="number" defaultValue={user.balance}></input>
+                                    <Button variant="outline-warning" type="submit">actualizar</Button>
+                                </form>
+                            </>
+                            :
+                            <>
+                                <p>Nombre: {user.nombre}</p>
+                                <p>Apellido: {user.apellido}</p>
+                                <p>Rol: {user.rol}</p>
+                                <p>Estado de cuenta: {user.estadoCuenta}</p>
+                                <p>Email: {user.email}</p>
+                                <p>Balance: {user.balance}</p>
+                            </>
+                        }
                     </div>
                     
                 </Modal.Body>
