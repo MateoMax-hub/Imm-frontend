@@ -60,7 +60,7 @@ const Login = ({ token }) => {
                         {token && (
                             <div className="d-flex ml-2">
                                 <div>
-                                    <Button variant="outline-success">
+                                    <Button as={Link} to="/servicios/cartera" variant="outline-success">
                                         <i>$ {card} arg</i>
                                     </Button>
                                 </div>
@@ -82,9 +82,9 @@ const Login = ({ token }) => {
 
                                         <Dropdown.Menu>
                                             <Dropdown.Item href="/servicios">Perfil</Dropdown.Item>
-                                            <Dropdown.Item href="/servicios">Pedidos</Dropdown.Item>
-                                            <Dropdown.Item href="/servicios">Configuraciones</Dropdown.Item>
-                                            <Dropdown.Item href="/servicios">Soporte</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios/pedidos">Pedidos</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios/config">Configuraciones</Dropdown.Item>
+                                            <Dropdown.Item href="/servicios/soporte">Soporte</Dropdown.Item>
                                             {isAdmin && (
                                                 <Dropdown.Item href="/admin/users">
                                                     Pagina admin
