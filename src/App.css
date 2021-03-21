@@ -27,3 +27,18 @@
   width: 100%;
   margin: 10% 0%;
 }
+.ladnPage{
+  margin: 2% 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carrucel{
+  width: 625px;
+}
+.cards{
+  width: 320px;
+}
+.cardsPage{
+  margin: 4% 14%;
+}
