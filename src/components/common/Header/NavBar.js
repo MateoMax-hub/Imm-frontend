@@ -81,7 +81,7 @@ const Login = ({ token }) => {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item href="/servicios">Perfil</Dropdown.Item>
+                                            <Dropdown.Item href="/perfil">Perfil</Dropdown.Item>
                                             <Dropdown.Item href="/servicios/pedidos">Pedidos</Dropdown.Item>
                                             <Dropdown.Item href="/servicios/config">Configuraciones</Dropdown.Item>
                                             <Dropdown.Item href="/servicios/soporte">Soporte</Dropdown.Item>

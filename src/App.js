@@ -12,6 +12,7 @@ import HeaderSencillo from './components/common/HeaderSencillo/HeaderSencillo';
 import Home from './pages/Home/Home';
 import Servicios from './pages/Servicios/Servicios';
 import Admin from './pages/Admin/Admin';
+import Perfil from './pages/Perfil/Perfil';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -39,6 +40,10 @@ function App() {
                         <Route path="/login">
                             <HeaderSencillo />
                             <Login setToken={setToken} />
+                        </Route>
+
+                        <Route path="/perfil">
+                            <Perfil />
                         </Route>
 
                         <Route path="/register">
