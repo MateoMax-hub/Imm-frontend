@@ -10,7 +10,7 @@ const Footer = () => {
                             </h4>
                             <ul className="list-unstyled">
                                 <li>Desarrollador Full Stack</li>
-                                <li>Tucuman, Argentina</li>
+                                <li>Tucumán, Argentina</li>
                                 <li>Pasaje Houssay 3413</li>
                             </ul>
                         </div>

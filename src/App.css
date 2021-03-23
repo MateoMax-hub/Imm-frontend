@@ -23,14 +23,15 @@
   justify-content: space-between;
 }
 .ladnPage{
-  margin: 2% 0%;
-  display: flex;
+  margin: 2px 2px;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 .carrucel{
-  width: 625px;
+  max-width: 625px;
 }
+
 .cards{
   width: 320px;
 }

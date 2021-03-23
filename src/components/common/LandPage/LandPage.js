@@ -11,7 +11,7 @@ const LandPage = () => {
                         <Card.Body>
                             <Card.Title><i>Edicion de Fotos</i></Card.Title>
                             <Card.Text>
-                                Pagina donde te pondes contactar con los mejores editores para tener tus fotos mas faceras.
+                                Página donde te pondes contactar con los mejores editores para tener tus fotos mas facheras.
                             </Card.Text>
                             <button className="btn btn-info">Ver Packs</button>
                         </Card.Body>

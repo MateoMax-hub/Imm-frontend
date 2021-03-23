@@ -36,9 +36,9 @@ const Login = ({ token }) => {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Collapse className="navBar" id="basic-navbar-nav">
                     <div>
-                        <Nav className="mr-auto">
+                        <Nav className="mx-auto">
                             <Form inline>
-                                <Button variant="success" as={Link} to="/">
+                                <Button  className="mr-2" variant="success" as={Link} to="/">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="20"
@@ -57,7 +57,7 @@ const Login = ({ token }) => {
                                         />
                                     </svg>
                                 </Button>
-                                <FormControl type="text" placeholder="Search" className="" />
+                                <FormControl type="text" placeholder="Search" className="" maxLength="32" />
                             </Form>
                         </Nav>
                     </div>
@@ -106,9 +106,9 @@ const Login = ({ token }) => {
                                             <Dropdown.Item href="/servicios">Pedidos</Dropdown.Item>
                                             <Dropdown.Item href="/servicios">Configuraciones</Dropdown.Item>
                                             <Dropdown.Item href="/servicios">Soporte</Dropdown.Item>
-                                            {isAdmin && (<Dropdown.Item href="/admin/users">Pagina admin</Dropdown.Item>)}
+                                            {isAdmin && (<Dropdown.Item href="/admin/users">Página admin</Dropdown.Item>)}
                                             <Dropdown.Item onClick={handleLogOut}>
-                                                Cerrar sesion
+                                                Cerrar sesión
                                             </Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
