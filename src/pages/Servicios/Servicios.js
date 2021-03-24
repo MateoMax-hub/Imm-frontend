@@ -11,7 +11,7 @@ import Soporte from '../../components/ServiciosSects/Soporte/Soporte';
 
 function Servicios({ token }) {
     return (
-        <Router>
+        
             <div className="d-flex">
                 {token && (
                     <>
@@ -42,7 +42,7 @@ function Servicios({ token }) {
                     </>
                 )}
             </div>
-        </Router>
+        
     )
 }
 
