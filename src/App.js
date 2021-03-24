@@ -32,7 +32,6 @@ function App() {
                     <Switch>
 
                         <Route path="/" exact>
-                            
                             <Header token={token} />
                             <Home token={token} />
                         </Route>
@@ -43,7 +42,8 @@ function App() {
                         </Route>
 
                         <Route path="/perfil">
-                            <Perfil />
+                            <Header token={token} />
+                            <Perfil token={token} />
                         </Route>
 
                         <Route path="/register">

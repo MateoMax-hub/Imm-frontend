@@ -13,7 +13,13 @@
   border: 2px solid rgba(49, 48, 48, 0.705);
   border-radius: 1rem;
 }
+.footerAuto{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .Footer{
+  margin-top: auto;
   background: rgba(19, 18, 18, 0.897);
   padding: 2% 0%;
   color: aliceblue;
@@ -41,4 +47,13 @@
 }
 .cardsPage{
   margin: 4% 14%;
+}
+.PhotoCard{
+  border: rgba(24, 24, 26, 0.726) solid 4px;
+  border-radius: 50%;
+  width: 238px;
+}
+.photo{
+  border-radius: 50%;
+  width: 230px;
 }

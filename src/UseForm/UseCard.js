@@ -30,7 +30,7 @@ function UseCard({token}) {
     };
     const handleLogOut = () => {
         localStorage.removeItem('token');
-        window.location.reload();
+        window.location.href= '/'
     };
     return {
         user,

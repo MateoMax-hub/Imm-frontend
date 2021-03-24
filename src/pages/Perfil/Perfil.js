@@ -1,9 +1,9 @@
-import LandPage from '../../components/common/LandPage/LandPage';
+import PerfilCommon from '../../components/common/Perfil/Perfil';
 
-const Perfil = () => {
+const Perfil = ({ token }) => {
     return (
-        <div className="d-flex">
-            Perfil
+        <div className="m-2">
+            <PerfilCommon token={token} />
         </div>
     );
 };
