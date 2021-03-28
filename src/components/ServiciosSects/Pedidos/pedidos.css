@@ -1,0 +1,57 @@
+.container-pedidos {
+    border: 2px black solid;
+    width: 678px;
+}
+.w-etapas {
+    width: 180px;
+}
+.etapa-border {
+    border: 1px black solid;
+}
+.etapas-height {
+    min-height: 145px;
+}
+.etapas-c-border {
+    border-bottom: 2px black solid;
+}
+
+.pedidos-table {
+    border: 2px black solid;
+    height: 430px;
+}
+.pedidos-input-s {
+    width: 90%;
+}
+
+.thead-pedidos {
+    background-color: rgb(53, 53, 53);
+    color: white;
+    border-bottom: 3px black solid;
+    border-top: 3px black solid;
+}
+
+.th-pedidos {
+    background-color: white;
+}
+
+.th-pedidos:hover {
+    background-color: rgb(102, 102, 102);
+    color: white;
+}
+
+.th-pedidos-select {
+    background-color: rgb(23, 162, 184);
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+}
+
+.long-h6-estado {
+    max-width: 138px;
+}
+.long-h6-estado2 {
+    max-width: 117px;
+}
+
+.etapas-p-font {
+    font-size: 20px;
+}
