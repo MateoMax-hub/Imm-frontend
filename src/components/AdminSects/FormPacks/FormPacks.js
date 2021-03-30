@@ -1,9 +1,8 @@
 import UsePacks from '../../../UseForm/UsePacks';
 import { Button, Modal, Form } from 'react-bootstrap';
 
-function Packs() {
-    const { handleClose, handleShow, HandleSubmit, HandleChange, show } = UsePacks();
-
+function FormPacks({ token }) {
+    const { handleClose, handleShow, HandleSubmit, HandleChange, show, CardPerfil } = UsePacks({ token });
     return (
         <div>
             <div>
@@ -22,8 +21,6 @@ function Packs() {
                                 <Form.Label>Imagen</Form.Label>
                                 <div>
                                     <Form.Control
-                                        onChange={(e) => HandleChange(e)}
-                                        name="imagen"
                                         type="file"
                                         className="btn btn-secondary"
                                     />
@@ -43,15 +40,18 @@ function Packs() {
                                 <Form.Label>Precio</Form.Label>
                                 <Form.Control onChange={(e) => HandleChange(e)} name="precio" type="number" />
                             </Form.Group>
-                            <Button variant="primary" onClick={handleClose}>
+                            <Button variant="primary" type="submit">
                                 Subir Pack
                             </Button>
                         </Form>
                     </div>
                 </Modal>
             </div>
+            <div className="d-flex justify-content-center flex-wrap">
+                <>{CardPerfil}</>
+            </div>
         </div>
     );
 }
 
-export default Packs;
+export default FormPacks;

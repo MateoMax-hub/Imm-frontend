@@ -1,24 +1,40 @@
 import { Button, Modal } from 'react-bootstrap';
 import UseCard from '../../../UseForm/UseCard';
 import FormPacks from '../../AdminSects/FormPacks/FormPacks';
+import axios from 'axios';
 import { useState } from 'react';
+import { beforeUpload, getBase64 } from '../../../utils/index';
 
 const Perfil = ({ token }) => {
-    const { user, lastName } = UseCard({ token });
+    const exampleImage ='https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg';
+    //const [image, setImage] = useState(exampleImage);
+    const { user, lastName, imagen } = UseCard({ token });
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+    const onChangeImg = async (e) => {
+        const img = e.target.files[0];
+        if (!beforeUpload(img)) return;
+        const base64 = await getBase64(img);
+        //setImage(base64);
+        console.log('onChangeImg - base64', base64);
+        axios.put(
+                'http://localhost:4000/api/usuarios',
+                { imagen: base64 },
+                {
+                    headers: { 'x-auth-token': token },
+                }
+            )
+            .then((response) => console.log(response.data));
+    };
 
     return (
         <div>
             <div>
                 <div className="w-100 d-flex justify-content-center">
                     <div className="PhotoCard m-2">
-                        <img
-                            className="photo"
-                            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                            alt=""
-                        />
+                        <img className="photo" src={imagen || exampleImage} alt="" />
                     </div>
                     <div>
                         <a onClick={handleShow}>
@@ -46,16 +62,32 @@ const Perfil = ({ token }) => {
             </div>
             <hr />
             <div>
-                <FormPacks />
+                <FormPacks token={token} />
             </div>
             <div>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Actualizar datos de perfil</Modal.Title>
                     </Modal.Header>
-                    <div className="d-flex flex-column p-2 m-2">
-                        <i className="m-2">Cambiar foto de perfil</i>
-                        <input type="file" />
+                    <div className="d-flex m-2">
+                        <div className="d-flex">
+                            <label htmlFor="file-input" style={{ cursor: 'pointer' }}>
+                                <img
+                                    src="https://icongr.am/feather/camera.svg?size=128&color=293f8e"
+                                    alt="camera edit"
+                                    width="20"
+                                />
+                            </label>
+                            <i className="m-2">Cambiar foto de perfil</i>
+                        </div>
+                        <input
+                            id="file-input"
+                            className="d-none"
+                            name="img"
+                            accept="image/png, image/jpeg"
+                            type="file"
+                            onChange={onChangeImg}
+                        />
                     </div>
                     <Modal.Footer>
                         <Button variant="danger" onClick={handleClose}>

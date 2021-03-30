@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function UseCard({token}) {
-    const [user, Setuser] = useState('');
     const [lastName, SetLastName] = useState('');
     const [card, SetCard] = useState(1);
+    const [user, Setuser] = useState('');
+    const [imagen, SetImagen] = useState();
     const [rol, SetRol] = useState('usuario')
+    const [id, SetId] = useState();
     const isAdmin = rol === "admin"
 
     useEffect(() => {
@@ -20,10 +22,12 @@ function UseCard({token}) {
             const { data } = await axios.get('http://localhost:4000/api/usuarios', {
                 headers,
             });
-            Setuser(data.nombre)
-            SetRol(data.rol)
             SetLastName(data.apellido)
             SetCard(data.balance)
+            Setuser(data.nombre)
+            SetImagen(data.imagen)
+            SetRol(data.rol)
+            SetId(data._id)
         } catch (error) {
             console.log(error);
         }
@@ -33,14 +37,15 @@ function UseCard({token}) {
         window.location.href= '/'
     };
     return {
-        user,
-        rol,
-        isAdmin,
         handleLogOut,
         nombre,
-        user,
+        isAdmin,
+        lastName,
+        imagen,
         card,
-        lastName
+        user,
+        rol,
+        id
     };
 }
 
