@@ -6,16 +6,15 @@ import Tbody from './Tbody';
 import Etapas from './Etapas';
 
 function Pedidos() {
+    // estados del modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
+    // pedido seleccionado en tabla
     const [pedido, setPedido] = useState([]);
+    // todos los pedidos
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        if (pedido.length !== 0) {
-        }
-    }, [pedido]);
-
+    // traer todos los pedidos
     useEffect(() => {
         getPedidos();
     }, []);
@@ -29,15 +28,19 @@ function Pedidos() {
         setData(data);
     };
 
+    // cancelar pedidos
     const cancelarPedido = async () => {
-        const token = localStorage.getItem('token')
-        const headers = { 'x-auth-token': token};
-        const {data} = await axios.delete(`http://localhost:4000/api/pedidos/cancelarPedido/${pedido._id}`, {
-            headers,
-        });
-        getPedidos()
-        handleClose()
-    }
+        const token = localStorage.getItem('token');
+        const headers = { 'x-auth-token': token };
+        const { data } = await axios.delete(
+            `http://localhost:4000/api/pedidos/cancelarPedido/${pedido._id}`,
+            {
+                headers,
+            }
+        );
+        getPedidos();
+        handleClose();
+    };
 
     return (
         <>
@@ -47,48 +50,33 @@ function Pedidos() {
                         <div className="w-25 d-flex justify-content-center align-item-center pt-3">
                             <h4>Estado:</h4>
                         </div>
-                        <Etapas pedido={pedido} />
+                        <Etapas pedido={pedido} getPedidos={getPedidos} />
                     </div>
                     <div className="pr-5 pl-5 pb-5 pt-2 d-flex flex-column w-100">
                         <div>
                             <h4>Pedidos realizados:</h4>
                         </div>
                         <div>
-                            <div className="pedidos-table w-100 d-flex flex-column">
-                                <div className="w-100 d-flex justify-content-around pt-2">
-                                    <div className="w-50 d-flex justify-content-center">
-                                        <input className="pedidos-input-s"></input>
-                                    </div>
-                                    <div className="w-50 d-flex justify-content-around px-5">
-                                        <Button className="" variant="outline-secondary">
-                                            a
-                                        </Button>
-                                        <Button className="" variant="outline-secondary">
-                                            b
-                                        </Button>
-                                    </div>
-                                </div>
-                                <div className="mt-2">
-                                    <table className="w-100">
-                                        <thead className="thead-pedidos">
-                                            <tr className="">
-                                                <th className="text-center">editor</th>
-                                                <th className="text-center">estado</th>
-                                                <th className="text-center"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {data.map((pedidoT) => (
-                                                <Tbody
-                                                    pedidoT={pedidoT}
-                                                    setPedido={setPedido}
-                                                    pedidoSelected={pedidoT._id === pedido._id}
-                                                    setShow={setShow}
-                                                />
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div className="pedidos-table w-100 d-flex flex-column overflow-auto">
+                                <table className="w-100">
+                                    <thead className="thead-pedidos">
+                                        <tr className="">
+                                            <th className="text-center">editor</th>
+                                            <th className="text-center">estado</th>
+                                            <th className="text-center"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {data.map((pedidoT) => (
+                                            <Tbody
+                                                pedidoT={pedidoT}
+                                                setPedido={setPedido}
+                                                pedidoSelected={pedidoT._id === pedido._id}
+                                                setShow={setShow}
+                                            />
+                                        ))}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -98,10 +86,15 @@ function Pedidos() {
                 <Modal.Body>Cancelar pedido</Modal.Body>
 
                 <Modal.Footer className="d-flex justify-content-center">
-                    <h6>Si el pedido ya esta completado o enviaste tu foto al editor o el editor te la devolvio no se reenbolsara el precio del encargo</h6>
+                    <h6>
+                        Si el pedido ya esta completado o enviaste tu foto al editor o el editor te la
+                        devolvio no se reenbolsara el precio del encargo
+                    </h6>
                 </Modal.Footer>
                 <Modal.Footer className="d-flex justify-content-center">
-                    <Button variant="danger" onClick={() => cancelarPedido()} >CANCELAR PEDIDO</Button>
+                    <Button variant="danger" onClick={() => cancelarPedido()}>
+                        CANCELAR PEDIDO
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </>

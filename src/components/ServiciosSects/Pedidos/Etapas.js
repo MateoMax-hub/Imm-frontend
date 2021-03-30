@@ -5,35 +5,25 @@ import PrimeraEtapa from './Estados/PrimeraEtapa';
 import SegundaEtapa from './Estados/SegundaEtapa';
 import TerceraEtapa from './Estados/TerceraEtapa';
 
-function Etapas({ pedido }) {
+function Etapas(props) {
+    const { pedido, getPedidos } = props;
     if (pedido.length !== 0) {
         if (pedido.primeraEtapa.estado === 'pendiente') {
-            return (
-                <PrimeraEtapa />
-            )
+            return <PrimeraEtapa pedido={pedido} getPedidos={getPedidos} />;
         } else {
             if (pedido.segundaEtapa.estado === 'pendiente') {
-                return (
-                    <SegundaEtapa />
-                )
+                return <SegundaEtapa />;
             } else {
                 if (pedido.terceraEtapa.estado === 'pendiente') {
-                    return (
-                        <TerceraEtapa />
-                    )
+                    return <TerceraEtapa pedido={pedido} getPedidos={getPedidos} />;
                 } else {
-                    return (
-                        <EtapasCompletadas />
-                    )
+                    return <EtapasCompletadas />;
                 }
             }
         }
     } else {
-        return (
-            <h6 className="pt-4">seleccione un pedido abajo para ver su progreso</h6>
-        )
+        return <h6 className="pt-4">seleccione un pedido abajo para ver su progreso</h6>;
     }
-
 }
 
 export default Etapas;

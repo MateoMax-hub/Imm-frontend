@@ -18,6 +18,7 @@
 .pedidos-table {
     border: 2px black solid;
     height: 430px;
+    max-height: 430px;
 }
 .pedidos-input-s {
     width: 90%;
@@ -54,4 +55,10 @@
 
 .etapas-p-font {
     font-size: 20px;
+}
+
+.comentario-pedido-ta {
+    resize: none;
+    height: 100px;
+    width: 90%;
 }
