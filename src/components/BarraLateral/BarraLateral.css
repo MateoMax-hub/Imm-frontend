@@ -1,6 +1,6 @@
 .Barra{
     text-align: center;
-    background: rgba(5, 5, 5, 0.616);
+    background: rgba(5, 5, 5, 0.774);
     width: 300px;
     text-decoration: none
 }
@@ -9,6 +9,6 @@ a {
 }
 .TituloBorder{
     color: rgb(212, 208, 201);
-    background: rgba(56, 54, 54, 0.658);
+    background: #007bff;
     padding: 4% 0px;
 }

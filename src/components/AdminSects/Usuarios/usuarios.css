@@ -1,13 +1,13 @@
 .thead {
-    background-color: rgb(50, 65, 88);
+    background-color: #343a40;
     color: white;
-    border-bottom: 3px black solid;
+    padding: 2%;
 }
 .w-95 {
     width: 95%;
 }
 .search-input {
-    background-color: rgb(50, 65, 88);
-    border-top: 3px black solid;
+    border-bottom: 2px rgb(46, 45, 45) solid;
+    background-color: rgba(5, 5, 5, 0.774);
     padding: 10px;
 }

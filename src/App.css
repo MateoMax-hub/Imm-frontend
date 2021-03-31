@@ -8,13 +8,15 @@
   margin: 4% 0px;
 }
 .DentroDeForm{
-  width: 50%;
+  background: rgba(0, 0, 0, 0.849);
+  color: aliceblue;
+  width: 40%;
   padding: 3%;
   border: 2px solid rgba(49, 48, 48, 0.705);
   border-radius: 1rem;
 }
 .footerAuto{
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
 }
@@ -59,4 +61,24 @@
 }
 .CardPerfil{
   width: 300px;
+}
+.text{
+  color: rgba(248, 242, 242, 0.945);
+  font-family: 'Courier New', Courier, monospace;
+}
+.search{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 748px) {
+  .formulario{
+    padding: 4% 1%;
+  }
+  .DentroDeForm{
+    width: 85%;
+    padding: 3%;
+    border: 2px solid rgba(49, 48, 48, 0.705);
+    border-radius: 1rem;
+  }
 }
