@@ -17,7 +17,7 @@ function UseCard({token}) {
     const nombre = async () => {
         try {
             const headers = { 'x-auth-token': token };
-            const { data } = await axios.get('http://localhost:4000/api/usuarios', {
+            const { data } = await axios.get('usuarios', {
                 headers,
             });
             Setuser(data.nombre)

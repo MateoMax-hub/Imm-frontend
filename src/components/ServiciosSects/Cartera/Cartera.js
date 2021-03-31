@@ -22,7 +22,7 @@ function Cartera({ token }) {
     const DepositoBalance = async () => {
         try {
             const headers = { 'x-auth-token': token };
-            await axios.put('http://localhost:4000/api/usuarios/cartera', depo, { headers });
+            await axios.put('usuarios/cartera', depo, { headers });
             window.location.reload();
         } catch (error) {
             console.log(error);
@@ -31,7 +31,7 @@ function Cartera({ token }) {
     const ExtractBalance = async () => {
         try {
             const headers = { 'x-auth-token': token };
-            await axios.put('http://localhost:4000/api/usuarios/cartera', {balance: depoTwo}, { headers });
+            await axios.put('usuarios/cartera', {balance: depoTwo}, { headers });
             window.location.reload();
         } catch (error) {
             console.log(error);

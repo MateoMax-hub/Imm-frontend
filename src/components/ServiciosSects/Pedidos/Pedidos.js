@@ -22,7 +22,7 @@ function Pedidos() {
     const getPedidos = async () => {
         const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
-        const { data } = await axios.get('http://localhost:4000/api/pedidos', {
+        const { data } = await axios.get('pedidos', {
             headers,
         });
         setData(data);
@@ -33,7 +33,7 @@ function Pedidos() {
         const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
         const { data } = await axios.delete(
-            `http://localhost:4000/api/pedidos/cancelarPedido/${pedido._id}`,
+            `pedidos/cancelarPedido/${pedido._id}`,
             {
                 headers,
             }

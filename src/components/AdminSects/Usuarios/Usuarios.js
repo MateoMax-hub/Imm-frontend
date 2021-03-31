@@ -37,7 +37,7 @@ function Usuarios() {
 
     useEffect(() => {
         const getUsers = async () => {
-            const { data } = await axios.get('http://localhost:4000/api/usuarios/admin');
+            const { data } = await axios.get('usuarios/admin');
             setUsers(data);
             setUsersFiltrados(data)
         };
@@ -61,7 +61,7 @@ function Usuarios() {
         console.log(input);
         try {
             const { data } = await axios.put(
-                `http://localhost:4000/api/usuarios/admin/usuario/${user._id}`,
+                `usuarios/admin/usuario/${user._id}`,
                 input
             );
             handleClose();

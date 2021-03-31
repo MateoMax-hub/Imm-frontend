@@ -7,7 +7,7 @@ const Login = ({ setToken }) => {
     const HandleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:4000/api/auth', input);
+            const { data } = await axios.post('auth', input);
             localStorage.setItem('token', data);
             setToken(data);
             window.location.href = '/';

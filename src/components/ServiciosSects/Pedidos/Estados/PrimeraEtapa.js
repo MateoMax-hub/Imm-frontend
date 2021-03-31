@@ -20,7 +20,7 @@ function PrimeraEtapa(props) {
                 img: file,
             },
         };
-        const { data } = await axios.put(`http://localhost:4000/api/pedidos/primera/${pedido._id}`, body, {
+        const { data } = await axios.put(`pedidos/primera/${pedido._id}`, body, {
             headers,
         });
         getPedidos();

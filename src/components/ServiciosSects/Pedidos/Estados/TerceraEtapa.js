@@ -3,7 +3,10 @@ import { Button, Modal } from 'react-bootstrap';
 import '../pedidos.css';
 import axios from 'axios';
 
+
 function TerceraEtapa(props) {
+
+
     const { pedido, getPedidos } = props;
 
     // react Bootstrap modal
@@ -33,7 +36,7 @@ function TerceraEtapa(props) {
                 comment,
             },
         };
-        const { data } = await axios.put(`http://localhost:4000/api/pedidos/tercera/${pedido._id}`, body, {
+        const { data } = await axios.put(`pedidos/tercera/${pedido._id}`, body, {
             headers,
         });
         getPedidos();
