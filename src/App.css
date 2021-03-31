@@ -70,6 +70,17 @@
   display: flex;
   justify-content: space-between;
 }
+.cardPacks{
+  width: 50%;
+}
+.agregarProducto{
+  width: 100%;
+  padding: 2%;
+  background: #005fc4bd;
+  color: aliceblue;
+  text-align: center;
+  border-radius: 8px;
+}
 @media (max-width: 748px) {
   .formulario{
     padding: 4% 1%;
@@ -85,5 +96,8 @@
   }
   .photo{
     width: 130px;
+  }
+  .cardPacks{
+    width: 100%;
   }
 }
