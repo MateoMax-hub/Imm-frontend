@@ -116,11 +116,11 @@ function Usuarios() {
     }
 
     return (
-        <div className="mt-5 w-100">
+        <div className="w-100">
             <div className="search-input d-flex justify-content-around">
                 <div className="d-flex ">
-                    <input placeHolder="busqueda" onChange={(e) => handleChangeSearch(e)}></input>
-                    <select className="mx-2" onChange={(e) => handleSelect(e)}>
+                    <input placeHolder="busqueda" className="form-control" onChange={(e) => handleChangeSearch(e)}></input>
+                    <select className="mx-2 form-control" onChange={(e) => handleSelect(e)}>
                         <option disabled>buscar por</option>
                         <option value="nombre">Nombre</option>
                         <option value="apellido">Apellido</option>
@@ -134,15 +134,15 @@ function Usuarios() {
             </div>
             <table className="w-100">
                 <thead className="thead">
-                    <tr className="">
-                        <th className="text-center">nombre</th>
-                        <th className="text-center">apellido</th>
-                        <th className="text-center">rol</th>
-                        <th className="text-center">estado de cuenta</th>
+                    <tr className="m-2">
+                        <th className="text-center">Nombre</th>
+                        <th className="text-center">Apellido</th>
+                        <th className="text-center">Rol</th>
+                        <th className="text-center">Estado de cuenta</th>
                         <th className="text-center">---</th>
                     </tr>
                 </thead>
-                <tbody className=" bg-secondary">
+                <tbody className="mt-2">
                     {usersFiltrados.map((u) => (
                         <>
                             <tr>
@@ -158,7 +158,7 @@ function Usuarios() {
                                     >
                                         mas info
                                     </Button>
-                                    <Button variant="outline-warning" onClick={() => editModal(u)}>
+                                    <Button variant="info" onClick={() => editModal(u)}>
                                         editar
                                     </Button>
                                 </th>
@@ -184,14 +184,14 @@ function Usuarios() {
                                     <p>Apellido: {user.apellido}</p>
                                     <div className="d-flex flex-column">
                                         <label>rol</label>
-                                        <select onChange={(e) => handleChange(e)} name="rol" className="mb-3">
+                                        <select onChange={(e) => handleChange(e)} name="rol" className="mb-3 form-control">
                                             <Option1 rol={user.rol} />
                                         </select>
                                         <label>estado de cuenta</label>
                                         <select
                                             onChange={(e) => handleChange(e)}
                                             name="estadoCuenta"
-                                            className="mb-3"
+                                            className="mb-3 form-control"
                                         >
                                             <Option2 estado={user.estadoCuenta} />
                                         </select>
@@ -200,12 +200,13 @@ function Usuarios() {
                                     <input
                                         onChange={(e) => handleChange(e)}
                                         name="balance"
+                                        className="form-control"
                                         placeholder="balance"
                                         type="number"
                                         defaultValue={user.balance}
                                     ></input>
-                                    <Button variant="outline-warning" type="submit">
-                                        actualizar
+                                    <Button variant="primary" className="w-100 mt-2" type="submit">
+                                        Actualizar
                                     </Button>
                                 </form>
                             </>

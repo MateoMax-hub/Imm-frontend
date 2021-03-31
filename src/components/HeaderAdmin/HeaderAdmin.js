@@ -1,18 +1,21 @@
 import React from 'react'
 import "./headerAdmin.css"
-import { Button } from 'react-bootstrap'
+import { Button, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function HeaderAdmin() {
     return (
         <div>
-            <header className="a-nav d-flex a-nav-border justify-content-between align-content-center">
-                <div className="a-logo-border d-flex">
-                    <h1 className="a-nav-logo ">ImmEdit</h1>
-                    <h6 className="a-nav-logoS">admin</h6>
-                </div>
+            <Navbar bg="dark" expand="lg">
+                <Navbar.Collapse>
+                    <Navbar.Brand as={Link} to="/">
+                        <b className="text">
+                            <i>I M M E D I T | Admin</i>
+                        </b>
+                    </Navbar.Brand>
+                </Navbar.Collapse>
                 <Button href="/" variant="outline-danger" className="custom-button-2">volver a home</Button>
-            </header>
+            </Navbar>
         </div>
     )
 }

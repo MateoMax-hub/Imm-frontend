@@ -13,6 +13,7 @@ import HeaderSencillo from './components/common/HeaderSencillo/HeaderSencillo';
 import Home from './pages/Home/Home';
 import Servicios from './pages/Servicios/Servicios';
 import Admin from './pages/Admin/Admin';
+import Perfil from './pages/Perfil/Perfil';
 
 
 axios.defaults.baseURL = 'http://localhost:4000/api/'
@@ -35,7 +36,6 @@ function App() {
                     <Switch>
 
                         <Route path="/" exact>
-                            
                             <Header token={token} />
                             <Home token={token} />
                         </Route>
@@ -43,6 +43,11 @@ function App() {
                         <Route path="/login">
                             <HeaderSencillo />
                             <Login setToken={setToken} />
+                        </Route>
+
+                        <Route path="/perfil">
+                            <Header token={token} />
+                            <Perfil token={token} />
                         </Route>
 
                         <Route path="/register">

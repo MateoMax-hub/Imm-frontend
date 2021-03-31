@@ -31,7 +31,7 @@ const Register = ({ setToken }) => {
       <div className="DentroDeForm">
         <Form onSubmit={HandleSubmit}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Nombre</Form.Label>
+            <Form.Label><b>Nombre</b></Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               name="nombre"
@@ -40,7 +40,7 @@ const Register = ({ setToken }) => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Apellido</Form.Label>
+            <Form.Label><b>Apellido</b></Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               name="apellido"
@@ -49,7 +49,7 @@ const Register = ({ setToken }) => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
+            <Form.Label><b>Email</b></Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               name="email"
@@ -59,7 +59,7 @@ const Register = ({ setToken }) => {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Contraseña</Form.Label>
+            <Form.Label><b>Contraseña</b></Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               name="password"
