@@ -6,20 +6,19 @@ import { useState } from 'react';
 import { beforeUpload, getBase64 } from '../../../utils/index';
 
 const Perfil = ({ token }) => {
-    const exampleImage ='https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg';
-    //const [image, setImage] = useState(exampleImage);
+    const exampleImage =
+        'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg';
     const { user, lastName, imagen } = UseCard({ token });
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
     const onChangeImg = async (e) => {
         const img = e.target.files[0];
         if (!beforeUpload(img)) return;
         const base64 = await getBase64(img);
-        //setImage(base64);
-        console.log('onChangeImg - base64', base64);
-        axios.put(
+        axios
+            .put(
                 'http://localhost:4000/api/usuarios',
                 { imagen: base64 },
                 {
@@ -55,7 +54,9 @@ const Perfil = ({ token }) => {
                 <div className="w-100 p-2 text-center">
                     <h2>
                         <b>
-                            {user} {lastName}
+                            <i>
+                                {user} {lastName}
+                            </i>
                         </b>
                     </h2>
                 </div>
@@ -93,7 +94,7 @@ const Perfil = ({ token }) => {
                         <Button variant="danger" onClick={handleClose}>
                             Carcelar
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary">
                             Guardar
                         </Button>
                     </Modal.Footer>

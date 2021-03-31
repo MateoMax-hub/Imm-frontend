@@ -8,15 +8,15 @@
   margin: 4% 0px;
 }
 .DentroDeForm{
-  background: rgba(0, 0, 0, 0.849);
+  background: rgba(20, 20, 20, 0.685);
   color: aliceblue;
   width: 40%;
   padding: 3%;
-  border: 2px solid rgba(49, 48, 48, 0.705);
+  border: 2px solid rgba(34, 33, 33, 0.705);
   border-radius: 1rem;
 }
 .footerAuto{
-  min-height: 10vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
 }
@@ -70,7 +70,6 @@
   display: flex;
   justify-content: space-evenly;
 }
-
 @media (max-width: 748px) {
   .formulario{
     padding: 4% 1%;
@@ -80,5 +79,11 @@
     padding: 3%;
     border: 2px solid rgba(49, 48, 48, 0.705);
     border-radius: 1rem;
+  }
+  .PhotoCard{
+    width: 138px;
+  }
+  .photo{
+    width: 130px;
   }
 }
