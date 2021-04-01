@@ -1,8 +1,14 @@
 import UsePacks from '../../../UseForm/UsePacks';
+import UseCard from '../../../UseForm/UseCard';
 import { Button, Modal, Form } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 
 function FormPacks({ token }) {
-    const { handleClose, handleShow, HandleSubmit, HandleChange, show, CardPerfil } = UsePacks({
+    const { isAdmin } = UseCard({ token })
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const {  HandleSubmit, HandleChange, CardPerfil } = UsePacks({
         token,
     });
     return (
@@ -55,13 +61,13 @@ function FormPacks({ token }) {
                 </div>
 
                 <div className="cardPacks">
-                    <div className="agregarProducto" onClick={handleShow}>
+                    {isAdmin && (<div className="agregarProducto" onClick={handleShow}>
                         <a>
                             <b>
                                 <i>+ Agregar Pack</i>
                             </b>
                         </a>
-                    </div>
+                    </div>)}
                     <div className="d-flex flex-wrap">
                         <>{CardPerfil}</>
                     </div>

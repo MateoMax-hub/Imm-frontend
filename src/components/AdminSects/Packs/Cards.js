@@ -1,7 +1,7 @@
 import { Card, Button, Modal, Carousel, NavDropdown } from 'react-bootstrap';
 import { useState } from 'react';
 
-const Cards = ({ pac, imagen }) => {
+const Cards = ({ pac }) => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };

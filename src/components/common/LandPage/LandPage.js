@@ -3,7 +3,7 @@ import UsePacks from '../../../UseForm/UsePacks';
 import Cards from './Cards';
 
 const LandPage = ({ token }) => {
-    const { CardPerfil } = UsePacks({ token });
+    const { CardPerfilTodos } = UsePacks({ token });
     return (
         <div className="w-100">
             <div>
@@ -56,7 +56,7 @@ const LandPage = ({ token }) => {
                 </div>
             </div>
             <div className="cardsPage d-flex justify-content-center flex-wrap">
-                {CardPerfil}
+                {CardPerfilTodos}
             </div>
         </div>
     );
