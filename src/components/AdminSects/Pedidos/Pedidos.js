@@ -2,128 +2,261 @@ import { React, useState, useEffect } from 'react';
 import './pedidos.css';
 import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
+import Tr from './Tr';
 
 function Pedidos() {
-    const handleChangeSearch = () => {
+    // pedidos
+    const [data, setData] = useState([]);
 
-    }
-    const handleSelect = () => {
+    // search
+    const [filtro, setFiltro] = useState({})
+    const [select, setSelect] = useState('')
+    const [selectEstado, setSelectEstado] = useState('')
+    const [primerFiltro, setPrimerFiltro] = useState([])
+    const [filtrado, setFiltrado] = useState([]);
 
-    }
-    const handleMySubmit = () => {
+    // archivo a enviar
+    const [file, setFile] = useState('');
+    const [pedidoActualizar, setPedidoActualizar] = useState([])
 
+    // modal
+    const [show, setShow] = useState(false);
+    const [pedido, setPedido] = useState([]);
+
+    // modal confirmar foto
+    const [showFile, setShowFile] = useState(false);
+
+    // get pedidos
+    useEffect(() => {
+        setPedido([]);
+        getPedidos();
+    }, []);
+
+    // segundo filtro pass
+    useEffect(() => {
+        if (primerFiltro.length !== 0){
+            segundoFiltro()
+        }
+    }, [primerFiltro])
+
+    // abrir modal
+    useEffect(() => {
+        if (pedido.length !== 0) {
+            handleShow();
+        }
+    }, [pedido]);
+
+    // reiniciar datos para modal
+    useEffect(() => {
+        if (show === false) {
+            setPedido([]);
+        }
+    }, [show]);
+
+
+    useEffect(() => {
+        if (file !== ''){
+            handleFile()
+        }
+    }, [file])
+
+    const handleFile = () => {
+        setShowFile(true);
     }
-    
+
+    const handleCloseModal = () => {
+        setFile('')
+        setShowFile(false)
+    }
+
+    // get pedidos
+    const getPedidos = async () => {
+        const token = localStorage.getItem('token');
+        const headers = {
+            'x-auth-token': token,
+        };
+        const { data } = await axios.get('/pedidos/admin', { headers });
+        setData(data);
+        setFiltrado(data)
+    };
+
+    // cerrar y abrir modal
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    // enviar img 
+    const sendImg = async () => {
+        const token = localStorage.getItem('token');
+        const headers = { 'x-auth-token': token };
+        const body = {
+            segundaEtapa: {
+                img: file,
+            },
+        };
+        const { data } = await axios.put(`pedidos/segunda/${pedidoActualizar._id}`, body, {
+            headers,
+        });
+        handleCloseModal()
+        getPedidos()
+    }
+
+    const handleChangeSearch = (e) => {
+        const { value } = e.target;
+        const filteredBy = { filter: value };
+        setFiltro(filteredBy);
+    };
+    const handleSelect = (e) => {
+        const { value } = e.target
+        setSelect(value)
+    };
+    const handleSelectEstado = (e) => {
+        const { value } = e.target
+        setSelectEstado(value)
+    }
+    const handleMySubmit = async () => {
+        if (!filtro.filter){
+            setFiltro({ filter: '' })
+        }
+        if (selectEstado === "esperando"){
+            const primerFiltroArray = data.filter((u) => u.primeraEtapa.estado === "pendiente")
+            setPrimerFiltro(primerFiltroArray)
+        }
+        if (selectEstado === "pendiente"){
+            const primerFiltroArray = data.filter((u) => u.segundaEtapa.estado === "pendiente" && u.primeraEtapa.estado === "completada")
+            setPrimerFiltro(primerFiltroArray)
+        }
+        if (selectEstado === "feedback"){
+            const primerFiltroArray = data.filter((u) => u.terceraEtapa.estado === "pendiente" && u.segundaEtapa.estado === "completada")
+            setPrimerFiltro(primerFiltroArray)
+        }
+        if (selectEstado === "completado"){
+            const primerFiltroArray = data.filter((u) => u.terceraEtapa.estado === "completada")
+            setPrimerFiltro(primerFiltroArray)
+        }
+        if (selectEstado === "todos"){
+            setPrimerFiltro(data)
+        }
+        if (selectEstado === "disabled") {
+            alert('por favor complete los campos para filtrar')
+        }
+        if (!selectEstado){
+            setPrimerFiltro(data)
+        }
+    };
+    const segundoFiltro = () => {
+        console.log(filtro);
+        if (select === "nombre"){
+            const filteredPedidos = primerFiltro.filter((u) => u.consumidor.nombre.toLowerCase().includes(filtro.filter.toLowerCase()));
+            setFiltrado(filteredPedidos)
+        }
+        if (select === "apellido"){
+            const filteredPedidos = primerFiltro.filter((u) => u.consumidor.apellido.toLowerCase().includes(filtro.filter.toLowerCase()));
+            setFiltrado(filteredPedidos)
+        }
+        if (select === "email"){
+            const filteredPedidos = primerFiltro.filter((u) => u.consumidor.email.toLowerCase().includes(filtro.filter.toLowerCase()));
+            setFiltrado(filteredPedidos)
+        }
+        if (select === "nombrePack"){
+            const filteredPedidos = primerFiltro.filter((u) => u.pack.titulo.toLowerCase().includes(filtro.filter.toLowerCase()));
+            setFiltrado(filteredPedidos)
+        }
+        if (select === "disabled"){
+            alert('por favor complete los campos para filtrar')
+        }
+        if (select === ''){
+            setFiltrado(primerFiltro)
+        }
+        setPrimerFiltro([])
+    }
     return (
         <div className="w-100">
             <div className="search-input-pedidos d-flex justify-content-around">
                 <div className="d-flex ">
-                    <input placeHolder="busqueda" className="form-control" onChange={(e) => handleChangeSearch(e)}></input>
+                    <input
+                        placeHolder="busqueda"
+                        className="form-control"
+                        onChange={(e) => handleChangeSearch(e)}
+                    ></input>
                     <select className="mx-2 form-control" onChange={(e) => handleSelect(e)}>
-                        <option disabled>buscar por</option>
-                        <option value="nombre">Nombre</option>
-                        <option value="apellido">Apellido</option>
-                        <option value="rol">Rol</option>
-                        <option value="estadoCuenta">Estado de cuenta</option>
-                        <option value="email">Email</option>
+                        <option value="disabled" selected disabled>buscar por</option>
+                        <option value="nombre">Nombre consumidor</option>
+                        <option value="apellido">Apellido consumidor</option>
+                        <option value="email">Email consumidor</option>
+                        <option value="nombrePack">Nombre pack</option>
                     </select>
-                    <Button onClick={() => handleMySubmit()} variant="secondary">buscar</Button>
+                    <select className="mx-2 form-control" onChange={(e) => handleSelectEstado(e)}>
+                        <option value="disabled" selected disabled>filtrar</option>
+                        <option value="todos">Todos</option>
+                        <option value="esperando">Esperando foto</option>
+                        <option value="pendiente">Pendiente entrega</option>
+                        <option value="feedback">Pendiente feedback</option>
+                        <option value="completado">Completado</option>
+                    </select>
+                    <Button onClick={() => handleMySubmit()} variant="secondary">
+                        buscar
+                    </Button>
                 </div>
                 <div></div>
             </div>
             <table className="w-100">
                 <thead className="thead-pedidos">
                     <tr className="m-2">
-                        <th className="text-center">Nombre</th>
-                        <th className="text-center">Apellido</th>
-                        <th className="text-center">Rol</th>
-                        <th className="text-center">Estado de cuenta</th>
+                        <th className="text-center">Consumidor</th>
+                        <th className="text-center">Pack</th>
+                        <th className="text-center">Fecha de iniciacion</th>
+                        <th className="text-center">Estado</th>
                         <th className="text-center">---</th>
                     </tr>
                 </thead>
                 <tbody className="mt-2">
-                    {/* {usersFiltrados.map((u) => (
+                    {filtrado.map((u) => (
                         <>
-                            <tr>
-                                <th className="text-center">{u.nombre}</th>
-                                <th className="text-center">{u.apellido}</th>
-                                <th className="text-center">{u.rol}</th>
-                                <th className="text-center">{u.estadoCuenta}</th>
-                                <th className="text-center">
-                                    <Button
-                                        variant="outline-dark"
-                                        onClick={() => setUser(u)}
-                                        className="mr-3"
-                                    >
-                                        mas info
-                                    </Button>
-                                    <Button variant="info" onClick={() => editModal(u)}>
-                                        editar
-                                    </Button>
-                                </th>
-                            </tr>
+                            <Tr pedidoTr={u} setPedido={setPedido} setFile={setFile} setPedidoActualizar={setPedidoActualizar} />
                         </>
-                    ))} */}
+                    ))}
                 </tbody>
             </table>
-
-            {/* <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Body>
                     <div className="text-center">
                         <b>
-                            <i>Datos de usuario</i>
+                            <i>Datos del pack</i>
                         </b>
                     </div>
                     <hr />
                     <div className="d-flex flex-column ml-2">
-                        {editing ? (
+                        {show ? (
                             <>
-                                <form onSubmit={handleSubmit}>
-                                    <p>Nombre: {user.nombre}</p>
-                                    <p>Apellido: {user.apellido}</p>
-                                    <div className="d-flex flex-column">
-                                        <label>rol</label>
-                                        <select onChange={(e) => handleChange(e)} name="rol" className="mb-3 form-control">
-                                            <Option1 rol={user.rol} />
-                                        </select>
-                                        <label>estado de cuenta</label>
-                                        <select
-                                            onChange={(e) => handleChange(e)}
-                                            name="estadoCuenta"
-                                            className="mb-3 form-control"
-                                        >
-                                            <Option2 estado={user.estadoCuenta} />
-                                        </select>
-                                    </div>
-                                    <p>Email: {user.email}</p>
-                                    <input
-                                        onChange={(e) => handleChange(e)}
-                                        name="balance"
-                                        className="form-control"
-                                        placeholder="balance"
-                                        type="number"
-                                        defaultValue={user.balance}
-                                    ></input>
-                                    <Button variant="primary" className="w-100 mt-2" type="submit">
-                                        Actualizar
-                                    </Button>
-                                </form>
+                                <p>Titulo: {pedido.pack.titulo}</p>
+                                <p>Descripcion: {pedido.pack.descripcion}</p>
+                                <p>Precio: {pedido.precio}</p>
                             </>
                         ) : (
-                            <>
-                                <p>Nombre: {user.nombre}</p>
-                                <p>Apellido: {user.apellido}</p>
-                                <p>Rol: {user.rol}</p>
-                                <p>Estado de cuenta: {user.estadoCuenta}</p>
-                                <p>Email: {user.email}</p>
-                                <p>Balance: {user.balance}</p>
-                            </>
+                            <></>
                         )}
                     </div>
                 </Modal.Body>
-            </Modal> */}
+            </Modal>
+
+            <Modal
+                size="lg"
+                show={showFile}
+                onHide={handleCloseModal}
+                onClose={handleCloseModal}
+                aria-labelledby="example-modal-sizes-title-lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">Confirmar imagen</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="d-flex flex-column align-items-center justify-content-center">
+                    <img src={file}></img>
+                    <Button variant="outline-success" className="mt-3" onClick={sendImg}>Enviar</Button>
+                </Modal.Body>
+            </Modal>
         </div>
-    )
+    );
 }
 
-export default Pedidos
+export default Pedidos;
