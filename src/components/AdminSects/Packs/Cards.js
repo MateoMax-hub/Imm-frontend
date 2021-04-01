@@ -1,36 +1,31 @@
 import { Card, Button, Modal, Carousel, NavDropdown } from 'react-bootstrap';
 import { useState } from 'react';
 
-const Cards = ({ pac }) => {
+const Cards = ({ pac, imagen }) => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+    const exampleImage ='https://yumagic.com/wp-content/uploads/2018/11/edicion-video-programas.jpg';
     const [index, setIndex] = useState(0);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
         <div>
-            <Card>
-                <Card.Header className="d-flex justify-content-between">
-                    <div>
-                        <b>
-                            <i>Pack de Edicion Fotografica</i>
-                        </b>
-                    </div>
-                    <NavDropdown title="Options">
-                        <NavDropdown.Item href="#action/3.3">Modificar</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Eliminar</NavDropdown.Item>
-                    </NavDropdown>
-                </Card.Header>
+            <Card className="m-2 cardPackDate">
+                <Card.Img
+                    variant="top"
+                    src={pac.imagen || exampleImage}
+                />
                 <Card.Body>
                     <Card.Title>{pac.titulo}</Card.Title>
                     <Card.Text>{pac.descripcion}</Card.Text>
+                </Card.Body>
+                <Card.Footer>
                     <Button variant="primary" onClick={handleShow}>
                         <i>Ver Packs</i>
                     </Button>
-                </Card.Body>
+                </Card.Footer>
             </Card>
 
             <Modal show={show} onHide={handleClose}>

@@ -34,7 +34,7 @@ function UsePacks({ token }) {
     const EffectPacks = async (id) => {
         try {
             const { data } = await axios.get(`http://localhost:4000/api/packs/${id}`);
-            setPack(data);
+            setPack(data)
         } catch (error) {
             console.log('datos de error', error);
         }

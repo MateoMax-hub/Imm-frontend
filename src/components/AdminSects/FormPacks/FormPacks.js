@@ -2,7 +2,9 @@ import UsePacks from '../../../UseForm/UsePacks';
 import { Button, Modal, Form } from 'react-bootstrap';
 
 function FormPacks({ token }) {
-    const { handleClose, handleShow, HandleSubmit, HandleChange, show, CardPerfil } = UsePacks({ token });
+    const { handleClose, handleShow, HandleSubmit, HandleChange, show, CardPerfil } = UsePacks({
+        token,
+    });
     return (
         <div>
             <div className="w-100 d-flex justify-content-center">
@@ -20,9 +22,11 @@ function FormPacks({ token }) {
                                 </Form.Group>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label>Imagen</Form.Label>
-                                    <div>
-                                        <Form.Control type="file" />
-                                    </div>
+                                    <Form.Control
+                                        onChange={(e) => HandleChange(e)}
+                                        name="imagen"
+                                        type="text"
+                                    />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicEmail">
                                     <Form.Label>Descripcion</Form.Label>
@@ -58,7 +62,9 @@ function FormPacks({ token }) {
                             </b>
                         </a>
                     </div>
-                    <>{CardPerfil}</>
+                    <div className="d-flex flex-wrap">
+                        <>{CardPerfil}</>
+                    </div>
                 </div>
             </div>
         </div>

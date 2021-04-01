@@ -71,7 +71,7 @@
   justify-content: space-between;
 }
 .cardPacks{
-  width: 50%;
+  width: 73%;
 }
 .agregarProducto{
   width: 100%;
@@ -80,6 +80,20 @@
   color: aliceblue;
   text-align: center;
   border-radius: 8px;
+}
+.cardPackDate{
+  width: 308px;
+}
+.perfilDescription{
+  display: flex;
+}
+.photoPerfil{
+  display: flex;
+  margin: 2% 5%;
+}
+.descripcion{
+  margin: 2%;
+  text-align: left;
 }
 @media (max-width: 748px) {
   .formulario{
@@ -99,5 +113,19 @@
   }
   .cardPacks{
     width: 100%;
+  }
+  .perfilDescription{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+  .photoPerfil{
+    display: flex;
+    justify-content: center;
+    margin: 2% 5%;
+  }
+  .descripcion{
+    margin: 2%;
+    text-align: center;
   }
 }

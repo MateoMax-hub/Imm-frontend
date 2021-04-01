@@ -5,6 +5,7 @@ function UseCard({token}) {
     const [lastName, SetLastName] = useState('');
     const [card, SetCard] = useState(1);
     const [user, Setuser] = useState('');
+    const [email, SetEmail] = useState('');
     const [imagen, SetImagen] = useState();
     const [rol, SetRol] = useState('usuario')
     const [id, SetId] = useState();
@@ -26,6 +27,7 @@ function UseCard({token}) {
             SetCard(data.balance)
             Setuser(data.nombre)
             SetImagen(data.imagen)
+            SetEmail(data.email)
             SetRol(data.rol)
             SetId(data._id)
         } catch (error) {
@@ -41,6 +43,7 @@ function UseCard({token}) {
         nombre,
         isAdmin,
         lastName,
+        email,
         imagen,
         card,
         user,

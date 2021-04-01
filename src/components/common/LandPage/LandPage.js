@@ -1,7 +1,9 @@
 import { Carousel, Card, Button } from 'react-bootstrap';
+import UsePacks from '../../../UseForm/UsePacks';
 import Cards from './Cards';
 
-const LandPage = () => {
+const LandPage = ({ token }) => {
+    const { CardPerfil } = UsePacks({ token });
     return (
         <div className="w-100">
             <div>
@@ -15,7 +17,7 @@ const LandPage = () => {
                     </Carousel.Item>
                 </Carousel>
             </div>
-            <div className="ladnPage">
+            <div className="ladnPage d-flex flex-wrap">
                 <div className="m-2">
                     <Card className="cards">
                         <Card.Img
@@ -53,8 +55,8 @@ const LandPage = () => {
                     </Carousel>
                 </div>
             </div>
-            <div className="cardsPage">
-                <Cards />
+            <div className="cardsPage d-flex justify-content-center flex-wrap">
+                {CardPerfil}
             </div>
         </div>
     );
