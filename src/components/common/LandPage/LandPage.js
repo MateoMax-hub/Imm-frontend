@@ -7,11 +7,11 @@ const LandPage = ({ token }) => {
     return (
         <div className="w-100">
             <div>
-                        <img
-                            className="d-block w-100"
-                            src="https://dustinabbott.net/wp-content/gallery/laowa-15mm-f-2-review/Header.jpg"
-                            alt="First slide"
-                        />
+                <img
+                    className="d-block w-100"
+                    src="http://mysimplevoip.com/wp-content/uploads/2020/09/slider2.jpg"
+                    alt="First slide"
+                />
             </div>
             <div className="ladnPage d-flex flex-wrap">
                 <div className="ml-2">
@@ -51,9 +51,7 @@ const LandPage = ({ token }) => {
                     </Carousel>
                 </div>
             </div>
-            <div className="cardsPage d-flex justify-content-center flex-wrap">
-                {CardPerfilTodos}
-            </div>
+            <div className="cardsPage d-flex justify-content-center flex-wrap">{CardPerfilTodos}</div>
         </div>
     );
 };
