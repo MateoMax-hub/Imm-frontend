@@ -36,7 +36,7 @@
   margin: 10% 0%;
 }
 .ladnPage{
-  margin: 2% 0%;
+  margin: 1% 0%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@
   width: 320px;
 }
 .cardsPage{
-  margin: 4% 14%;
+  margin: 0% 14%;
 }
 .PhotoCard{
   border: rgba(24, 24, 26, 0.726) solid 4px;
