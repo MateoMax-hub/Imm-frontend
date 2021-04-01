@@ -10,6 +10,7 @@ function Usuarios() {
     const [usersFiltrados, setUsersFiltrados] = useState([])
     const [select, setSelect] = useState("")
     const [filtro, setFiltro] = useState({});
+    const [filtroValidator, setFiltroValidator] = useState({})
     // state para editar usuarios 
     const [input, setInput] = useState({});
     // state con todos los users 
@@ -19,6 +20,11 @@ function Usuarios() {
     const [editing, setEditing] = useState(false);
     const [show, setShow] = useState(false);
 
+    useEffect(() => {
+        if (filtro.filter || filtro.filter === ''){
+            afterFilterValidation()
+        }
+    }, [filtro])
     
 
     const editModal = (u) => {
@@ -81,7 +87,7 @@ function Usuarios() {
     const handleChangeSearch = (e) => {
         const { value } = e.target;
         const filteredBy = { filter: value };
-        setFiltro(filteredBy);
+        setFiltroValidator(filteredBy);
     };
 
     const handleSelect = (e) => {
@@ -90,6 +96,13 @@ function Usuarios() {
     }
 
     const handleMySubmit = () => {
+        if (!filtroValidator.filter){
+            setFiltro({ filter: '' })
+        } else {
+            setFiltro({ filter: filtroValidator.filter})
+        }
+    }
+    const afterFilterValidation = () => {
         if (select === "nombre"){
             const filteredUsers = users.filter((u) => u.nombre.toLowerCase().includes(filtro.filter.toLowerCase()));
             setUsersFiltrados(filteredUsers)
@@ -121,7 +134,7 @@ function Usuarios() {
                 <div className="d-flex ">
                     <input placeHolder="busqueda" className="form-control" onChange={(e) => handleChangeSearch(e)}></input>
                     <select className="mx-2 form-control" onChange={(e) => handleSelect(e)}>
-                        <option disabled>buscar por</option>
+                        <option disabled selected >buscar por</option>
                         <option value="nombre">Nombre</option>
                         <option value="apellido">Apellido</option>
                         <option value="rol">Rol</option>

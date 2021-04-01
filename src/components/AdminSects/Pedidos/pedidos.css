@@ -1,0 +1,13 @@
+.thead-pedidos {
+    background-color: #343a40;
+    color: white;
+    padding: 2%;
+}
+.w-95 {
+    width: 95%;
+}
+.search-input-pedidos {
+    border-bottom: 2px rgb(46, 45, 45) solid;
+    background-color: rgba(5, 5, 5, 0.774);
+    padding: 10px;
+}
