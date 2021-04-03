@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import UseCard from './UseCard';
 import axios from 'axios';
 import { Card, Button, Modal, Carousel, NavDropdown } from 'react-bootstrap';
-import useCard from './UseCard';
+import UseFavorito from './UseFavorito';
+import UseCard from './UseCard';
 
 function UsePacks({ token }) {
-    const { isAdmin } = UseCard({ token });
+    const { isAdmin, id } = UseCard({ token });
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
@@ -18,11 +18,12 @@ function UsePacks({ token }) {
     const [input, setInput] = useState({});
     const [pack, setPack] = useState([]);
     const [idDelete, setIdDelete] = useState('');
-    const { id } = useCard({ token });
     const [packTodos, setPackTodos] = useState([]);
-    const [idDeleteTodos, setIdDeleteTodos] = useState('');
+    const [favorito, setFavorito] = useState([]);
+    const { Extraer } = UseFavorito({ token, favorito, id });
 
     useEffect(() => {
+        Extraer()
         EffectPacks(id);
         if (idDelete) {
             DeletePack();
@@ -31,7 +32,7 @@ function UsePacks({ token }) {
         if (idDelete) {
             DeletePack();
         }
-    }, [id, idDelete]);
+    }, [id, idDelete, favorito]);
     const HandleChange = (e) => {
         const { name, value } = e.target;
         const changedInput = { ...input, [name]: value };
@@ -62,7 +63,6 @@ function UsePacks({ token }) {
         try {
             const { data } = await axios.get(`http://localhost:4000/api/packs`);
             setPackTodos(data);
-            setIdDeleteTodos(data._id);
         } catch (error) {
             console.log('datos de error', error);
         }
@@ -77,17 +77,20 @@ function UsePacks({ token }) {
             console.log('datos de error', error);
         }
     };
+    
     const CardPerfil = pack.map((pac, i) => (
         <div key={i}>
             <Card className="m-2 cardPackDate">
-                {isAdmin && (<div className="d-flex justify-content-end">
-                    <NavDropdown>
-                        <NavDropdown.Item>Opciones</NavDropdown.Item>
-                        <NavDropdown.Item>Modificar</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={() => setIdDelete(pac._id)}>Delete</NavDropdown.Item>
-                    </NavDropdown>
-                </div>)}
+                {isAdmin && (
+                    <div className="d-flex justify-content-end">
+                        <NavDropdown>
+                            <NavDropdown.Item>Opciones</NavDropdown.Item>
+                            <NavDropdown.Item>Modificar</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={() => setIdDelete(pac._id)}>Delete</NavDropdown.Item>
+                        </NavDropdown>
+                    </div>
+                )}
                 <Card.Img variant="top" src={pac.imagen || exampleImage} />
                 <Card.Body>
                     <Card.Title>{pac.titulo}</Card.Title>
@@ -147,23 +150,37 @@ function UsePacks({ token }) {
     const CardPerfilTodos = packTodos.map((pac, i) => (
         <div key={i}>
             <Card className="m-2 cardPackDate">
-                {isAdmin && (<div className="d-flex justify-content-end">
-                    <NavDropdown>
-                        <NavDropdown.Item>Opciones</NavDropdown.Item>
-                        <NavDropdown.Item>Modificar</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={() => setIdDelete(pac._id)}>Delete</NavDropdown.Item>
-                    </NavDropdown>
-                </div>)}
+                {isAdmin && (
+                    <div className="d-flex justify-content-end">
+                        <NavDropdown>
+                            <NavDropdown.Item>Opciones</NavDropdown.Item>
+                            <NavDropdown.Item>Modificar</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={() => setIdDelete(pac._id)}>Delete</NavDropdown.Item>
+                        </NavDropdown>
+                    </div>
+                )}
                 <Card.Img variant="top" src={pac.imagen || exampleImage} />
                 <Card.Body>
                     <Card.Title>{pac.titulo}</Card.Title>
                     <Card.Text>{pac.descripcion}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer className="d-flex justify-content-between">
                     <Button variant="primary" onClick={handleShow}>
                         <i>Ver Packs</i>
                     </Button>
+                    <button className="btn btn-outline-warning" onClick={() => setFavorito(pac)}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-star-fill"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </button>
                 </Card.Footer>
             </Card>
 

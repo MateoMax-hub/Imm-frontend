@@ -2,13 +2,17 @@ import UsePacks from '../../../UseForm/UsePacks';
 import UseCard from '../../../UseForm/UseCard';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import UseFavorito from '../../../UseForm/UseFavorito';
 
 function FormPacks({ token }) {
-    const { isAdmin } = UseCard({ token })
+    const { isAdmin } = UseCard({ token });
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const {  HandleSubmit, HandleChange, CardPerfil } = UsePacks({
+    const { HandleSubmit, HandleChange, CardPerfil } = UsePacks({
+        token,
+    });
+    const { Favoritos } = UseFavorito({
         token,
     });
     return (
@@ -61,15 +65,29 @@ function FormPacks({ token }) {
                 </div>
 
                 <div className="cardPacks">
-                    {isAdmin && (<div className="agregarProducto" onClick={handleShow}>
-                        <a>
-                            <b>
-                                <i>+ Agregar Pack</i>
-                            </b>
-                        </a>
-                    </div>)}
+                    {isAdmin && (
+                        <div className="agregarProducto" onClick={handleShow}>
+                            <a>
+                                <b>
+                                    <i>+ Agregar Pack</i>
+                                </b>
+                            </a>
+                        </div>
+                    )}
                     <div className="d-flex flex-wrap">
                         <>{CardPerfil}</>
+                    </div>
+                    <div>
+                        <div>
+                            <p>
+                                <i>
+                                    <b>Favoritos</b>
+                                </i>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="d-flex flex-wrap">
+                        <>{Favoritos || <p>Nada</p>}</>
                     </div>
                 </div>
             </div>
