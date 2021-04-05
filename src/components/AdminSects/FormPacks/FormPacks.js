@@ -12,7 +12,7 @@ function FormPacks({ token }) {
     const { HandleSubmit, HandleChange, CardPerfil } = UsePacks({
         token,
     });
-    const { Favoritos } = UseFavorito({
+    const {  } = UseFavorito({
         token,
     });
     return (
@@ -87,7 +87,7 @@ function FormPacks({ token }) {
                         </div>
                     </div>
                     <div className="d-flex flex-wrap">
-                        <>{Favoritos || <p>Nada</p>}</>
+                        <>{<p>Nada</p>}</>
                     </div>
                 </div>
             </div>

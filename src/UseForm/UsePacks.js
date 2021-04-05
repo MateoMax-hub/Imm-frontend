@@ -19,9 +19,9 @@ function UsePacks({ token }) {
     const [pack, setPack] = useState([]);
     const [idDelete, setIdDelete] = useState('');
     const [packTodos, setPackTodos] = useState([]);
-    const [favorito, setFavorito] = useState([]);
-    const { Extraer } = UseFavorito({ token, favorito, id });
-
+    const [guardarFavorito, setGuardarFavorito] = useState([]);
+    const { Extraer } = UseFavorito({ token, guardarFavorito, id });
+    
     useEffect(() => {
         Extraer()
         EffectPacks(id);
@@ -32,7 +32,8 @@ function UsePacks({ token }) {
         if (idDelete) {
             DeletePack();
         }
-    }, [id, idDelete, favorito]);
+        HandleSubmitPUT()
+    }, [id, idDelete, guardarFavorito]);
     const HandleChange = (e) => {
         const { name, value } = e.target;
         const changedInput = { ...input, [name]: value };
@@ -77,7 +78,18 @@ function UsePacks({ token }) {
             console.log('datos de error', error);
         }
     };
-    
+    //Metodo PUT de usuarios con favoritos
+    const HandleSubmitPUT = async () => {
+        const tokend = localStorage.getItem('token');
+        const headers = { 'x-auth-token': tokend };
+        console.log(guardarFavorito._id)
+        try {
+            const { data } = await axios.put('http://localhost:4000/api/usuarios/', guardarFavorito._id, { headers });
+            console.log('Final del PUT', data);
+        } catch (error) {
+            console.log('datos de error', error);
+        }
+    };
     const CardPerfil = pack.map((pac, i) => (
         <div key={i}>
             <Card className="m-2 cardPackDate">
@@ -169,7 +181,7 @@ function UsePacks({ token }) {
                     <Button variant="primary" onClick={handleShow}>
                         <i>Ver Packs</i>
                     </Button>
-                    <button className="btn btn-outline-warning" onClick={() => setFavorito(pac)}>
+                    <button className="btn btn-outline-warning" onClick={() => setGuardarFavorito(pac)}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"

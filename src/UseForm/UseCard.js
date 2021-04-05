@@ -9,6 +9,7 @@ function UseCard({token}) {
     const [imagen, SetImagen] = useState();
     const [rol, SetRol] = useState('usuario')
     const [id, SetId] = useState();
+    const [favorito, SetFavorito] = useState([]);
     const isAdmin = rol === "admin"
 
     useEffect(() => {
@@ -30,6 +31,7 @@ function UseCard({token}) {
             SetEmail(data.email)
             SetRol(data.rol)
             SetId(data._id)
+            SetFavorito(data.favorito)
         } catch (error) {
             console.log(error);
         }
@@ -41,6 +43,7 @@ function UseCard({token}) {
     return {
         handleLogOut,
         nombre,
+        favorito,
         isAdmin,
         lastName,
         email,
