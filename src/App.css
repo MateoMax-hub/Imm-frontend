@@ -25,6 +25,10 @@
   background: rgba(19, 18, 18, 0.897);
   padding: 2% 0%;
   color: aliceblue;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'New Tegomin', serif;
+  font-family: 'Teko', sans-serif;
+  font-family: 'Yatra One', cursive;
 }
 .navBar{
   display: flex;
@@ -35,17 +39,26 @@
   width: 100%;
   margin: 10% 0%;
 }
+.cardo{
+  width: 100%;
+  margin: 1% 40%;
+  font-family: 'Heebo', sans-serif;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'New Tegomin', serif;
+  font-family: 'Teko', sans-serif;
+  font-family: 'Yatra One', cursive;
+}
 .ladnPage{
   margin: 2% 0%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .carrucel{
   width: 625px;
 }
 .cards{
-  width: 320px;
+  margin: 0%;
+  width: 330px;
 }
 .cardsPage{
   margin: 4% 14%;
@@ -81,6 +94,24 @@
   text-align: center;
   border-radius: 8px;
 }
+.opcionts{
+  margin: 0% 4%;
+  width: 250px;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'New Tegomin', serif;
+  font-family: 'Teko', sans-serif;
+  font-family: 'Yatra One', cursive;
+}
+.text{
+  font-family: 'Russo One', sans-serif;
+}
+.modalDeSoporte{
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
+  }
 @media (max-width: 748px) {
   .formulario{
     padding: 4% 1%;

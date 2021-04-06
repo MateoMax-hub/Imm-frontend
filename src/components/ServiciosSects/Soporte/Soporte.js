@@ -57,7 +57,7 @@ function Soporte() {
                     </div>
                 </div>
                 <div>
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal className="modalDeSoporte" show={show} onHide={handleClose}>
                         <Modal.Header className="w-100" closeButton>
                             <Modal.Title className="text-center">
                                 <i>Realice su Consulta aqui</i>
