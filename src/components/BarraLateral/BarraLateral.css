@@ -2,7 +2,10 @@
     text-align: center;
     background: rgba(5, 5, 5, 0.774);
     width: 300px;
-    text-decoration: none
+    text-decoration: none;
+}
+.comiteButton{
+    display: none;
 }
 a { 
     color: #d3d0d0; 

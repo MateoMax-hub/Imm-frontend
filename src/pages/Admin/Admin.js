@@ -12,6 +12,7 @@ import Packs from '../../components/AdminSects/Packs/Packs'
 import Pedidos from '../../components/AdminSects/Pedidos/Pedidos'
 import Proyectos from '../../components/AdminSects/Proyectos/Proyectos'
 import Usuarios from '../../components/AdminSects/Usuarios/Usuarios'
+import Consultas from '../../components/AdminSects/Consultas/Consultas'
 import "./admin.css"
 
 
@@ -41,6 +42,10 @@ function Admin() {
 
                             <Route path="/admin/packs">
                                 <Packs />
+                            </Route>
+
+                            <Route path="/admin/consulta">
+                                <Consultas />
                             </Route>
 
                         </Switch>
