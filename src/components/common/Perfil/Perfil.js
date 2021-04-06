@@ -59,12 +59,10 @@ const Perfil = ({ token }) => {
                             </i>
                         </b>
                     </h3>
-                    <hr/>
+                    <hr />
                     <p>
                         <b>
-                            <i>
-                               email: {email}
-                            </i>
+                            <i>email: {email}</i>
                         </b>
                     </p>
                 </div>
@@ -102,9 +100,7 @@ const Perfil = ({ token }) => {
                         <Button variant="danger" onClick={handleClose}>
                             Carcelar
                         </Button>
-                        <Button variant="primary">
-                            Guardar
-                        </Button>
+                        <Button variant="primary">Guardar</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
