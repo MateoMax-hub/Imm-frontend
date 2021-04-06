@@ -1,12 +1,12 @@
 import UseConsulta from '../../../UseForm/UseConsulta';
+import { useState, useEffect } from 'react';
 
 function Proyectos() {
-    const { getConsult } = UseConsulta()
+    const { getConsult } = UseConsulta();
     return (
         <div className="w-100">
             <div className="search-input d-flex justify-content-around">
-                <div className="d-flex pt-5">
-                </div>
+                <div className="d-flex pt-5"></div>
             </div>
             <table className="w-100">
                 <thead className="thead pt-5">
@@ -17,15 +17,16 @@ function Proyectos() {
                         <th className="text-center">Descripcion</th>
                     </tr>
                 </thead>
-                {getConsult.length === 0 && <tbody className="mt-2">
-                    {getConsult.map((consulta, i) => (
-                    <tr key={i}>
-                        <th className="text-center">{consulta.nombre}</th>
-                        <th className="text-center">{consulta.apellido}</th>
-                        <th className="text-center">{consulta.titulo}</th>
-                        <th className="text-center">{consulta.descripcion}</th>
-                    </tr>))}
-                </tbody>}
+                <tbody className="mt-2">
+                    {getConsult.length !== undefined && getConsult.map((consulta, i) => (
+                        <tr key={i}>
+                            <th className="text-center">{consulta.nombre}</th>
+                            <th className="text-center">{consulta.apellido}</th>
+                            <th className="text-center">{consulta.titulo}</th>
+                            <th className="text-center">{consulta.descripcion}</th>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </div>
     );
