@@ -13,6 +13,7 @@ function UseCard({ token }) {
     const isAdmin = rol === 'admin';
 
     useEffect(() => {
+        console.log('si');
         if (token) {
             nombre();
         }

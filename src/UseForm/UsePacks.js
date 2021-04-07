@@ -12,14 +12,11 @@ function UsePacks({ token }) {
     const handleShow = () => setShow(true);
 
     const [packTodos, setPackTodos] = useState([]);
-    const { favorito } = UseCard({ token });
+    const { favorito, nombre } = UseCard({ token });
 
     useEffect(() => {
         EffectPacksTodos();
     }, []);
-    useEffect(() => {
-
-    }, [packTodos])
 
     const EffectPacksTodos = async (id) => {
         try {
@@ -33,26 +30,26 @@ function UsePacks({ token }) {
     const guardarFav = async (pack) => {
         const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
-        console.log(pack._id);
         try {
             const { data } = await axios.put(`/usuarios/${pack._id}`, {}, { headers });
-            console.log(data);
-            EffectPacksTodos();
+            nombre();
         } catch (error) {
             console.log('datos de error', error);
         }
     };
-    const quitarFav = async (pack) => {};
+
 
     const CardPerfilTodos = packTodos.map((pac, i) => {
-        return (<FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} quitarFav={quitarFav} guardarFav={guardarFav}/>)
+        return (<FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} guardarFav={guardarFav}/>)
     });
     return {
         CardPerfilTodos,
         handleClose,
         handleShow,
-
+        packTodos,
         show,
+        favorito,
+        guardarFav
     };
 }
 

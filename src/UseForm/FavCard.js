@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 function FavCard(props) {
-    const { favorito, pac, exampleImage, quitarFav, guardarFav } = props;
+    const { favorito, pac, exampleImage, guardarFav } = props;
     if (favorito.length === 0) {
         return (
             <>
@@ -46,7 +46,7 @@ function FavCard(props) {
                         <Button variant="primary">
                             <i>Ver Packs</i>
                         </Button>
-                        <button className="btn btn-warning" onClick={() => quitarFav(pac)}>
+                        <button className="btn btn-warning" onClick={() => guardarFav(pac)}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
