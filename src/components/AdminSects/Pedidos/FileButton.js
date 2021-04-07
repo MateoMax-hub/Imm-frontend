@@ -34,8 +34,8 @@ function FileButton({ setFile, handleFile }) {
     }
 
     const onInputClick = (event) => {
-    event.target.value = ''
-}
+        event.target.value = '';
+    };
 
     return (
         <>
