@@ -4,11 +4,7 @@ import UseConsulta from '../../../UseForm/UseConsulta';
 import { useState } from 'react';
 
 function Soporte() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const { HandleSubmit, HandleChange } = UseConsulta();
+    const { HandleSubmit, HandleChange, handleShow, handleClose, show } = UseConsulta();
 
     return (
         <div className="SoporteGeneral">
@@ -57,6 +53,20 @@ function Soporte() {
                             alt=""
                         />
                     </div>
+                </div>
+                <div>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Body>
+                            <b>
+                                <i>Tu consulta fue recibida, muchas gracias!! ;)</i>
+                            </b>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="danger" onClick={handleClose}>
+                                Cerrar
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         </div>

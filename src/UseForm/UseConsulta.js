@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function UseConsulta() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const [getConsult, setGetConsult] = useState({});
     const [input, setInput] = useState({});
     useEffect(() => {
@@ -19,6 +23,7 @@ function UseConsulta() {
         try {
             const { data } = await axios.post('consulta', input, { headers })
             console.log(data)
+            handleShow()
         } catch (error) {
             console.log('error en submit', error)
         }
@@ -36,7 +41,9 @@ function UseConsulta() {
     return {
         HandleSubmit,
         HandleChange,
-        getConsult
+        handleClose,
+        getConsult,
+        show
     };
 }
 
