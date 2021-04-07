@@ -7,47 +7,49 @@ function Soporte() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
 
     const { HandleSubmit, HandleChange } = UseConsulta();
-    
-    
+
     return (
         <div className="SoporteGeneral">
-            <div className="w-100 m-2">
-                <h3 className="text-center">
+            <div className="w-100">
+                <h3 className="text-end">
                     <b>
                         <i>Bienvenido al Area de Consultas y Ayuda</i>
                     </b>
                 </h3>
             </div>
             <div className="Soporte">
-                <div className="CardDeSoporte card">
-                    <Form>
+                <div className="w-100">
+                    <Form className="CardDeSoporte card">
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Quien hace la consulta?</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="nombre"
+                            <Form.Label>Ayuda</Form.Label>
+                            <input
+                                className="form-control w-100"
+                                name="titulo"
                                 onChange={HandleChange}
-                                placeholder="Nombre"
+                                type="text"
+                                placeholder="Describa el conflicto o consulta que tenga"
                             />
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Cual es su apellido?</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="apellido"
+                            <Form.Label>Especificacion</Form.Label>
+                            <textarea
+                                name=""
+                                id=""
+                                cols="40"
+                                rows="10"
+                                name="descripcion"
                                 onChange={HandleChange}
-                                placeholder="Apellido"
-                            />
+                                placeholder="Detalladamente en conflicto o su consulta aqui..."
+                            ></textarea>
                         </Form.Group>
-                        <Button className="btn btn-primary w-100" onClick={handleShow}>
+                        <Button className="btn btn-primary w-100" onClick={HandleSubmit}>
                             Consulta
                         </Button>
                     </Form>
                 </div>
-                <div className="d-flex m-5">
+                <div className="d-flex ml-2">
                     <div>
                         <img
                             src="https://image.freepik.com/vector-gratis/personaje-dibujos-animados-call-center-service-hombre-usando-auriculares-pantalla-telefono-inteligente_52569-1124.jpg"
@@ -55,44 +57,6 @@ function Soporte() {
                             alt=""
                         />
                     </div>
-                </div>
-                <div>
-                    <Modal className="modalDeSoporte" show={show} onHide={handleClose}>
-                        <Modal.Header className="w-100" closeButton>
-                            <Modal.Title className="text-center">
-                                <i>Realice su Consulta aqui</i>
-                            </Modal.Title>
-                        </Modal.Header>
-                        <div className="mt-2 ml-5">
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Ayuda</Form.Label>
-                                <input
-                                    className="form-control w-75"
-                                    name="titulo"
-                                    onChange={HandleChange}
-                                    type="text"
-                                    placeholder="Describa el conflicto o consulta que tenga"
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Especificacion</Form.Label>
-                                <textarea
-                                    name=""
-                                    id=""
-                                    cols="42"
-                                    rows="10"
-                                    name="descripcion"
-                                    onChange={HandleChange}
-                                    placeholder="Detalladamente en conflicto o su consulta aqui..."
-                                ></textarea>
-                            </Form.Group>
-                        </div>
-                        <Modal.Footer>
-                            <Button variant="primary" onClick={HandleSubmit}>
-                                Subir Consulta
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
                 </div>
             </div>
         </div>

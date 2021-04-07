@@ -3,7 +3,9 @@
 }
 .CardDeSoporte{
     padding: 6%;
-    width: 400px;
+    width: 430px;
+    display: flex;
+    justify-content: center;
 }
 .Soporte{
     display: flex;
@@ -11,7 +13,7 @@
 }
 .SoporteGeneral{
     align-items: center;
-    margin: 2% 17%;
+    margin: 2% 10%;
     font-family: 'Heebo', sans-serif;
     font-family: 'Hind Siliguri', sans-serif;
     font-family: 'New Tegomin', serif;
@@ -26,7 +28,7 @@
         display: flex;
         justify-content: center;
         padding: 5%;
-        width: 250px;
+        width: 300px;
     }
     .text-center{
         font-size: 1rem;
