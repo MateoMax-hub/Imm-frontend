@@ -1,0 +1,42 @@
+.PhotoDeSoporte{
+    width: 400px;
+}
+.CardDeSoporte{
+    padding: 6%;
+    width: 400px;
+}
+.Soporte{
+    display: flex;
+    justify-content: center;
+}
+.SoporteGeneral{
+    align-items: center;
+    margin: 2% 17%;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
+}
+@media (max-width: 748px){
+    .PhotoDeSoporte{
+        width: 200px;
+    }
+    .CardDeSoporte{
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        width: 250px;
+    }
+    .text-center{
+        font-size: 1rem;
+    }
+    .Soporte{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .SoporteGeneral{
+        align-items: center;
+        margin: 2% 0%;
+    }
+}

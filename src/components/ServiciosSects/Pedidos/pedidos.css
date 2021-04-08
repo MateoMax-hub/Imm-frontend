@@ -1,6 +1,12 @@
 .container-pedidos {
     border: 2px black solid;
+    border-radius: 2rem;
     width: 678px;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
 }
 .w-etapas {
     width: 180px;

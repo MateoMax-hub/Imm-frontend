@@ -17,7 +17,7 @@ function Cartera({ token }) {
         const { name, value } = e.target;
         const changedInput = { ...depo, [name]: value };
         setDepo(changedInput);
-        setDepoTwo(changedInput.balance * -1)
+        setDepoTwo(changedInput.balance * -1);
     };
     const DepositoBalance = async () => {
         try {
@@ -31,104 +31,51 @@ function Cartera({ token }) {
     const ExtractBalance = async () => {
         try {
             const headers = { 'x-auth-token': token };
-            await axios.put('usuarios/cartera', {balance: depoTwo}, { headers });
+            await axios.put('usuarios/cartera', { balance: depoTwo }, { headers });
             window.location.reload();
         } catch (error) {
             console.log(error);
         }
     };
-    console.log(depoTwo)
+    console.log(depoTwo);
     return (
-        <div className="card mt-2">
-            <div className="w-100  mt-2 d-flex justify-content-center align-items-center">
-                <b>
-                    <i>
-                        {user} {lastName}
-                    </i>
-                </b>
-            </div>
-            <hr />
-            <div className="">
-                <div className="d-flex justify-content-around">
-                    <thead className="d-flex align-items-center bg-dark text-white card-header rounded m-2 p-10">
-                        <tr>
-                            <th>$ {card} arg</th>
-                        </tr>
-                    </thead>
-                    <div>
-                        <div className="m-2">
-                            <button onClick={handleShow} className="btn btn-outline-dark">
-                                <b>Depositos</b>
-                            </button>
-                        </div>
-                        <div className="m-2">
-                            <button onClick={handleShow} className="btn btn-outline-dark">
-                                <b>Cobranzas</b>
-                            </button>
-                        </div>
-                    </div>
+        <div>
+            <div className="cardo">
+                <div className="w-100 mt-2 d-flex justify-content-center align-items-center">
+                    <h3>
+                        <i>
+                            {user} {lastName}
+                        </i>
+                    </h3>
                 </div>
-                <div className="d-flex justify-content-end m-2">
-                    <div>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                                <i>filtrar</i>
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="/servicios">Por Nombre</Dropdown.Item>
-                                <Dropdown.Item href="/servicios">Por Fecha</Dropdown.Item>
-                                <Dropdown.Item href="/servicios">Por Precio</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                <hr />
+                <div className="">
+                    <Tarjet />
+                    <div className="m-0">
+                        <div className="form-group col-md-12">
+                            <label>Ingresar importe para subir a la cuenta</label>
+                            <input
+                                name="balance"
+                                onChange={(e) => Valor(e)}
+                                type="number"
+                                placeholder="Ingresar saldo..."
+                                className="w-100 form-control"
+                            />
+                        </div>
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </div>
-                </div>
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>Historial</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>respuesta...</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </div>
-            <div className="d-flex">
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Body>Deposito</Modal.Body>
-
-                    <Modal.Footer className="d-flex justify-content-center">
-                        <Form>
-                            <Form.Group className="card m-2" controlId="validationCustom02">
-                                <Tarjet />
-                                <div className="m-2">
-                                    <div className="form-group col-md-12">
-                                        <label>Ingresar importe para subir a la cuenta</label>
-                                        <input
-                                            name="balance"
-                                            onChange={(e) => Valor(e)}
-                                            type="number"
-                                            placeholder="Ingresar saldo..."
-                                            className="w-100 form-control"
-                                        />
-                                    </div>
-                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                                </div>
-                            </Form.Group>
-                        </Form>
-                    </Modal.Footer>
-                    <Modal.Footer>
-                        <button className="w-100 btn btn-primary" onClick={(handleClose, DepositoBalance)}>
+                    <div className="d-flex">
+                        <button
+                            className="w-100 btn btn-primary m-2"
+                            onClick={(handleClose, DepositoBalance)}
+                        >
                             Depositar
                         </button>
-                        <button className="w-100 btn btn-primary" onClick={(handleClose, ExtractBalance)}>
+                        <button className="w-100 btn btn-primary m-2" onClick={(handleClose, ExtractBalance)}>
                             Extraccion
                         </button>
-                    </Modal.Footer>
-                </Modal>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -19,6 +19,9 @@ function BarraLateralAdmin() {
                 <div className="d-flex justify-content-center align-items-center h-25">
                     <Button as={Link} to="/admin/packs" variant="outline-danger" className="a-br-custom-button"><b><i>listado de packs</i></b></Button>
                 </div>
+                <div className="d-flex justify-content-center align-items-center h-25">
+                    <Button as={Link} to="/admin/consulta" variant="outline-danger" className="a-br-custom-button"><b><i>listado de Consultas</i></b></Button>
+                </div>
             </div>
         </div>
     )

@@ -1,19 +1,12 @@
 import { Carousel, Card, Button } from 'react-bootstrap';
 import Cards from './Cards';
+import Portada from '../Portada/Portada';
 
 const LandPage = () => {
     return (
         <div className="w-100">
             <div>
-                <Carousel>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="http://mysimplevoip.com/wp-content/uploads/2020/09/slider2.jpg"
-                            alt="First slide"
-                        />
-                    </Carousel.Item>
-                </Carousel>
+                <Portada />
             </div>
             <div className="ladnPage">
                 <div className="m-2">
