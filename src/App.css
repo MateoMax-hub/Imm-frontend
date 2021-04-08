@@ -5,14 +5,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 4% 0px;
 }
 .DentroDeForm{
   background: rgba(20, 20, 20, 0.685);
   color: aliceblue;
   width: 40%;
   padding: 3%;
-  border: 2px solid rgba(34, 33, 33, 0.705);
   border-radius: 1rem;
 }
 .footerAuto{
