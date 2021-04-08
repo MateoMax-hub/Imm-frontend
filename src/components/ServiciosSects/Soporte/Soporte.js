@@ -31,7 +31,6 @@ function Soporte() {
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Especificacion</Form.Label>
                             <textarea
-                                name=""
                                 id=""
                                 cols="40"
                                 rows="10"

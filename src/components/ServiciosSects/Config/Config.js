@@ -1,9 +1,13 @@
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col, Modal } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import useCard from '../../../UseForm/UseCard'
 
 function Config() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const token = localStorage.getItem('token')
     const { id } = useCard({ token })
     const [input, setInput] = useState({});
@@ -22,6 +26,7 @@ function Config() {
         try {
             const { data } = await axios.put('usuarios', input,{ headers })
             console.log(data)
+            handleShow()
         } catch (error) {
             console.log('error en submit', error)
         }
@@ -69,6 +74,20 @@ function Config() {
                         alt=""
                         srcset=""
                     />
+                </div>
+                <div>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Body>
+                            <b className="mt-5">
+                                <i>Sus datos fueron actualizados!!</i>
+                            </b>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="primary" onClick={handleClose}>
+                                Cerrar
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         </div>
