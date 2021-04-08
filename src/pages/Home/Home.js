@@ -4,7 +4,7 @@ import LandPage from '../../components/common/LandPage/LandPage';
 const Home = ({ token }) => {
     return (
         <div className="d-flex">
-            <LandPage />
+            <LandPage token={token} />
         </div>
     );
 };

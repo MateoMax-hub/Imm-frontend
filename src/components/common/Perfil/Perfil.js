@@ -8,7 +8,7 @@ import { beforeUpload, getBase64 } from '../../../utils/index';
 const Perfil = ({ token }) => {
     const exampleImage =
         'https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg';
-    const { user, lastName, imagen } = UseCard({ token });
+    const { user, lastName, imagen, email } = UseCard({ token });
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -29,9 +29,9 @@ const Perfil = ({ token }) => {
     };
 
     return (
-        <div>
-            <div>
-                <div className="w-100 d-flex justify-content-center">
+        <div className="w-100">
+            <div className="perfilDescription">
+                <div className="photoPerfil">
                     <div className="PhotoCard m-2">
                         <img className="photo" src={imagen || exampleImage} alt="" />
                     </div>
@@ -51,14 +51,20 @@ const Perfil = ({ token }) => {
                         </a>
                     </div>
                 </div>
-                <div className="w-100 p-2 text-center">
-                    <h2>
+                <div className="descripcion">
+                    <h3>
                         <b>
                             <i>
                                 {user} {lastName}
                             </i>
                         </b>
-                    </h2>
+                    </h3>
+                    <hr />
+                    <p>
+                        <b>
+                            <i>email: {email}</i>
+                        </b>
+                    </p>
                 </div>
             </div>
             <hr />
@@ -94,9 +100,7 @@ const Perfil = ({ token }) => {
                         <Button variant="danger" onClick={handleClose}>
                             Carcelar
                         </Button>
-                        <Button variant="primary">
-                            Guardar
-                        </Button>
+                        <Button variant="primary">Guardar</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

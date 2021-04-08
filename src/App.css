@@ -49,7 +49,7 @@
   font-family: 'Yatra One', cursive;
 }
 .ladnPage{
-  margin: 2% 0%;
+  margin: 1% 0%;
   display: flex;
   justify-content: center;
 }
@@ -61,7 +61,7 @@
   width: 330px;
 }
 .cardsPage{
-  margin: 4% 14%;
+  margin: 0% 14%;
 }
 .PhotoCard{
   border: rgba(24, 24, 26, 0.726) solid 4px;
@@ -84,7 +84,7 @@
   justify-content: space-between;
 }
 .cardPacks{
-  width: 50%;
+  width: 73%;
 }
 .agregarProducto{
   width: 100%;
@@ -112,6 +112,20 @@
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
   }
+.cardPackDate{
+  width: 308px;
+}
+.perfilDescription{
+  display: flex;
+}
+.photoPerfil{
+  display: flex;
+  margin: 2% 5%;
+}
+.descripcion{
+  margin: 2%;
+  text-align: left;
+}
 @media (max-width: 748px) {
   .formulario{
     padding: 4% 1%;
@@ -130,5 +144,19 @@
   }
   .cardPacks{
     width: 100%;
+  }
+  .perfilDescription{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+  .photoPerfil{
+    display: flex;
+    justify-content: center;
+    margin: 2% 5%;
+  }
+  .descripcion{
+    margin: 2%;
+    text-align: center;
   }
 }

@@ -1,64 +1,44 @@
 import UsePacks from '../../../UseForm/UsePacks';
-import { Button, Modal, Form } from 'react-bootstrap';
+import FavCard from '../../../UseForm/FavCard';
 
 function FormPacks({ token }) {
-    const { handleClose, handleShow, HandleSubmit, HandleChange, show, CardPerfil } = UsePacks({ token });
+    const {
+        CardPerfil,
+        exampleImage,
+        guardarFav,
+        packTodos,
+        favorito,
+    } = UsePacks({
+        token,
+    });
+    // const favPacksFiltered = packTodos.filter((p) p._id === favorito.find((f) => f.pack._id === p.id))
+
     return (
         <div>
             <div className="w-100 d-flex justify-content-center">
-                <div>
-                    <Modal show={show} onHide={handleClose}>
-                        <div className="p-2 m-2">
-                            <Form onSubmit={HandleSubmit}>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Titulo</Form.Label>
-                                    <Form.Control
-                                        onChange={(e) => HandleChange(e)}
-                                        name="titulo"
-                                        type="text"
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Imagen</Form.Label>
-                                    <div>
-                                        <Form.Control type="file" />
-                                    </div>
-                                </Form.Group>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Descripcion</Form.Label>
-                                    <div>
-                                        <Form.Control
-                                            onChange={(e) => HandleChange(e)}
-                                            name="descripcion"
-                                            type="text"
-                                        />
-                                    </div>
-                                </Form.Group>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Precio</Form.Label>
-                                    <Form.Control
-                                        onChange={(e) => HandleChange(e)}
-                                        name="precio"
-                                        type="number"
-                                    />
-                                </Form.Group>
-                                <Button variant="primary" className="w-100" type="submit">
-                                    Subir Pack
-                                </Button>
-                            </Form>
-                        </div>
-                    </Modal>
-                </div>
-
                 <div className="cardPacks">
-                    <div className="agregarProducto" onClick={handleShow}>
-                        <a>
-                            <b>
-                                <i>+ Agregar Pack</i>
-                            </b>
-                        </a>
+                    <div className="d-flex flex-wrap">
+                        <>{CardPerfil}</>
                     </div>
-                    <>{CardPerfil}</>
+                    <div>
+                        <div>
+                            <p>
+                                <i>
+                                    <b>Favoritos</b>
+                                </i>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="d-flex flex-wrap">
+                        {favorito.map((pac) => (
+                            <FavCard
+                                favorito={favorito}
+                                pac={pac.pack}
+                                exampleImage={exampleImage}
+                                guardarFav={guardarFav}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

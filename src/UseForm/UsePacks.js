@@ -1,53 +1,55 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Card from '../components/AdminSects/Packs/Cards';
-import useCard from './UseCard'
+import { Card, Button, Modal, Carousel, NavDropdown } from 'react-bootstrap';
+import UseFavorito from './UseFavorito';
+import UseCard from './UseCard';
+import FavCard from './FavCard';
 
 function UsePacks({ token }) {
+    const exampleImage = 'https://yumagic.com/wp-content/uploads/2018/11/edicion-video-programas.jpg';
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [input, setInput] = useState({});
-    const [pack, setPack] = useState([]);
-    const { id } = useCard({ token })
-    
+
+    const [packTodos, setPackTodos] = useState([]);
+    const { favorito, nombre } = UseCard({ token });
+
     useEffect(() => {
-        EffectPacks(id);
-    }, [id]);
-    const HandleChange = (e) => {
-        const { name, value } = e.target;
-        const changedInput = { ...input, [name]: value };
-        setInput(changedInput);
+        EffectPacksTodos();
+    }, []);
+
+    const EffectPacksTodos = async (id) => {
+        try {
+            const { data } = await axios.get(`packs`);
+            setPackTodos(data);
+        } catch (error) {
+            console.log('datos de error', error);
+        }
     };
-    const HandleSubmit = async (e) => {
+
+    const guardarFav = async (pack) => {
+        const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
-        e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:4000/api/packs', input, {
-                headers,
-            });
-            console.log('subir', data);
+            const { data } = await axios.put(`/usuarios/${pack._id}`, {}, { headers });
+            nombre();
         } catch (error) {
             console.log('datos de error', error);
         }
     };
-    const EffectPacks = async (id) => {
-        try {
-            const { data } = await axios.get(`http://localhost:4000/api/packs/${id}`);
-            setPack(data);
-        } catch (error) {
-            console.log('datos de error', error);
-        }
-    };
-    const CardPerfil = pack.map((pac, i) => (<Card key={i} pac={pac} />));
+
+
+    const CardPerfilTodos = packTodos.map((pac, i) => {
+        return (<FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} guardarFav={guardarFav}/>)
+    });
     return {
-        HandleSubmit,
-        HandleChange,
+        CardPerfilTodos,
         handleClose,
         handleShow,
-        CardPerfil,
+        packTodos,
         show,
-        pack
+        favorito,
+        guardarFav
     };
 }
 
