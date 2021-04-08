@@ -7,17 +7,18 @@ function UseCard({ token }) {
     const [user, Setuser] = useState('');
     const [email, SetEmail] = useState('');
     const [imagen, SetImagen] = useState();
-    const [rol, SetRol] = useState('usuario');
+    const [rol, SetRol] = useState('');
     const [id, SetId] = useState();
     const [favorito, SetFavorito] = useState([]);
     const isAdmin = rol === 'admin';
 
     useEffect(() => {
-        console.log('si');
         if (token) {
             nombre();
         }
+
     }, []);
+
 
     const nombre = async () => {
         try {
@@ -33,7 +34,6 @@ function UseCard({ token }) {
             SetRol(data.rol);
             SetId(data._id);
             SetFavorito(data.favorito);
-
         } catch (error) {
             console.log(error);
         }
