@@ -8,16 +8,25 @@ const Login = ({ token }) => {
     return (
         <div>
             <Navbar bg="dark" expand="lg" className="search">
-                <div>
-                    <Navbar.Brand as={Link} to="/">
-                        <b className="text">
-                            <i>I M M E D I T</i>
-                        </b>
-                    </Navbar.Brand>
-                </div>
+                <Navbar.Brand as={Link} to="/">
+                    <b className="text">
+                        <i>I M M E D I T</i>
+                    </b>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="d-flex justify-content-end">
-                    <Form inline>
+                <Navbar.Collapse id="basic-navbar-nav" className="navbarDisplay">
+                    <Nav className="mr-auto">
+                        <Nav.Link className="text-light" href="/servicios/pedidos">
+                            Pedidos
+                        </Nav.Link>
+                        <Nav.Link className="text-light" href="/servicios/config">
+                            Configuraciones
+                        </Nav.Link>
+                        <Nav.Link className="text-light" href="/servicios/soporte">
+                            Soporte
+                        </Nav.Link>
+                    </Nav>
+                    <Nav>
                         <div className="d-flex">
                             <div className="m-2">
                                 {!token && (
@@ -37,13 +46,17 @@ const Login = ({ token }) => {
                                 <div className="d-flex opcionts">
                                     <div>
                                         <Button as={Link} to="/servicios/cartera" variant="outline-primary">
-                                            <i><b>${card} Arg</b></i>
+                                            <i>
+                                                <b>${card} Arg</b>
+                                            </i>
                                         </Button>
                                     </div>
                                     <div className="ml-2">
                                         <Dropdown>
                                             <Dropdown.Toggle variant="info" id="dropdown-basic">
-                                                <i><b>{user} </b></i>
+                                                <i>
+                                                    <b>{user} </b>
+                                                </i>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="24"
@@ -84,7 +97,7 @@ const Login = ({ token }) => {
                                 </div>
                             )}
                         </div>
-                    </Form>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>

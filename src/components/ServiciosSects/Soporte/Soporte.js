@@ -32,7 +32,7 @@ function Soporte() {
                             <Form.Label>Especificacion</Form.Label>
                             <textarea
                                 id=""
-                                cols="40"
+                                cols="36"
                                 rows="10"
                                 name="descripcion"
                                 onChange={HandleChange}

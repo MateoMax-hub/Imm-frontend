@@ -46,13 +46,13 @@ function Pedidos() {
         <>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <div className="container-pedidos d-flex flex-column">
-                    <div className="d-flex w-100 etapas-height etapas-c-border">
+                    <div className="d-flex w-100 etapas-height etapas-c-borderfont-family: 'Russo One', sans-serif; config">
                         <div className="w-25 d-flex justify-content-center align-item-center pt-3">
                             <h4>Estado:</h4>
                         </div>
                         <Etapas pedido={pedido} getPedidos={getPedidos} />
                     </div>
-                    <div className="pr-5 pl-5 pb-5 pt-2 d-flex flex-column w-100">
+                    <div className="pr-5 pl-5 pb-5 pt-2 d-flex flex-column w-100 config">
                         <div>
                             <h4>Pedidos realizados:</h4>
                         </div>

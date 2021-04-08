@@ -10,6 +10,7 @@
 .Soporte{
     display: flex;
     justify-content: center;
+    font-family: 'Russo One', sans-serif;
 }
 .SoporteGeneral{
     align-items: center;
