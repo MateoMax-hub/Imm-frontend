@@ -1,6 +1,7 @@
 import { Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
+import './Login.css';
 
 const Login = ({ setToken }) => {
     const [input, setInput] = useState({});
@@ -22,34 +23,40 @@ const Login = ({ setToken }) => {
         setInput(changedInput);
     };
     return (
-        <div className="formulario">
-            <div className="DentroDeForm">
-                <Form onSubmit={HandleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label><b>Email</b></Form.Label>
-                        <Form.Control
-                            onChange={(e) => HandleChange(e)}
-                            name="email"
-                            type="email"
-                            placeholder="Enter email"
-                        />
-                    </Form.Group>
+        <div className="bodyDeLogin">
+            <div className="formulario">
+                <div className="DentroDeForm">
+                    <Form onSubmit={HandleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>
+                                <b>Email</b>
+                            </Form.Label>
+                            <Form.Control
+                                onChange={(e) => HandleChange(e)}
+                                name="email"
+                                type="email"
+                                placeholder="Enter email"
+                            />
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label><b>Contraseña</b></Form.Label>
-                        <Form.Control
-                            onChange={(e) => HandleChange(e)}
-                            name="password"
-                            type="password"
-                            placeholder="Password"
-                        />
-                    </Form.Group>
-                    <Button className="btn btn-primary w-100" type="submit">
-                        <b>Iniciar Sesion</b>
-                    </Button>
-                </Form>
-                <div className="mt-2">
-                    <a href="/register">aun no tienes cuenta, registrate ahora mismo?</a>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>
+                                <b>Contraseña</b>
+                            </Form.Label>
+                            <Form.Control
+                                onChange={(e) => HandleChange(e)}
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </Form.Group>
+                        <Button className="btn btn-primary w-100" type="submit">
+                            <b>Iniciar Sesion</b>
+                        </Button>
+                    </Form>
+                    <div className="mt-2">
+                        <a href="/register">aun no tienes cuenta, registrate ahora mismo?</a>
+                    </div>
                 </div>
             </div>
         </div>
