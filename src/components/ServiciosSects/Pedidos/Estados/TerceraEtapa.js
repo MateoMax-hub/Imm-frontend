@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import '../pedidos.css';
 import axios from 'axios';
-
+import Base64Downloader from 'react-base64-downloader';
 
 function TerceraEtapa(props) {
 
@@ -43,6 +43,7 @@ function TerceraEtapa(props) {
         setShow(false);
     };
 
+
     return (
         <>
             <div className="w-75 d-flex align-items-center">
@@ -51,7 +52,10 @@ function TerceraEtapa(props) {
                         La edicion de tu foto esta lista y puedes descargarla!, no olvides dejar un comentario
                     </p>
                     <div className="d-flex justify-content-center align-content-center pt-2">
-                        <Button variant="info">Descargar foto</Button>
+                        <Button as={Base64Downloader} base64={pedido.segundaEtapa.img} downloadName={'ImmEditIMAGEN'} variant="info">
+                            Descargar foto
+                        </Button>
+
                         <Button variant="outline-info" className="ml-2" onClick={handleShow}>
                             Dejar comentario
                         </Button>

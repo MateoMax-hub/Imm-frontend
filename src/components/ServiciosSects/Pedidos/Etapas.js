@@ -17,7 +17,7 @@ function Etapas(props) {
                 if (pedido.terceraEtapa.estado === 'pendiente') {
                     return <TerceraEtapa pedido={pedido} getPedidos={getPedidos} />;
                 } else {
-                    return <EtapasCompletadas />;
+                    return <EtapasCompletadas pedido={pedido} />;
                 }
             }
         }

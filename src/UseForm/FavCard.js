@@ -1,8 +1,26 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 function FavCard(props) {
     const { favorito, pac, exampleImage, guardarFav } = props;
+
+    const comprarPack = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = { 'x-auth-token': token, 'pack-id': pac._id };
+            const { data } = await axios.post(
+                'pedidos',
+                {},
+                {
+                    headers,
+                }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     if (favorito.length === 0) {
         return (
             <>
@@ -13,8 +31,8 @@ function FavCard(props) {
                         <Card.Text>{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        <Button variant="primary">
-                            <i>Ver Packs</i>
+                        <Button variant="primary" onClick={comprarPack}>
+                            <i>Comprar pack</i>
                         </Button>
                         <button className="btn btn-outline-warning" onClick={() => guardarFav(pac)}>
                             <svg
@@ -43,8 +61,8 @@ function FavCard(props) {
                         <Card.Text>{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        <Button variant="primary">
-                            <i>Ver Packs</i>
+                        <Button variant="primary" onClick={comprarPack}>
+                            <i>Comprar pack</i>
                         </Button>
                         <button className="btn btn-warning" onClick={() => guardarFav(pac)}>
                             <svg
@@ -70,8 +88,8 @@ function FavCard(props) {
                         <Card.Text>{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        <Button variant="primary">
-                            <i>Ver Packs</i>
+                        <Button variant="primary" onClick={comprarPack}>
+                            <i>Comprar pack</i>
                         </Button>
                         <button className="btn btn-outline-warning" onClick={() => guardarFav(pac)}>
                             <svg
@@ -87,7 +105,7 @@ function FavCard(props) {
                         </button>
                     </Card.Footer>
                 </Card>
-            )
+            );
         }
     }
 }

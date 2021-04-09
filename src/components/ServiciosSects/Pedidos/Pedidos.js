@@ -26,6 +26,7 @@ function Pedidos() {
             headers,
         });
         setData(data);
+        setPedido([])
     };
 
     // cancelar pedidos
@@ -40,6 +41,7 @@ function Pedidos() {
         );
         getPedidos();
         handleClose();
+        setPedido([])
     };
 
     return (
