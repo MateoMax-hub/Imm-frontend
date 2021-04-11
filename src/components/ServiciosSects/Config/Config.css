@@ -1,0 +1,24 @@
+.config{
+    font-family: 'Russo One', sans-serif;
+}
+.configuracion{
+    margin: 5% 0%;
+    display: flex;
+    justify-content: center;
+}
+.PhotoDeSoporte{
+    width: 400px;
+}
+@media (max-Width: 780px){
+    .config{
+        font-family: 'Russo One', sans-serif;
+    }
+    .configuracion{
+        margin: 2%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .PhotoDeSoporte{
+        width: 99%;
+    }
+}

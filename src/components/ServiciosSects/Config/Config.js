@@ -2,6 +2,7 @@ import { Form, Button, Col, Modal } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import useCard from '../../../UseForm/UseCard'
+import './Config.css'
 
 function Config() {
     const [show, setShow] = useState(false);
@@ -41,7 +42,7 @@ function Config() {
                     </b>
                 </h2>
             </div>
-            <div className="d-flex justify-content-center ml-5">
+            <div className="configuracion">
                 <div className="d-flex justify-content-center w-100">
                     <Form className="mt-5 p-5 border rounded w-100">
                         <Form.Group as={Col} md="15">
@@ -71,8 +72,6 @@ function Config() {
                     <img
                         src="https://png.pngtree.com/png-vector/20200605/ourlarge/pngtree-hacker-with-laptop-on-lap-png-image_2219228.jpg"
                         className="PhotoDeSoporte mt-5"
-                        alt=""
-                        srcset=""
                     />
                 </div>
                 <div>

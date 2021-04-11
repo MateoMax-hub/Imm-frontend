@@ -37,7 +37,6 @@
     width: 100%;
     margin: 10% 0%;
 }
-
 .ladnPage {
     margin: 1% 0%;
     display: flex;
@@ -91,9 +90,6 @@
 }
 .text {
     font-family: 'Russo One', sans-serif;
-}
-.config{
-  font-family: 'Russo One', sans-serif;
 }
 .modalDeSoporte {
     font-family: 'Heebo', sans-serif;
