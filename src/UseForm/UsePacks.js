@@ -11,6 +11,10 @@ function UsePacks({ token }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [pedidoBuyShow, setPedidoBuyShow] = useState(false)
+    
+    const [pedidoInProgres, setPedidoInProgres] = useState({})
+
     const [packTodos, setPackTodos] = useState([]);
     const { favorito, nombre } = UseCard({ token });
 
@@ -38,10 +42,67 @@ function UsePacks({ token }) {
         }
     };
 
+    const comprarPack = async (pac) => {
+        try {
+            const token = localStorage.getItem('token');
+            const headers = { 'x-auth-token': token, 'pack-id': pac._id };
+            const { data } = await axios.post(
+                'pedidos',
+                {},
+                {
+                    headers,
+                }
+            );
+            handleCloseBuy()
+        } catch (error) {
+            console.log(error);
+            handleCloseBuy()
+        }
+    };
 
-    const CardPerfilTodos = packTodos.map((pac, i) => {
-        return (<FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} guardarFav={guardarFav}/>)
-    });
+    const handleCloseBuy = () => {
+        setPedidoBuyShow(false);
+        setPedidoInProgres({})
+    }
+    const handleShowBuy = (pack) => {
+        setPedidoBuyShow(true);
+        setPedidoInProgres(pack)
+    }
+
+    const CardPerfilTodos = (
+        <>
+            {packTodos.map((pac, i) => {
+                return (
+                    <FavCard
+                        favorito={favorito}
+                        pac={pac}
+                        exampleImage={exampleImage}
+                        guardarFav={guardarFav}
+                        handleShowBuy={handleShowBuy}
+                    />
+                );
+            })}
+            <Modal show={pedidoBuyShow} onHide={handleCloseBuy}>
+                <Modal.Body>
+                    <div className="text-center">
+                        <b>
+                            <i>Seguro que quiere comprar este pack?</i>
+                        </b>
+                    </div>
+                    <hr />
+                    <div className="d-flex flex-column ml-2">
+                        <Button onClick={handleCloseBuy} variant="outline-secondary">
+                            Cancelar
+                        </Button>
+                        <Button onClick={() => comprarPack(pedidoInProgres)} variant="outline-success" className="mt-2">
+                            comprar
+                        </Button>
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
+
     return {
         CardPerfilTodos,
         handleClose,
@@ -49,7 +110,12 @@ function UsePacks({ token }) {
         packTodos,
         show,
         favorito,
-        guardarFav
+        guardarFav,
+        handleShowBuy,
+        pedidoBuyShow,
+        handleCloseBuy,
+        comprarPack,
+        pedidoInProgres
     };
 }
 

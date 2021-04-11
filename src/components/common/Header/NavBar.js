@@ -2,9 +2,27 @@ import { Navbar, Nav, Button, Form, Dropdown, FormControl, NavDropdown } from 'r
 import { NavLink, Link } from 'react-router-dom';
 import UseCard from '../../../UseForm/UseCard';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Login = ({ token }) => {
-    const { isAdmin, handleLogOut, user, card } = UseCard({ token });
+    const { isAdmin, handleLogOut, user, card, nombre } = UseCard({ token });
+
+    useEffect(() => {
+        valToken()
+    }, [])
+
+    const valToken = async () => {
+        const tokenExistanse = localStorage.getItem('token')
+        if (tokenExistanse){
+            const headers = { "x-auth-token": token }
+            const { data } = await axios.post('/usuarios/valToken', {}, {headers})
+            if (!data){
+                localStorage.removeItem('token')
+                window.location.reload()
+            }
+        }
+    }
+
     return (
         <div>
             <Navbar bg="dark" expand="lg" className="search">

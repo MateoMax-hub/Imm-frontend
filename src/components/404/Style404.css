@@ -1,0 +1,12 @@
+.fake-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 17rem;
+}
+.img404-h {
+    height: 200px;
+}
+.myFont404 {
+    font-family: 'Bangers', cursive;
+}

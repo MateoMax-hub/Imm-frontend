@@ -1,5 +1,6 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { React, useState, useEffect } from 'react'
+import { BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
+import axios from 'axios'
 
 
 
@@ -19,10 +20,30 @@ import "./admin.css"
 
 
 function Admin() {
+    const [data, setData] = useState(true)
+
+    const token = localStorage.getItem('token')
+
+    useEffect(() => {
+        if (token){
+            getAdminVal()
+        }
+    }, [])
+    
+    const getAdminVal = async () => {
+        const headers = { "x-auth-token": token }
+        const { data } = await axios.get('/usuarios/admin/val',{headers})
+        setData(data)
+    }
+
+    
+
     return (
-        <Router>
 
             <div className="d-flex flex-column">
+                {!token && <Redirect to="/404"/>}
+                {!data && <Redirect to="/404"/>}
+
                 <HeaderAdmin />
                 <div className="d-flex">
                     <BarraLateralAdmin />
@@ -51,8 +72,6 @@ function Admin() {
                         </Switch>
                 </div>
             </div>
-        </Router>
-
     )
 }
 
