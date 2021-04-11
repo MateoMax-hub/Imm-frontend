@@ -7,18 +7,18 @@ function Soporte() {
     const { HandleSubmit, HandleChange, handleShow, handleClose, show } = UseConsulta();
 
     return (
-        <div className="SoporteGeneral">
+        <div className="SoporteGeneral w-100 mt-5">
             <div className="w-100">
-                <h3 className="text-end">
+                <h3 className="text-center">
                     <b>
                         <i>Bienvenido al Area de Consultas y Ayuda</i>
                     </b>
                 </h3>
             </div>
             <div className="Soporte">
-                <div className="w-100">
+                <div>
                     <Form className="CardDeSoporte card">
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                             <Form.Label>Ayuda</Form.Label>
                             <input
                                 className="form-control w-100"
@@ -28,11 +28,10 @@ function Soporte() {
                                 placeholder="Describa el conflicto o consulta que tenga"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group>
                             <Form.Label>Especificacion</Form.Label>
                             <textarea
-                                id=""
-                                cols="36"
+                                cols="34"
                                 rows="10"
                                 name="descripcion"
                                 onChange={HandleChange}
@@ -53,20 +52,20 @@ function Soporte() {
                         />
                     </div>
                 </div>
-                <div>
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Body>
-                            <b>
-                                <i>Tu consulta fue recibida, muchas gracias!! ;)</i>
-                            </b>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="danger" onClick={handleClose}>
-                                Cerrar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
-                </div>
+            </div>
+            <div>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Body>
+                        <b>
+                            <i>Tu consulta fue recibida, muchas gracias!! ;)</i>
+                        </b>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="danger" onClick={handleClose}>
+                            Cerrar
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </div>
     );

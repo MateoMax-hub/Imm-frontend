@@ -39,14 +39,14 @@ function FavCard(props) {
                 <Card className="m-2 cardPackDate">
                     <Card.Img variant="top" src={pac.imagen || exampleImage} />
                     <Card.Body>
-                        <Card.Title>{pac.titulo}</Card.Title>
-                        <Card.Text>{pac.descripcion}</Card.Text>
+                        <Card.Title className="escrite">{pac.titulo}</Card.Title>
+                        <Card.Text className="escrito">{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        <Button variant="primary">
+                        <Button className="buttonsCards" variant="primary">
                             <i>Ver Packs</i>
                         </Button>
-                        <button className="btn btn-warning" onClick={() => guardarFav(pac)}>
+                        <button className="buttonsCards btn btn-warning" onClick={() => guardarFav(pac)}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -66,14 +66,14 @@ function FavCard(props) {
                 <Card className="m-2 cardPackDate">
                     <Card.Img variant="top" src={pac.imagen || exampleImage} />
                     <Card.Body>
-                        <Card.Title>{pac.titulo}</Card.Title>
-                        <Card.Text>{pac.descripcion}</Card.Text>
+                        <Card.Title className="escrite">{pac.titulo}</Card.Title>
+                        <Card.Text className="escrito">{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        <Button variant="primary">
+                        <Button className="buttonsCards" variant="primary">
                             <i>Ver Packs</i>
                         </Button>
-                        <button className="btn btn-outline-warning" onClick={() => guardarFav(pac)}>
+                        <button className="buttonsCards btn btn-outline-warning" onClick={() => guardarFav(pac)}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"

@@ -22,9 +22,9 @@
     }
     .buttonsCards{
         margin: 0%;
-        padding: 0%;
-        width: 30px;
-        font-size: 1px;
+        padding: 2%;
+        width: 50px;
+        font-size: 10px;
         height: 35px;
     }
 }

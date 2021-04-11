@@ -1,5 +1,6 @@
 .config{
     font-family: 'Russo One', sans-serif;
+    width: 70%;
 }
 .configuracion{
     margin: 5% 0%;
@@ -7,9 +8,19 @@
     justify-content: center;
 }
 .PhotoDeSoporte{
-    width: 400px;
+    width: 500px;
+}
+.formActualDate{
+    display: flex;
+    justify-content: center;
+    width: 40%;
 }
 @media (max-Width: 780px){
+    .formActualDate{
+        display: flex;
+        justify-content: center;
+        width: 98%;
+    }
     .config{
         font-family: 'Russo One', sans-serif;
     }

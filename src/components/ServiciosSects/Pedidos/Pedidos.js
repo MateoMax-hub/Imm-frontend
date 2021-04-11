@@ -47,8 +47,8 @@ function Pedidos() {
         <>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <div className="container-pedidos d-flex flex-column">
-                    <div className="d-flex w-100 etapas-height etapas-c-borderfont-family: 'Russo One', sans-serif; config">
-                        <div className="w-25 d-flex justify-content-center align-item-center pt-3">
+                    <div className="d-flex w-100 etapas-height etapas-c-border config">
+                        <div className="w-25 p-3">
                             <h4>Estado:</h4>
                         </div>
                         <Etapas pedido={pedido} getPedidos={getPedidos} />

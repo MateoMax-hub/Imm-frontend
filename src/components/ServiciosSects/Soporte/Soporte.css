@@ -1,30 +1,24 @@
-
-.CardDeSoporte{
-    padding: 6%;
-    width: 430px;
-    display: flex;
-    justify-content: center;
-}
-.Soporte{
-    display: flex;
-    justify-content: center;
-    font-family: 'Russo One', sans-serif;
-}
 .SoporteGeneral{
-    align-items: center;
-    margin: 2% 10%;
     font-family: 'Heebo', sans-serif;
     font-family: 'Hind Siliguri', sans-serif;
     font-family: 'New Tegomin', serif;
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
 }
+.Soporte{
+    display: flex;
+    justify-content: center;
+    font-family: 'Russo One', sans-serif;
+}
+.CardDeSoporte{
+    padding: 6%;
+    width: 420px;
+}
 @media (max-width: 748px){
     .CardDeSoporte{
-        display: flex;
-        justify-content: center;
-        padding: 5%;
-        width: 300px;
+        padding: 4% 1%;
+        margin: 2%;
+        width: 96%;
     }
     .text-center{
         font-size: 1rem;

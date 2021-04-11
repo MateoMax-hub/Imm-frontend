@@ -42,8 +42,8 @@ function Config() {
                     </b>
                 </h2>
             </div>
-            <div className="configuracion">
-                <div className="d-flex justify-content-center w-100">
+            <div className="configuracion w-100">
+                <div className="formActualDate">
                     <Form className="mt-5 p-5 border rounded w-100">
                         <Form.Group as={Col} md="15">
                             <Form.Label>Nombre</Form.Label>
