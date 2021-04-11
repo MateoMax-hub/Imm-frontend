@@ -7,7 +7,7 @@ const Login = ({ token }) => {
     const { isAdmin, handleLogOut, user, card } = UseCard({ token });
     return (
         <div>
-            <Navbar bg="dark" expand="lg" className="search">
+            <Navbar bg="gradient" expand="lg" className="search">
                 <Navbar.Brand as={Link} to="/">
                     <b className="text">
                         <i>I M M E D I T</i>
@@ -16,14 +16,14 @@ const Login = ({ token }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="navbarDisplay">
                     <Nav className="mr-auto">
-                        <Nav.Link className="text-light" href="/servicios/pedidos">
-                            Pedidos
+                        <Nav.Link className="text-dark" href="/servicios/pedidos">
+                            <i>Pedidos</i>
                         </Nav.Link>
-                        <Nav.Link className="text-light" href="/servicios/config">
-                            Configuraciones
+                        <Nav.Link className="text-dark" href="/servicios/config">
+                            <i>Configuraciones</i>
                         </Nav.Link>
-                        <Nav.Link className="text-light" href="/servicios/soporte">
-                            Soporte
+                        <Nav.Link className="text-dark" href="/servicios/soporte">
+                            <i>Soporte</i>
                         </Nav.Link>
                     </Nav>
                     <Nav>

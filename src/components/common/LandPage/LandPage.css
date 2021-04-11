@@ -1,0 +1,30 @@
+.cardPackDate {
+    width: 308px;
+}
+.carrucel{
+    margin: 0% 2%;
+}
+@media (max-Width: 780px){
+    .carrucel{
+        margin: 7%;
+    }
+    .cardPackDate {
+        width: 45%;
+    }
+    .cardsPage {
+        margin: 0%;
+    }
+    .escrite{
+        font-size: 15px;
+    }
+    .escrito{
+        font-size: 10px;
+    }
+    .buttonsCards{
+        margin: 0%;
+        padding: 0%;
+        width: 30px;
+        font-size: 1px;
+        height: 35px;
+    }
+}

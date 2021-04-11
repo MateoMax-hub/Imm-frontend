@@ -74,7 +74,7 @@
     width: 300px;
 }
 .text {
-    color: rgba(248, 242, 242, 0.945);
+    color: rgba(24, 22, 22, 0.945);
     font-family: 'Courier New', Courier, monospace;
 }
 .search {
@@ -110,9 +110,7 @@
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
 }
-.cardPackDate {
-    width: 308px;
-}
+
 .perfilDescription {
     display: flex;
 }
@@ -125,8 +123,12 @@
     text-align: left;
 }
 .navbarDisplay {
-    color: aliceblue;
-    font-family: 'Roboto', sans-serif;
+    color: rgb(7, 7, 7);
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
 }
 @media (max-width: 748px) {
     .formulario {
@@ -161,4 +163,5 @@
         margin: 2%;
         text-align: center;
     }
+    
 }
