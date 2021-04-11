@@ -1,11 +1,11 @@
 .cardPackDate {
     width: 308px;
 }
-.carrucel{
+.carrucel {
     margin: 0% 2%;
 }
-@media (max-Width: 780px){
-    .carrucel{
+@media (max-width: 780px) {
+    .carrucel {
         margin: 7%;
     }
     .cardPackDate {
@@ -14,13 +14,13 @@
     .cardsPage {
         margin: 0%;
     }
-    .escrite{
+    .escrite {
         font-size: 15px;
     }
-    .escrito{
+    .escrito {
         font-size: 10px;
     }
-    .buttonsCards{
+    .buttonsCards {
         margin: 0%;
         padding: 2%;
         width: 50px;
