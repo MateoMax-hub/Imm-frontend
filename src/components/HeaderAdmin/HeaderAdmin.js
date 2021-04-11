@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 function HeaderAdmin() {
     return (
-        <div>
-            <Navbar bg="dark" expand="lg">
+        <div className="sticky-top">
+            <Navbar className="search">
                 <Navbar.Collapse>
                     <Navbar.Brand as={Link} to="/">
                         <b className="text">

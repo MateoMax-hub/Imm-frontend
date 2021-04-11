@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 //import
 import Register from './pages/Register/Register';
@@ -15,26 +15,18 @@ import Servicios from './pages/Servicios/Servicios';
 import Admin from './pages/Admin/Admin';
 import Perfil from './pages/Perfil/Perfil';
 
-
-axios.defaults.baseURL = 'http://localhost:4000/api/'
+axios.defaults.baseURL = 'http://localhost:4000/api/';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
-    
 
     return (
         <Router>
             {/* switch entre admin o no  */}
             <Switch>
-
-                <Route path="/admin">
-                    <Admin />
-                </Route>
-
                 <Route path="/">
                     {/* switch entre las paginas para todo usuario no admin  */}
                     <Switch>
-
                         <Route path="/" exact>
                             <Header token={token} />
                             <Home token={token} />
@@ -60,9 +52,11 @@ function App() {
                             <Servicios token={token} />
                         </Route>
 
+                        <Route path="/admin">
+                            <Admin />
+                        </Route>
                     </Switch>
                     <Footer />
-
                 </Route>
             </Switch>
         </Router>

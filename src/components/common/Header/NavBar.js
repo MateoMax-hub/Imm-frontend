@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const Login = ({ token }) => {
     const { isAdmin, handleLogOut, user, card } = UseCard({ token });
     return (
-        <div>
+        <div className="sticky-top">
             <Navbar bg="gradient" expand="lg" className="search">
                 <Navbar.Brand as={Link} to="/">
                     <b className="text">
@@ -14,19 +14,19 @@ const Login = ({ token }) => {
                     </b>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="navbarDisplay">
-                    <Nav className="mr-auto">
-                        <Nav.Link className="text-dark" href="/servicios/pedidos">
+                <Navbar.Collapse className="w-100" id="basic-navbar-nav" className="navbarDisplay">
+                    {token &&<Nav className="mr-auto">
+                        <Nav.Link className="text-light" href="/servicios/pedidos">
                             <i>Pedidos</i>
                         </Nav.Link>
-                        <Nav.Link className="text-dark" href="/servicios/config">
+                        <Nav.Link className="text-light" href="/servicios/config">
                             <i>Configuraciones</i>
                         </Nav.Link>
-                        <Nav.Link className="text-dark" href="/servicios/soporte">
+                        <Nav.Link className="text-light" href="/servicios/soporte">
                             <i>Soporte</i>
                         </Nav.Link>
-                    </Nav>
-                    <Nav>
+                    </Nav>}
+                    <Nav className="d-flex justify-content-right">
                         <div className="d-flex">
                             <div className="m-2">
                                 {!token && (
@@ -45,7 +45,7 @@ const Login = ({ token }) => {
                             {token && (
                                 <div className="d-flex opcionts">
                                     <div>
-                                        <Button as={Link} to="/servicios/cartera" variant="outline-primary">
+                                        <Button as={Link} to="/servicios/cartera" variant="primary">
                                             <i>
                                                 <b>${card} Arg</b>
                                             </i>
@@ -53,7 +53,7 @@ const Login = ({ token }) => {
                                     </div>
                                     <div className="ml-2">
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="info" id="dropdown-basic">
+                                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
                                                 <i>
                                                     <b>{user} </b>
                                                 </i>

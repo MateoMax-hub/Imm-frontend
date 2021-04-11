@@ -47,7 +47,7 @@ const LandPage = ({ token }) => {
                     </Carousel>
                 </div>
             </div>
-            <hr className="mt-5" />
+            <hr />
             <div className="cardsPage d-flex justify-content-center mt-5 flex-wrap">{CardPerfilTodos}</div>
         </div>
     );

@@ -14,7 +14,7 @@
     border-radius: 1rem;
 }
 .footerAuto {
-    min-height: 40vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
 }
@@ -65,10 +65,11 @@
     width: 300px;
 }
 .text {
-    color: rgba(24, 22, 22, 0.945);
+    color: rgba(230, 220, 220, 0.945);
     font-family: 'Courier New', Courier, monospace;
 }
 .search {
+    background-color: rgba(0, 0, 0, 0.726);
     display: flex;
     justify-content: space-between;
 }
@@ -84,9 +85,7 @@
     border-radius: 8px;
 }
 .opcionts {
-    margin: 0% 4%;
-    width: 250px;
-    font-family: 'Roboto', sans-serif;
+    width: 260px;
 }
 .text {
     font-family: 'Russo One', sans-serif;
@@ -98,7 +97,6 @@
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
 }
-
 .perfilDescription {
     display: flex;
 }
@@ -117,6 +115,9 @@
     font-family: 'New Tegomin', serif;
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
+}
+.barraLateral{
+    display: block;
 }
 @media (max-width: 748px) {
     .formulario {
@@ -151,5 +152,7 @@
         margin: 2%;
         text-align: center;
     }
-    
+    .barraLateral{
+        display: none;
+    }
 }

@@ -75,7 +75,7 @@ const Register = () => {
                             </Nav.Link>
                         </div>
                     </div>
-                    <div className="configuracion">
+                    <div className="ayuda">
                         <div className="TituloBorder">
                             <b>
                                 <i>Configuracion</i>

@@ -33,18 +33,18 @@ function Pedidos() {
     const cancelarPedido = async () => {
         const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
-        const { data } = await axios.delete(
-            `pedidos/cancelarPedido/${pedido._id}`,
-            {
-                headers,
-            }
-        );
+        const { data } = await axios.delete(`pedidos/cancelarPedido/${pedido._id}`, {
+            headers,
+        });
         getPedidos();
         handleClose();
     };
 
     return (
         <>
+            <div className="barraLateral">
+                <BarraLateral />
+            </div>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <div className="container-pedidos d-flex flex-column">
                     <div className="d-flex w-100 etapas-height etapas-c-border config">

@@ -26,7 +26,13 @@ const Login = ({ setToken }) => {
         <div className="bodyDeLogin">
             <div className="formulario">
                 <div className="DentroDeForm">
-                    <Form onSubmit={HandleSubmit}>
+                    <div className="w-100">
+                        <h1 className="text-center">
+                            <b>Iniciar Sesion</b>
+                        </h1>
+                    </div>
+                    <hr className="bg-light" />
+                    <Form className="mt-5" onSubmit={HandleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>
                                 <b>Email</b>
