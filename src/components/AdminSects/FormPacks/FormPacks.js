@@ -1,12 +1,62 @@
+import { useState, useEffect, React } from 'react';
 import UsePacks from '../../../UseForm/UsePacks';
 import FavCard from '../../../UseForm/FavCard';
-import { Button, Modal } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap';
+import axios from 'axios';
+import CardCompletado from './CardCompletado';
 
 function FormPacks({ token }) {
-    const { CardPerfil, exampleImage, guardarFav, packTodos, favorito, handleShowBuy, pedidoBuyShow, handleCloseBuy, comprarPack, pedidoInProgres } = UsePacks({
+    const {
+        CardPerfil,
+        exampleImage,
+        guardarFav,
+        packTodos,
+        favorito,
+        handleShowBuy,
+        pedidoBuyShow,
+        handleCloseBuy,
+        comprarPack,
+        pedidoInProgres,
+    } = UsePacks({
         token,
     });
-    // const favPacksFiltered = packTodos.filter((p) p._id === favorito.find((f) => f.pack._id === p.id))
+
+    const [confirmShow, setConfirmShow] = useState(false)
+    const [data, setData] = useState([]);
+    const [deleting, setDeleting] = useState({})
+
+    useEffect(() => {
+        getCompletados();
+    }, []);
+
+
+    const getCompletados = async () => {
+        const token = localStorage.getItem('token');
+        const headers = { 'x-auth-token': token };
+        const { data } = await axios.get('/pedidos/perfil', { headers });
+        setData(data);
+    };
+
+    const handleClose = () => {
+        setConfirmShow(false)
+        setDeleting({})
+    }
+    const handleShow = () => {
+        setConfirmShow(true)
+    }
+
+    const deletePedido = async (pedido) => {
+        const token = localStorage.getItem('token');
+        const headers = { 'x-auth-token': token };
+        const { data } = await axios.delete(
+            `pedidos/cancelarPedido/${pedido._id}`,
+            {
+                headers,
+            }
+        );
+        handleClose()
+        getCompletados()
+    }
 
     return (
         <div>
@@ -14,6 +64,42 @@ function FormPacks({ token }) {
                 <div className="cardPacks">
                     <div className="d-flex flex-wrap">
                         <>{CardPerfil}</>
+                    </div>
+                    <div>
+                        <div>
+                            <p>
+                                <i>
+                                    <b>Pedidos completados</b>
+                                </i>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="d-flex flex-wrap">
+                        {data.map((pedido) => (
+                            <CardCompletado pedido={pedido} handleShow={handleShow} setDeleting={setDeleting}/>
+                        ))}
+                        <Modal show={confirmShow} onHide={handleClose}>
+                            <Modal.Body>
+                                <div className="text-center">
+                                    <b>
+                                        <i>Seguro que quiere eliminar?</i>
+                                    </b>
+                                </div>
+                                <hr />
+                                <div className="d-flex flex-column ml-2">
+                                    <Button onClick={handleClose} variant="outline-secondary">
+                                        Cancelar
+                                    </Button>
+                                    <Button
+                                        onClick={() => deletePedido(deleting)}
+                                        variant="danger"
+                                        className="mt-2"
+                                    >
+                                        Eliminar
+                                    </Button>
+                                </div>
+                            </Modal.Body>
+                        </Modal>
                     </div>
                     <div>
                         <div>
