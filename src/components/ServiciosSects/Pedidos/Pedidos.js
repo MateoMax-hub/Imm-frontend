@@ -4,6 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import Tbody from './Tbody';
 import Etapas from './Etapas';
+import BarraLateral from '../../BarraLateral/BarraLateral';
 
 function Pedidos() {
     // estados del modal

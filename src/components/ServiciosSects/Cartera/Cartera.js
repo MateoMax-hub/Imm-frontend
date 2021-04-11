@@ -1,4 +1,5 @@
 import { Dropdown, Form, Modal, Button } from 'react-bootstrap';
+import './Cartera.css';
 import UseCard from '../../../UseForm/UseCard';
 import Tarjet from './Target';
 import { Table } from 'react-bootstrap';
@@ -39,9 +40,9 @@ function Cartera({ token }) {
     };
     console.log(depoTwo);
     return (
-        <div>
+        <div className="w-100 d-flex justify-content-center mt-5">
             <div className="cardo">
-                <div className="w-100 mt-2 d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-center">
                     <h3>
                         <i>
                             {user} {lastName}

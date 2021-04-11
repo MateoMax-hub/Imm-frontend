@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="footerAuto">
+        <div className="footerAuto mt-5">
             <div className="Footer">
                 <div className="main-footer">
                     <div className="container">

@@ -37,15 +37,7 @@
     width: 100%;
     margin: 10% 0%;
 }
-.cardo {
-    width: 100%;
-    margin: 1% 40%;
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
-}
+
 .ladnPage {
     margin: 1% 0%;
     display: flex;
