@@ -1,20 +1,16 @@
 .a-barraL {
     height: 850px;
     width: 300px;
-    background-color: rgba(5, 5, 5, 0.774);
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
+    background-color: #2e2e2e;
+    font-family: 'Courier New', Courier, monospace;
 }
 .a-br-custom-button {
-    border: 1px black solid;
-    padding: 4%;
+    border: 1px #007bff solid;
+    padding: 7% 4%;
     background-color: #007bff;
     width: 300px;
     border-radius: 0;
-    color: rgba(5, 5, 5, 0.774);
+    color: #fff;
 }
 
 .abr-my {
@@ -28,7 +24,7 @@
     background-color: #0a59ad;
 }
 .btn-outline-danger:hover {
-    border: 1px black solid;
+    border: 1px #0a59ad solid;
     color: #fff;
     background-color: #0a59ad;
 }

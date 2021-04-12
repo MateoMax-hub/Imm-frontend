@@ -1,13 +1,14 @@
 .Barra{
     text-align: center;
-    background: rgba(5, 5, 5, 0.774);
+    background: #2e2e2e;
     width: 300px;
+    min-height: 100vh;
     text-decoration: none;
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
+    font-family: 'Courier New', Courier, monospace;
+}
+.buttonOptions:hover{
+    color: rgb(255, 255, 255);
+    background: #29292996;
 }
 .comiteButton{
     display: none;
@@ -16,7 +17,7 @@ a {
     color: #d3d0d0; 
 }
 .TituloBorder{
-    color: rgb(212, 208, 201);
-    background: #007bff;
+    color: rgb(196, 191, 184);
+    background: #0474cf;
     padding: 4% 0px;
 }

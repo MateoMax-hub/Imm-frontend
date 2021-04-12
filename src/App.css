@@ -19,18 +19,17 @@
     flex-direction: column;
 }
 .Footer {
+    border-top: 1px #2e2e2e2f solid;
     margin-top: auto;
-    background: rgba(19, 18, 18, 0.897);
+    background: #242323;
     padding: 2% 0%;
-    color: aliceblue;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
+    color: #eee8e8;
+    font-family: 'Courier New', Courier, monospace;
 }
 .navBar {
     display: flex;
     justify-content: space-between;
+    
 }
 .card {
     background: rgba(58, 55, 55, 0.452);
@@ -53,7 +52,7 @@
     margin: 0% 14%;
 }
 .PhotoCard {
-    border: rgba(24, 24, 26, 0.726) solid 4px;
+    border: #1c1c1dd8 solid 4px;
     border-radius: 50%;
     width: 238px;
 }
@@ -69,9 +68,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 .search {
-    background-color: rgba(0, 0, 0, 0.726);
+    background-color: #0474cf;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 2px 16px 0 #030303;
 }
 .cardPacks {
     width: 73%;
@@ -85,9 +85,10 @@
     border-radius: 8px;
 }
 .opcionts {
-    width: 260px;
+    margin: 0% 25px;
 }
 .text {
+    color: rgb(255, 255, 255);
     font-family: 'Russo One', sans-serif;
 }
 .modalDeSoporte {
@@ -110,11 +111,8 @@
 }
 .navbarDisplay {
     color: rgb(7, 7, 7);
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
+    font-family: 'Courier New', Courier, monospace;
+    
 }
 .barraLateral{
     display: block;
@@ -154,5 +152,8 @@
     }
     .barraLateral{
         display: none;
+    }
+    .opcionts {
+        margin: 0% 65px;
     }
 }

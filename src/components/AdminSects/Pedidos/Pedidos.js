@@ -190,13 +190,13 @@ function Pedidos() {
                 <div className="search-input-pedidos d-flex justify-content-around">
                     <div className="d-flex">
                         <input
-                            placeHolder="busqueda"
+                            placeHolder="Buscar..."
                             className="form-control"
                             onChange={(e) => handleChangeSearch(e)}
                         ></input>
                         <select className="mx-2 form-control" onChange={(e) => handleSelect(e)}>
                             <option value="disabled" selected disabled>
-                                buscar por
+                                Buscar por
                             </option>
                             <option value="nombre">Nombre consumidor</option>
                             <option value="apellido">Apellido consumidor</option>
@@ -213,8 +213,8 @@ function Pedidos() {
                             <option value="feedback">Pendiente feedback</option>
                             <option value="completado">Completado</option>
                         </select>
-                        <Button onClick={() => handleMySubmit()} variant="secondary">
-                            buscar
+                        <Button onClick={() => handleMySubmit()} variant="primary">
+                            <b>Buscar</b>
                         </Button>
                     </div>
                     <div></div>

@@ -31,10 +31,8 @@
 }
 
 .thead-pedidos {
-    background-color: rgb(53, 53, 53);
+    background-color: #2e2e2e;
     color: white;
-    border-bottom: 3px black solid;
-    border-top: 3px black solid;
 }
 
 .th-pedidos {

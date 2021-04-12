@@ -7,7 +7,7 @@ const Login = ({ token }) => {
     const { isAdmin, handleLogOut, user, card } = UseCard({ token });
     return (
         <div className="sticky-top">
-            <Navbar bg="gradient" expand="lg" className="search">
+            <Navbar expand="lg" className="search">
                 <Navbar.Brand as={Link} to="/">
                     <b className="text">
                         <i>I M M E D I T</i>
@@ -24,6 +24,9 @@ const Login = ({ token }) => {
                         </Nav.Link>
                         <Nav.Link className="text-light" href="/servicios/soporte">
                             <i>Soporte</i>
+                        </Nav.Link>
+                        <Nav.Link className="text-light" href="/servicios/cartera">
+                            <i>Cartera</i>
                         </Nav.Link>
                     </Nav>}
                     <Nav className="d-flex justify-content-right">
@@ -43,17 +46,10 @@ const Login = ({ token }) => {
                                 )}
                             </div>
                             {token && (
-                                <div className="d-flex opcionts">
+                                <div className="opcionts">
                                     <div>
-                                        <Button as={Link} to="/servicios/cartera" variant="primary">
-                                            <i>
-                                                <b>${card} Arg</b>
-                                            </i>
-                                        </Button>
-                                    </div>
-                                    <div className="ml-2">
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                            <Dropdown.Toggle variant="light" id="dropdown-basic">
                                                 <i>
                                                     <b>{user} </b>
                                                 </i>
@@ -74,15 +70,6 @@ const Login = ({ token }) => {
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
                                                 <Dropdown.Item href="/perfil">Perfil</Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/pedidos">
-                                                    Pedidos
-                                                </Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/config">
-                                                    Configuraciones
-                                                </Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/soporte">
-                                                    Soporte
-                                                </Dropdown.Item>
                                                 {isAdmin && (
                                                     <Dropdown.Item href="/admin/users">
                                                         Pagina admin

@@ -23,7 +23,7 @@ const Cards = ({ pac }) => {
                 </Card.Body>
                 <Card.Footer>
                     <Button variant="primary" onClick={handleShow}>
-                        <i>Ver Packs</i>
+                        <b>Ver Packs</b>
                     </Button>
                 </Card.Footer>
             </Card>

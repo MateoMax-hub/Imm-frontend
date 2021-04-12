@@ -14,7 +14,7 @@ function FavCard(props) {
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
                         <Button className="buttonsCards" variant="primary">
-                            <i className="escrito">Ver Packs</i>
+                            <b className="escrito">Ver Packs</b>
                         </Button>
                         <button
                             className="buttonsCards btn btn-outline-warning"
@@ -47,7 +47,7 @@ function FavCard(props) {
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
                         <Button className="buttonsCards" variant="primary">
-                            <i>Ver Packs</i>
+                        <b>Ver Packs</b>
                         </Button>
                         <button className="buttonsCards btn btn-warning" onClick={() => guardarFav(pac)}>
                             <svg
@@ -74,7 +74,7 @@ function FavCard(props) {
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
                         <Button className="buttonsCards" variant="primary">
-                            <i>Ver Packs</i>
+                        <b>Ver Packs</b>
                         </Button>
                         <button
                             className="buttonsCards btn btn-outline-warning"

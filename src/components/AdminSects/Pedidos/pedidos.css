@@ -2,6 +2,11 @@
     background-color: #343a40;
     color: white;
     padding: 0%;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
 }
 .tablePedidosPrincipal{
     width: 1051px;
@@ -14,7 +19,7 @@
 }
 .search-input-pedidos {
     border-bottom: 2px rgb(46, 45, 45) solid;
-    background-color: rgba(5, 5, 5, 0.774);
+    background-color: #2e2e2e;
     padding: 10px;
 }
 @media (max-Width: 780px){

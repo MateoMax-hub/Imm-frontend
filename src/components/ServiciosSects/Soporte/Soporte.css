@@ -1,14 +1,10 @@
 .SoporteGeneral{
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-family: 'New Tegomin', serif;
-    font-family: 'Teko', sans-serif;
-    font-family: 'Yatra One', cursive;
+    font-family: 'Courier New', Courier, monospace;
 }
 .Soporte{
     display: flex;
     justify-content: center;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 .CardDeSoporte{
     padding: 6%;

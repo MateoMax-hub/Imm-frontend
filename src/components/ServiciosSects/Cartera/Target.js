@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 
@@ -42,55 +42,63 @@ const Target = () => {
                     cvc={state.cvc}
                     focused={state.focus}
                 />
+                <hr />
                 <form>
-                    <div className="form-group">
-                        <label htmlFor="number">Número de la tarjeta</label>
-                        <input
-                            type="text"
-                            name="number"
-                            id="number"
-                            maxLength="16"
-                            className="form-control"
-                            onChange={handleInputChange}
-                            onFocus={handleFocusChange}
-                        />
+                    <div>
+                        <b>
+                            <i>Ingrese datos para transaccion</i>
+                        </b>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Nombre</label>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            maxLength="30"
-                            className="form-control"
-                            onChange={handleInputChange}
-                            onFocus={handleFocusChange}
-                        />
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group col-md-6">
-                            <label htmlFor="expiry">Fecha de expiración</label>
+                    <div className="mt-5">
+                        <div className="form-group">
                             <input
                                 type="text"
-                                name="expiry"
-                                id="expiry"
-                                maxLength="4"
+                                name="number"
+                                id="number"
+                                maxLength="16"
                                 className="form-control"
+                                placeholder="Número de la tarjeta"
                                 onChange={handleInputChange}
                                 onFocus={handleFocusChange}
                             />
                         </div>
-                        <div className="form-group col-md-6">
-                            <label htmlFor="cvc">CVC</label>
+                        <div className="form-group">
                             <input
                                 type="text"
-                                name="cvc"
-                                id="cvc"
-                                maxLength="4"
+                                name="name"
+                                id="name"
+                                maxLength="30"
                                 className="form-control"
+                                placeholder="Nombre"
                                 onChange={handleInputChange}
                                 onFocus={handleFocusChange}
                             />
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
+                                <input
+                                    type="text"
+                                    name="expiry"
+                                    id="expiry"
+                                    maxLength="4"
+                                    className="form-control"
+                                    placeholder="Fecha de expiración"
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
+                            </div>
+                            <div className="form-group col-md-6">
+                                <input
+                                    type="text"
+                                    name="cvc"
+                                    id="cvc"
+                                    maxLength="4"
+                                    className="form-control"
+                                    placeholder="CVC"
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -1,8 +1,8 @@
-import { Dropdown, Form, Modal, Button } from 'react-bootstrap';
+import { Form, Modal, Button } from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
 import './Cartera.css';
 import UseCard from '../../../UseForm/UseCard';
 import Tarjet from './Target';
-import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BarraLateral from '../../BarraLateral/BarraLateral';
@@ -45,21 +45,26 @@ function Cartera({ token }) {
             <div className="barraLateral">
                 <BarraLateral />
             </div>
-            <div className="w-100 d-flex justify-content-center mt-5">
+            <div className="w-100 d-flex justify-content-center">
                 <div className="cardo">
-                    <div className="d-flex justify-content-center">
-                        <h3>
+                    <hr />
+                    <div className="w-100 m-2 text-end">
+                        <div>
                             <i>
+                                <b>Saldo Actual:</b> ${card} Arg
+                            </i>
+                        </div>
+                        <div>
+                            <i>
+                                <b>Dueño de la Cuenta: </b>
                                 {user} {lastName}
                             </i>
-                        </h3>
+                        </div>
                     </div>
-                    <hr />
-                    <div className="">
-                        <Tarjet />
-                        <div className="m-0">
+                    <div>
+                        <div>
+                            <Tarjet />
                             <div className="form-group col-md-12">
-                                <label>Ingresar importe para subir a la cuenta</label>
                                 <input
                                     name="balance"
                                     onChange={(e) => Valor(e)}

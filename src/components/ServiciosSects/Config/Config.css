@@ -1,10 +1,11 @@
 .config{
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     width: 70%;
 }
 .configuracion{
     display: flex;
     justify-content: center;
+
 }
 .PhotoDeSoporte{
     width: 500px;
