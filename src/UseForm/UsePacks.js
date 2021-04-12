@@ -11,16 +11,26 @@ function UsePacks({ token }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [pedidoBuyShow, setPedidoBuyShow] = useState(false)
-    
-    const [pedidoInProgres, setPedidoInProgres] = useState({})
+    const [pedidoBuyShow, setPedidoBuyShow] = useState(false);
+
+    const [pedidoInProgres, setPedidoInProgres] = useState({});
 
     const [packTodos, setPackTodos] = useState([]);
     const { favorito, nombre } = UseCard({ token });
 
+    const [spinnerNeed, setSpinnerNeed] = useState(true);
+
     useEffect(() => {
         EffectPacksTodos();
     }, []);
+
+    useEffect(() => {
+        if (packTodos.length === 0) {
+            setSpinnerNeed(true);
+        } else {
+            setSpinnerNeed(false);
+        }
+    }, [packTodos]);
 
     const EffectPacksTodos = async (id) => {
         try {
@@ -53,26 +63,58 @@ function UsePacks({ token }) {
                     headers,
                 }
             );
-            handleCloseBuy()
+            handleCloseBuy();
         } catch (error) {
             console.log(error);
-            handleCloseBuy()
+            handleCloseBuy();
         }
     };
 
     const handleCloseBuy = () => {
         setPedidoBuyShow(false);
-        setPedidoInProgres({})
-    }
+        setPedidoInProgres({});
+    };
     const handleShowBuy = (pack) => {
         setPedidoBuyShow(true);
-        setPedidoInProgres(pack)
-    }
+        setPedidoInProgres(pack);
+    };
 
     const CardPerfilTodos = (
         <>
+            {spinnerNeed ? (
+                <div className="d-flex flex-wrap">
+                    <div className="w-100 d-flex justify-content-center m-5">
+                        <Button variant="primary" disabled>
+                            <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                            />
+                            <span className="sr-only">Loading...</span>
+                        </Button>{' '}
+                        <Button variant="primary" disabled>
+                            <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                            Loading...
+                        </Button>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
             {packTodos.map((pac, i) => {
-                if (favorito.length === 0) {
+                if (favorito !== false) {
+                    return (
+                        <FavCard
+                            favorito={favorito}
+                            pac={pac}
+                            exampleImage={exampleImage}
+                            guardarFav={guardarFav}
+                            handleShowBuy={handleShowBuy}
+                        />
+                    );
+                } else {
                     return (
                         <div className="d-flex flex-wrap">
                             <div className="w-100 d-flex justify-content-center m-5">
@@ -87,22 +129,19 @@ function UsePacks({ token }) {
                                     <span className="sr-only">Loading...</span>
                                 </Button>{' '}
                                 <Button variant="primary" disabled>
-                                    <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                                    <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
                                     Loading...
                                 </Button>
                             </div>
                         </div>
                     );
                 }
-                return (
-                    <FavCard
-                        favorito={favorito}
-                        pac={pac}
-                        exampleImage={exampleImage}
-                        guardarFav={guardarFav}
-                        handleShowBuy={handleShowBuy}
-                    />
-                );
             })}
             <Modal show={pedidoBuyShow} onHide={handleCloseBuy}>
                 <Modal.Body>
@@ -116,7 +155,11 @@ function UsePacks({ token }) {
                         <Button onClick={handleCloseBuy} variant="outline-secondary">
                             Cancelar
                         </Button>
-                        <Button onClick={() => comprarPack(pedidoInProgres)} variant="outline-success" className="mt-2">
+                        <Button
+                            onClick={() => comprarPack(pedidoInProgres)}
+                            variant="outline-success"
+                            className="mt-2"
+                        >
                             comprar
                         </Button>
                     </div>
@@ -137,7 +180,7 @@ function UsePacks({ token }) {
         pedidoBuyShow,
         handleCloseBuy,
         comprarPack,
-        pedidoInProgres
+        pedidoInProgres,
     };
 }
 
