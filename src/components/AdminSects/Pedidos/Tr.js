@@ -27,15 +27,15 @@ function Tr(props) {
 
     return (
         <tr>
-            <th className="text-center">{pedidoTr.consumidor.nombre + ' ' + pedidoTr.consumidor.apellido}</th>
-            <th className="text-center">
+            <th className="text-center tr">{pedidoTr.consumidor.nombre + ' ' + pedidoTr.consumidor.apellido}</th>
+            <th className="text-center tr">
                 <Button variant="outline-dark" onClick={() => setPedido(pedidoTr)} className="mr-3">
                     {pedidoTr.pack.titulo}
                 </Button>
             </th>
-            <th className="text-center">{pedidoTr.createdAt}</th>
-            <th className="text-center">{estado}</th>
-            <th className="text-center">{enviarFoto ? <FileButton setFile={setFile} handleFile={handleFile}/> : <></>}</th>
+            <th className="text-center tr">{pedidoTr.createdAt}</th>
+            <th className="text-center tr">{estado}</th>
+            <th className="text-center tr">{enviarFoto ? <FileButton setFile={setFile} handleFile={handleFile}/> : <></>}</th>
         </tr>
     );
 }

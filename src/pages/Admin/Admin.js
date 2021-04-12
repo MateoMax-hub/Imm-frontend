@@ -25,7 +25,6 @@ function Admin() {
             <div className="d-flex flex-column">
                 <HeaderAdmin />
                 <div className="d-flex">
-                    <BarraLateralAdmin />
                         <Switch>
 
                             <Route path="/admin/users">

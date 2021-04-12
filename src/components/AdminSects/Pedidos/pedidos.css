@@ -1,7 +1,13 @@
 .thead-pedidos {
     background-color: #343a40;
     color: white;
-    padding: 2%;
+    padding: 0%;
+}
+.tablePedidosPrincipal{
+    width: 1051px;
+}
+.tablePedidos{
+    width: 100%;
 }
 .w-95 {
     width: 95%;
@@ -10,4 +16,21 @@
     border-bottom: 2px rgb(46, 45, 45) solid;
     background-color: rgba(5, 5, 5, 0.774);
     padding: 10px;
+}
+@media (max-Width: 780px){
+    .thead-pedidos {
+        background-color: #343a40;
+        color: white;
+        padding: 0%;
+    }
+    .tr{
+        font-size: 20%;
+
+    }
+    .tablePedidosPrincipal{
+        width: 100%;
+    }
+    .tablePedidos{
+        width: 100%;
+    }
 }
