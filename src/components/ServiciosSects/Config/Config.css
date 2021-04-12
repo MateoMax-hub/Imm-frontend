@@ -1,0 +1,35 @@
+.config{
+    font-family: 'Courier New', Courier, monospace;
+    width: 70%;
+}
+.configuracion{
+    display: flex;
+    justify-content: center;
+
+}
+.PhotoDeSoporte{
+    width: 500px;
+}
+.formActualDate{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+@media (max-Width: 780px){
+    .formActualDate{
+        display: flex;
+        justify-content: center;
+        width: 96%;
+    }
+    .config{
+        width: 100%;
+    }
+    .configuracion{
+        margin: 2%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .PhotoDeSoporte{
+        width: 96%;
+    }
+}

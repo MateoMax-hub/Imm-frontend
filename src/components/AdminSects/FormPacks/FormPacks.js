@@ -1,7 +1,7 @@
 import { useState, useEffect, React } from 'react';
 import UsePacks from '../../../UseForm/UsePacks';
 import FavCard from '../../../UseForm/FavCard';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import CardCompletado from './CardCompletado';
 
@@ -57,7 +57,6 @@ function FormPacks({ token }) {
         handleClose()
         getCompletados()
     }
-
     return (
         <div>
             <div className="w-100 d-flex justify-content-center">
@@ -111,6 +110,30 @@ function FormPacks({ token }) {
                         </div>
                     </div>
                     <div className="d-flex flex-wrap">
+                        {favorito.length === 0 && (
+                            <div className="w-100 d-flex justify-content-center m-5">
+                                <Button variant="primary" disabled>
+                                    <Spinner
+                                        as="span"
+                                        animation="border"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
+                                    <span className="sr-only">Loading...</span>
+                                </Button>{' '}
+                                <Button variant="primary" disabled>
+                                    <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
+                                    Loading...
+                                </Button>
+                            </div>
+                        )}
                         {favorito.map((pac) => (
                             <FavCard
                                 favorito={favorito}

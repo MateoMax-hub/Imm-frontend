@@ -24,44 +24,40 @@ const Login = ({ token }) => {
     }
 
     return (
-        <div>
-            <Navbar bg="dark" expand="lg" className="search">
-                <div>
-                    <Navbar.Brand as={Link} to="/">
-                        <b className="text">
-                            <i>I M M E D I T</i>
-                        </b>
-                    </Navbar.Brand>
-                </div>
+        <div className="sticky-top">
+            <Navbar expand="lg" className="search">
+                <Navbar.Brand as={Link} to="/">
+                    <b className="text">
+                        <i>I M M E D I T</i>
+                    </b>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="d-flex justify-content-end">
-                    <Form inline>
-                        <div className="d-flex">
-                            <div className="m-2">
-                                {!token && (
-                                    <Button as={NavLink} to="/login">
-                                        <b>Ingresar</b>
-                                    </Button>
-                                )}
-                            </div>
-                            <div className="m-2">
-                                {!token && (
-                                    <Button as={NavLink} to="/register">
-                                        <b>Registrarse</b>
-                                    </Button>
-                                )}
-                            </div>
-                            {token && (
-                                <div className="d-flex opcionts">
+                {token && (
+                    <Navbar.Collapse className="w-100" id="basic-navbar-nav" className="navbarDisplay">
+                        <Nav className="mr-auto">
+                            <Nav.Link className="text-light" href="/servicios/pedidos">
+                                <i>Pedidos</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/config">
+                                <i>Configuraciones</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/soporte">
+                                <i>Soporte</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/cartera">
+                                <i>Cartera</i>
+                            </Nav.Link>
+                        </Nav>
+
+                        <Nav className="d-flex justify-content-right">
+                            <div className="d-flex">
+                                <div className="opcionts">
                                     <div>
-                                        <Button as={Link} to="/servicios/cartera" variant="outline-primary">
-                                            <i><b>${card} Arg</b></i>
-                                        </Button>
-                                    </div>
-                                    <div className="ml-2">
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="info" id="dropdown-basic">
-                                                <i><b>{user} </b></i>
+                                            <Dropdown.Toggle variant="light" id="dropdown-basic">
+                                                <i>
+                                                    <b>{user} </b>
+                                                </i>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="24"
@@ -79,15 +75,6 @@ const Login = ({ token }) => {
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
                                                 <Dropdown.Item href="/perfil">Perfil</Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/pedidos">
-                                                    Pedidos
-                                                </Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/config">
-                                                    Configuraciones
-                                                </Dropdown.Item>
-                                                <Dropdown.Item href="/servicios/soporte">
-                                                    Soporte
-                                                </Dropdown.Item>
                                                 {isAdmin && (
                                                     <Dropdown.Item href="/admin/users">
                                                         Pagina admin
@@ -100,10 +87,26 @@ const Login = ({ token }) => {
                                         </Dropdown>
                                     </div>
                                 </div>
-                            )}
+                            </div>
+                        </Nav>
+                    </Navbar.Collapse>
+                )}
+                {!token && (
+                    <Navbar.Collapse className="NavSesion">
+                        <div className="d-flex">
+                            <div className="m-2">
+                                <Button variant="light" as={NavLink} to="/login">
+                                    <b>Ingresar</b>
+                                </Button>
+                            </div>
+                            <div className="m-2">
+                                <Button variant="light" as={NavLink} to="/register">
+                                    <b>Registrarse</b>
+                                </Button>
+                            </div>
                         </div>
-                    </Form>
-                </Navbar.Collapse>
+                    </Navbar.Collapse>
+                )}
             </Navbar>
         </div>
     );

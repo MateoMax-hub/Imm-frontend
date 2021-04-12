@@ -21,7 +21,7 @@ const Register = () => {
     return (
         <div>
             <div className={displayClientes}>
-                <button onClick={Submit} className="m-2 btn btn-primary">
+                <button onClick={Submit} className="m-2 btn btn-outline-primary">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -43,13 +43,13 @@ const Register = () => {
                             </b>
                         </div>
                         <div>
-                            <Nav.Link as={Link} to="/servicios/pedidos">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
                                 Pedidos pendientes
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/pedidos">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
                                 Mensajes pendientes
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/pedidos">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
                                 Mensajes clientes
                             </Nav.Link>
                         </div>
@@ -61,34 +61,34 @@ const Register = () => {
                             </b>
                         </div>
                         <div>
-                            <Nav.Link as={Link} to="/servicios/cartera">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Depositar dinero
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/cartera">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Extraer dinero
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/cartera">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Historial
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/cartera">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Publicidad
                             </Nav.Link>
                         </div>
                     </div>
-                    <div className="configuracion">
+                    <div className="ayuda">
                         <div className="TituloBorder">
                             <b>
                                 <i>Configuracion</i>
                             </b>
                         </div>
                         <div>
-                            <Nav.Link as={Link} to="/servicios/config">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
                                 Mis datos
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/config">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
                                 Seguridad
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/config">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
                                 Privacidad
                             </Nav.Link>
                         </div>
@@ -100,13 +100,13 @@ const Register = () => {
                             </b>
                         </div>
                         <div>
-                            <Nav.Link as={Link} to="/servicios/soporte">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
                                 FAQ
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/soporte">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
                                 About us
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/servicios/soporte">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
                                 Contactos
                             </Nav.Link>
                         </div>

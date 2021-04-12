@@ -1,0 +1,35 @@
+.cardPackDate {
+    width: 308px;
+}
+.carrucel {
+    margin: 0% 2%;
+}
+.escrite {
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+}
+
+@media (max-width: 780px) {
+    .carrucel {
+        margin: 7%;
+    }
+    .cardPackDate {
+        width: 45%;
+    }
+    .cardsPage {
+        margin: 0%;
+    }
+    .escrite {
+        font-size: 15px;
+    }
+    .escrito {
+        font-size: 10px;
+    }
+    .buttonsCards {
+        margin: 0%;
+        padding: 2%;
+        width: 50px;
+        font-size: 10px;
+        height: 35px;
+    }
+}

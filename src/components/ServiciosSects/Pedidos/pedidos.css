@@ -31,10 +31,8 @@
 }
 
 .thead-pedidos {
-    background-color: rgb(53, 53, 53);
+    background-color: #2e2e2e;
     color: white;
-    border-bottom: 3px black solid;
-    border-top: 3px black solid;
 }
 
 .th-pedidos {
@@ -67,4 +65,16 @@
     resize: none;
     height: 100px;
     width: 90%;
+}
+@media (max-Width: 780px){
+    .container-pedidos {
+        border: 2px black solid;
+        border-radius: 2rem;
+        width: 98%;
+        font-family: 'Heebo', sans-serif;
+        font-family: 'Hind Siliguri', sans-serif;
+        font-family: 'New Tegomin', serif;
+        font-family: 'Teko', sans-serif;
+        font-family: 'Yatra One', cursive;
+    }
 }

@@ -12,7 +12,7 @@
     width: 95%;
 }
 .search-input {
-    border-bottom: 2px rgb(46, 45, 45) solid;
-    background-color: rgba(5, 5, 5, 0.774);
+    border-bottom: 2px #2e2e2e solid;
+    background-color: #2e2e2e;
     padding: 10px;
 }

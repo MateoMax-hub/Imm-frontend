@@ -1,20 +1,17 @@
 import { Navbar } from 'react-bootstrap';
 
-
 const HeaderS = () => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="dark">
                 <Navbar.Collapse className="navBar d-flex justify-content-center" id="basic-navbar-nav">
-                    
                     <div>
                         <Navbar.Brand>
-                            <b>
-                                <i>IMMEDIT</i>
-                            </b>
+                            <h4>
+                                <b className="tituloHeader text-dark">ImmEdit Edicion Fotografica</b>
+                            </h4>
                         </Navbar.Brand>
                     </div>
-                    
                 </Navbar.Collapse>
             </Navbar>
         </div>

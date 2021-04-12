@@ -4,6 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import Tbody from './Tbody';
 import Etapas from './Etapas';
+import BarraLateral from '../../BarraLateral/BarraLateral';
 
 function Pedidos() {
     // estados del modal
@@ -33,12 +34,9 @@ function Pedidos() {
     const cancelarPedido = async () => {
         const token = localStorage.getItem('token');
         const headers = { 'x-auth-token': token };
-        const { data } = await axios.delete(
-            `pedidos/cancelarPedido/${pedido._id}`,
-            {
-                headers,
-            }
-        );
+        const { data } = await axios.delete(`pedidos/cancelarPedido/${pedido._id}`, {
+            headers,
+        });
         getPedidos();
         handleClose();
         setPedido([])
@@ -46,15 +44,18 @@ function Pedidos() {
 
     return (
         <>
+            <div className="barraLateral">
+                <BarraLateral />
+            </div>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <div className="container-pedidos d-flex flex-column">
-                    <div className="d-flex w-100 etapas-height etapas-c-border">
-                        <div className="w-25 d-flex justify-content-center align-item-center pt-3">
+                    <div className="d-flex w-100 etapas-height etapas-c-border config">
+                        <div className="w-25 p-3">
                             <h4>Estado:</h4>
                         </div>
                         <Etapas pedido={pedido} getPedidos={getPedidos} />
                     </div>
-                    <div className="pr-5 pl-5 pb-5 pt-2 d-flex flex-column w-100">
+                    <div className="pr-5 pl-5 pb-5 pt-2 d-flex flex-column w-100 config">
                         <div>
                             <h4>Pedidos realizados:</h4>
                         </div>

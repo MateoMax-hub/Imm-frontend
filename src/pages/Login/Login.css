@@ -1,5 +1,34 @@
 .bodyDeLogin{
-    background: url(https://www.wallpapertip.com/wmimgs/30-305890_4k-wallpaper-16-9.jpg);
+    background: url(https://res.cloudinary.com/jerrick/image/upload/c_scale,q_auto/5f0ff9545586f2001d896630.jpg);
     background-size: cover;
-    padding: 10% 0px;
+    padding: 2% 0px;
+    display: flex;
+    justify-content: center;
+}
+.formulario {
+    display: flex;
+    justify-content: center;
+    margin: 0% 4%;
+}
+.DentroDeForm {
+    background: rgba(10, 10, 10, 0.521);
+    color: rgba(255, 255, 255, 0.822);
+    width: 720px;
+    padding: 10%;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 1rem;
+}
+a{
+    color: rgb(14, 13, 13);
+}
+@media (max-Width: 780px){
+    .formulario {
+        padding: 4% 1%;
+    }
+    .DentroDeForm {
+        width: 100%;
+        padding: 3%;
+        border: 2px solid rgba(49, 48, 48, 0.705);
+        border-radius: 1rem;
+    }
 }

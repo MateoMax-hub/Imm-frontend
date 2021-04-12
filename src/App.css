@@ -1,163 +1,163 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
-.formulario{
-  display: flex;
-  justify-content: center;
-  width: 100%;
+
+.footerAuto {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
 }
-.DentroDeForm{
-  background: rgba(20, 20, 20, 0.685);
-  color: aliceblue;
-  width: 40%;
-  padding: 3%;
-  border-radius: 1rem;
+.Footer {
+    border-top: 1px #2e2e2e2f solid;
+    margin-top: auto;
+    background: #242323;
+    padding: 2% 0%;
+    color: #eee8e8;
+    font-family: 'Courier New', Courier, monospace;
 }
-.footerAuto{
-  min-height: 40vh;
-  display: flex;
-  flex-direction: column;
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    
 }
-.Footer{
-  margin-top: auto;
-  background: rgba(19, 18, 18, 0.897);
-  padding: 2% 0%;
-  color: aliceblue;
-  font-family: 'Hind Siliguri', sans-serif;
-  font-family: 'New Tegomin', serif;
-  font-family: 'Teko', sans-serif;
-  font-family: 'Yatra One', cursive;
+.card {
+    background: rgba(58, 55, 55, 0.452);
+    width: 100%;
+    margin: 10% 0%;
 }
-.navBar{
-  display: flex;
-  justify-content: space-between;
+.ladnPage {
+    margin: 1% 0%;
+    display: flex;
+    justify-content: center;
 }
-.card{
-  background: rgba(58, 55, 55, 0.452);
-  width: 100%;
-  margin: 10% 0%;
+.carrucel {
+    width: 625px;
 }
-.cardo{
-  width: 100%;
-  margin: 1% 40%;
-  font-family: 'Heebo', sans-serif;
-  font-family: 'Hind Siliguri', sans-serif;
-  font-family: 'New Tegomin', serif;
-  font-family: 'Teko', sans-serif;
-  font-family: 'Yatra One', cursive;
+.cards {
+    margin: 0%;
+    width: 330px;
 }
-.ladnPage{
-  margin: 1% 0%;
-  display: flex;
-  justify-content: center;
+.cardsPage {
+    margin: 0% 14%;
 }
-.carrucel{
-  width: 625px;
+.PhotoCard {
+    border: #1c1c1dbb solid 1px;
+    border-radius: 50%;
+    width: 182px;
+    height: 182px;
 }
-.cards{
-  margin: 0%;
-  width: 330px;
+.photo {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
 }
-.cardsPage{
-  margin: 0% 14%;
+.CardPerfil {
+    width: 300px;
 }
-.PhotoCard{
-  border: rgba(24, 24, 26, 0.726) solid 4px;
-  border-radius: 50%;
-  width: 238px;
+.text {
+    color: rgba(230, 220, 220, 0.945);
+    font-family: 'Courier New', Courier, monospace;
 }
-.photo{
-  border-radius: 50%;
-  width: 230px;
+.search {
+    background-color: #0474cf;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 16px 0 #030303;
 }
-.CardPerfil{
-  width: 300px;
+.cardPacks {
+    width: 73%;
 }
-.text{
-  color: rgba(248, 242, 242, 0.945);
-  font-family: 'Courier New', Courier, monospace;
+.agregarProducto {
+    width: 100%;
+    padding: 2%;
+    background: #005fc4bd;
+    color: aliceblue;
+    text-align: center;
+    border-radius: 8px;
 }
-.search{
-  display: flex;
-  justify-content: space-between;
+.opcionts {
+    margin: 0% 25px;
 }
-.cardPacks{
-  width: 83%;
+.text {
+    color: rgb(255, 255, 255);
+    font-family: 'Russo One', sans-serif;
 }
-.agregarProducto{
-  width: 100%;
-  padding: 2%;
-  background: #005fc4bd;
-  color: aliceblue;
-  text-align: center;
-  border-radius: 8px;
-}
-.opcionts{
-  margin: 0% 4%;
-  width: 250px;
-  font-family: 'Hind Siliguri', sans-serif;
-  font-family: 'New Tegomin', serif;
-  font-family: 'Teko', sans-serif;
-  font-family: 'Yatra One', cursive;
-}
-.text{
-  font-family: 'Russo One', sans-serif;
-}
-.modalDeSoporte{
+.modalDeSoporte {
     font-family: 'Heebo', sans-serif;
     font-family: 'Hind Siliguri', sans-serif;
     font-family: 'New Tegomin', serif;
     font-family: 'Teko', sans-serif;
     font-family: 'Yatra One', cursive;
-  }
-.cardPackDate{
-  width: 308px;
 }
-.perfilDescription{
-  display: flex;
+.perfilDescription {
+    display: flex;
 }
-.photoPerfil{
-  display: flex;
-  margin: 2% 5%;
+.photoPerfil {
+    display: flex;
+    margin: 2% 5%;
 }
-.descripcion{
-  margin: 2%;
-  text-align: left;
+.descripcion {
+    color: rgba(0, 0, 0, 0.808);
+    margin: 2%;
+    text-align: left;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
 }
-.card-landPage-mh {
-  min-height: 132px;
+.navbarDisplay {
+    color: rgb(7, 7, 7);
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+.barraLateral{
+    display: block;
+}
+.tituloHeader{
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
+}
+.NavSesion{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.CardsImagenes{
+    height: 180px;
 }
 @media (max-width: 748px) {
-  .formulario{
-    padding: 4% 1%;
-  }
-  .DentroDeForm{
-    width: 85%;
-    padding: 3%;
-    border: 2px solid rgba(49, 48, 48, 0.705);
-    border-radius: 1rem;
-  }
-  .PhotoCard{
-    width: 138px;
-  }
-  .photo{
-    width: 130px;
-  }
-  .cardPacks{
-    width: 100%;
-  }
-  .perfilDescription{
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-  }
-  .photoPerfil{
-    display: flex;
-    justify-content: center;
-    margin: 2% 5%;
-  }
-  .descripcion{
-    margin: 2%;
-    text-align: center;
-  }
+    .PhotoCard {
+        width: 138px;
+    }
+    .photo {
+        width: 130px;
+    }
+    .cardPacks {
+        width: 100%;
+    }
+    .perfilDescription {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+    }
+    .photoPerfil {
+        display: flex;
+        justify-content: center;
+        margin: 2% 5%;
+    }
+    .descripcion {
+        margin: 2%;
+        text-align: center;
+    }
+    .barraLateral{
+        display: none;
+    }
+    .opcionts {
+        margin: 0% 65px;
+    }
 }

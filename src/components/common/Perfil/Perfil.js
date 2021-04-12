@@ -53,11 +53,9 @@ const Perfil = ({ token }) => {
                 </div>
                 <div className="descripcion">
                     <h3>
-                        <b>
-                            <i>
-                                {user} {lastName}
-                            </i>
-                        </b>
+                        <i>
+                            {user} {lastName}
+                        </i>
                     </h3>
                     <hr />
                     <p>

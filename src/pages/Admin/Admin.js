@@ -46,7 +46,6 @@ function Admin() {
 
                 <HeaderAdmin />
                 <div className="d-flex">
-                    <BarraLateralAdmin />
                         <Switch>
 
                             <Route path="/admin/users">

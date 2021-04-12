@@ -1,0 +1,8 @@
+.barraLateralPed{
+    display: block;
+}
+@media (max-Width: 780px){
+    .barraLateralPed{
+        display: none;
+    }
+}

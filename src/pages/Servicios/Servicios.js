@@ -15,10 +15,6 @@ function Servicios({ token }) {
             <div className="d-flex">
                 {token? (
                     <>
-                    
-                        <div>
-                            <BarraLateral />
-                        </div>
                 
                         <Switch>
 

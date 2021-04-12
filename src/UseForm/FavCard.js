@@ -16,18 +16,13 @@ function FavCard(props) {
         return (
             <>
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
-                    <Card.Body className="d-flex flex-column justify-content-between">
-                        <div>
-                            <Card.Title>{pac.titulo}</Card.Title>
-                            <Card.Text className="card-height">{pac.descripcion}</Card.Text>
-                        </div>
-                        <div className="border border-primary w-50 align-self-center d-flex justify-content-center">
-                            <p className="m-0">precio: ${pac.precio}</p>
-                        </div>
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
+                    <Card.Body>
+                        <p className="escrite">{pac.titulo}</p>
+                        <Card.Text className="escrito">{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        {token ? (
+                    {token ? (
                             <>
                                 <Button variant="primary" onClick={() => handleShowBuy(pac)}>
                                     <i>Comprar pack</i>
@@ -74,18 +69,13 @@ function FavCard(props) {
         if (isFav.length !== 0) {
             return (
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
-                    <Card.Body className="d-flex flex-column justify-content-between">
-                        <div>
-                            <Card.Title>{pac.titulo}</Card.Title>
-                            <Card.Text className="card-height">{pac.descripcion}</Card.Text>
-                        </div>
-                        <div className="border border-primary w-50 align-self-center d-flex justify-content-center">
-                            <p className="m-0">precio: ${pac.precio}</p>
-                        </div>
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
+                    <Card.Body>
+                        <Card.Title className="escrite">{pac.titulo}</Card.Title>
+                        <Card.Text className="escrito">{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        {token ? (
+                    {token ? (
                             <>
                                 <Button variant="primary" onClick={() => handleShowBuy(pac)}>
                                     <i>Comprar pack</i>
@@ -109,7 +99,7 @@ function FavCard(props) {
                                 <Button variant="primary" onClick={() => palLobby()}>
                                     <i>Comprar pack</i>
                                 </Button>
-                                <button className="btn btn-outline-warning" onClick={() => palLobby()}>
+                                <button className="btn btn-warning" onClick={() => palLobby()}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="16"
@@ -129,18 +119,13 @@ function FavCard(props) {
         } else {
             return (
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
-                    <Card.Body className="d-flex flex-column justify-content-between">
-                        <div>
-                            <Card.Title>{pac.titulo}</Card.Title>
-                            <Card.Text className="card-height">{pac.descripcion}</Card.Text>
-                        </div>
-                        <div className="border border-primary w-50 align-self-center d-flex justify-content-center">
-                            <p className="m-0">precio: ${pac.precio}</p>
-                        </div>
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
+                    <Card.Body>
+                        <Card.Title className="escrite">{pac.titulo}</Card.Title>
+                        <Card.Text className="escrito">{pac.descripcion}</Card.Text>
                     </Card.Body>
                     <Card.Footer className="d-flex justify-content-between">
-                        {token ? (
+                    {token ? (
                             <>
                                 <Button variant="primary" onClick={() => handleShowBuy(pac)}>
                                     <i>Comprar pack</i>

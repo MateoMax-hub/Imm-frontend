@@ -26,10 +26,18 @@ const Login = ({ setToken }) => {
         <div className="bodyDeLogin">
             <div className="formulario">
                 <div className="DentroDeForm">
-                    <Form onSubmit={HandleSubmit}>
+                    <div className="w-100">
+                        <h3>
+                            <i>
+                                <b>Bienvenido a Immedit Inicie Sesion</b>
+                            </i>
+                        </h3>
+                    </div>
+                    <hr className="bg-light" />
+                    <Form className="mt-5" onSubmit={HandleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>
-                                <b>Email</b>
+                                <b>Correo electrónico</b>
                             </Form.Label>
                             <Form.Control
                                 onChange={(e) => HandleChange(e)}
@@ -50,12 +58,14 @@ const Login = ({ setToken }) => {
                                 placeholder="Password"
                             />
                         </Form.Group>
-                        <Button className="btn btn-primary w-100" type="submit">
+                        <Button className="btn btn-primary mt-2" type="submit">
                             <b>Iniciar Sesion</b>
                         </Button>
                     </Form>
                     <div className="mt-2">
-                        <a href="/register">aun no tienes cuenta, registrate ahora mismo?</a>
+                        <a href="/register" className="list-unstyled">
+                            aun no tienes cuenta, registrate ahora mismo?
+                        </a>
                     </div>
                 </div>
             </div>
