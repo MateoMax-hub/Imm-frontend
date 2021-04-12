@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Button, Modal, Carousel, NavDropdown } from 'react-bootstrap';
+import { Spinner, Button } from 'react-bootstrap';
 import UseFavorito from './UseFavorito';
 import UseCard from './UseCard';
 import FavCard from './FavCard';
@@ -38,9 +38,30 @@ function UsePacks({ token }) {
         }
     };
 
-
     const CardPerfilTodos = packTodos.map((pac, i) => {
-        return (<FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} guardarFav={guardarFav}/>)
+        if (favorito.length === 0) {
+            return (
+                <div className="d-flex flex-wrap">
+                    <div className="w-100 d-flex justify-content-center m-5">
+                        <Button variant="primary" disabled>
+                            <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                            />
+                            <span className="sr-only">Loading...</span>
+                        </Button>{' '}
+                        <Button variant="primary" disabled>
+                            <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                            Loading...
+                        </Button>
+                    </div>
+                </div>
+            );
+        }
+        return <FavCard favorito={favorito} pac={pac} exampleImage={exampleImage} guardarFav={guardarFav} />;
     });
     return {
         CardPerfilTodos,
@@ -49,7 +70,7 @@ function UsePacks({ token }) {
         packTodos,
         show,
         favorito,
-        guardarFav
+        guardarFav,
     };
 }
 

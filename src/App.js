@@ -33,7 +33,7 @@ function App() {
                         </Route>
 
                         <Route path="/login">
-                            <HeaderSencillo />
+                            <Header token={token} />
                             <Login setToken={setToken} />
                         </Route>
 
@@ -43,7 +43,7 @@ function App() {
                         </Route>
 
                         <Route path="/register">
-                            <HeaderSencillo />
+                            <Header token={token} />
                             <Register setToken={setToken} />
                         </Route>
 

@@ -1,18 +1,7 @@
 .App {
     text-align: center;
 }
-.formulario {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.DentroDeForm {
-    background: rgba(20, 20, 20, 0.685);
-    color: aliceblue;
-    width: 40%;
-    padding: 3%;
-    border-radius: 1rem;
-}
+
 .footerAuto {
     min-height: 30vh;
     display: flex;
@@ -52,13 +41,15 @@
     margin: 0% 14%;
 }
 .PhotoCard {
-    border: #1c1c1dd8 solid 4px;
+    border: #1c1c1dbb solid 1px;
     border-radius: 50%;
-    width: 238px;
+    width: 182px;
+    height: 182px;
 }
 .photo {
     border-radius: 50%;
-    width: 230px;
+    width: 180px;
+    height: 180px;
 }
 .CardPerfil {
     width: 300px;
@@ -106,8 +97,14 @@
     margin: 2% 5%;
 }
 .descripcion {
+    color: rgba(0, 0, 0, 0.808);
     margin: 2%;
     text-align: left;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
 }
 .navbarDisplay {
     color: rgb(7, 7, 7);
@@ -117,16 +114,23 @@
 .barraLateral{
     display: block;
 }
+.tituloHeader{
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'New Tegomin', serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'Yatra One', cursive;
+}
+.NavSesion{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.CardsImagenes{
+    height: 180px;
+}
 @media (max-width: 748px) {
-    .formulario {
-        padding: 4% 1%;
-    }
-    .DentroDeForm {
-        width: 85%;
-        padding: 3%;
-        border: 2px solid rgba(49, 48, 48, 0.705);
-        border-radius: 1rem;
-    }
     .PhotoCard {
         width: 138px;
     }

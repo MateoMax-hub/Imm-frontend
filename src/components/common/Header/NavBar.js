@@ -14,38 +14,25 @@ const Login = ({ token }) => {
                     </b>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse className="w-100" id="basic-navbar-nav" className="navbarDisplay">
-                    {token &&<Nav className="mr-auto">
-                        <Nav.Link className="text-light" href="/servicios/pedidos">
-                            <i>Pedidos</i>
-                        </Nav.Link>
-                        <Nav.Link className="text-light" href="/servicios/config">
-                            <i>Configuraciones</i>
-                        </Nav.Link>
-                        <Nav.Link className="text-light" href="/servicios/soporte">
-                            <i>Soporte</i>
-                        </Nav.Link>
-                        <Nav.Link className="text-light" href="/servicios/cartera">
-                            <i>Cartera</i>
-                        </Nav.Link>
-                    </Nav>}
-                    <Nav className="d-flex justify-content-right">
-                        <div className="d-flex">
-                            <div className="m-2">
-                                {!token && (
-                                    <Button as={NavLink} to="/login">
-                                        <b>Ingresar</b>
-                                    </Button>
-                                )}
-                            </div>
-                            <div className="m-2">
-                                {!token && (
-                                    <Button as={NavLink} to="/register">
-                                        <b>Registrarse</b>
-                                    </Button>
-                                )}
-                            </div>
-                            {token && (
+                {token && (
+                    <Navbar.Collapse className="w-100" id="basic-navbar-nav" className="navbarDisplay">
+                        <Nav className="mr-auto">
+                            <Nav.Link className="text-light" href="/servicios/pedidos">
+                                <i>Pedidos</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/config">
+                                <i>Configuraciones</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/soporte">
+                                <i>Soporte</i>
+                            </Nav.Link>
+                            <Nav.Link className="text-light" href="/servicios/cartera">
+                                <i>Cartera</i>
+                            </Nav.Link>
+                        </Nav>
+
+                        <Nav className="d-flex justify-content-right">
+                            <div className="d-flex">
                                 <div className="opcionts">
                                     <div>
                                         <Dropdown>
@@ -82,10 +69,26 @@ const Login = ({ token }) => {
                                         </Dropdown>
                                     </div>
                                 </div>
-                            )}
+                            </div>
+                        </Nav>
+                    </Navbar.Collapse>
+                )}
+                {!token && (
+                    <Navbar.Collapse className="NavSesion">
+                        <div className="d-flex">
+                            <div className="m-2">
+                                <Button variant="light" as={NavLink} to="/login">
+                                    <b>Ingresar</b>
+                                </Button>
+                            </div>
+                            <div className="m-2">
+                                <Button variant="light" as={NavLink} to="/register">
+                                    <b>Registrarse</b>
+                                </Button>
+                            </div>
                         </div>
-                    </Nav>
-                </Navbar.Collapse>
+                    </Navbar.Collapse>
+                )}
             </Navbar>
         </div>
     );

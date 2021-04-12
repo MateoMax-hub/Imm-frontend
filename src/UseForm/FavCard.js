@@ -7,7 +7,7 @@ function FavCard(props) {
         return (
             <>
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <p className="escrite">{pac.titulo}</p>
                         <Card.Text className="escrito">{pac.descripcion}</Card.Text>
@@ -40,7 +40,7 @@ function FavCard(props) {
         if (isFav.length !== 0) {
             return (
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <Card.Title className="escrite">{pac.titulo}</Card.Title>
                         <Card.Text className="escrito">{pac.descripcion}</Card.Text>
@@ -67,7 +67,7 @@ function FavCard(props) {
         } else {
             return (
                 <Card className="m-2 cardPackDate">
-                    <Card.Img variant="top" src={pac.imagen || exampleImage} />
+                    <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <Card.Title className="escrite">{pac.titulo}</Card.Title>
                         <Card.Text className="escrito">{pac.descripcion}</Card.Text>
