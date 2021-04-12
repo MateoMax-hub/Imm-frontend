@@ -21,11 +21,10 @@ const LandPage = ({ token }) => {
                             <Card.Title>
                                 <i>Edicion de Fotos</i>
                             </Card.Title>
-                            <Card.Text>
+                            <Card.Text className="card-landPage-mh">
                                 Pagina donde te pondes contactar con los mejores editores para tener tus fotos
                                 mas faceras.
                             </Card.Text>
-                            <button className="btn btn-info">Ver Packs</button>
                         </Card.Body>
                     </Card>
                 </div>

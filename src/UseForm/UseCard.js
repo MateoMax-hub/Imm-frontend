@@ -34,6 +34,7 @@ function UseCard({ token }) {
             SetRol(data.rol);
             SetId(data._id);
             SetFavorito(data.favorito);
+            console.log(data);
         } catch (error) {
             console.log(error);
         }

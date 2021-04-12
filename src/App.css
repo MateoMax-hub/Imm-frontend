@@ -124,6 +124,9 @@
   margin: 2%;
   text-align: left;
 }
+.card-landPage-mh {
+  min-height: 132px;
+}
 @media (max-width: 748px) {
   .formulario{
     padding: 4% 1%;
