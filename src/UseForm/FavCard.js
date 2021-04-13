@@ -11,8 +11,8 @@ function FavCard(props) {
     const palLobby = () => {
         window.location = 'login'
     }
-
-    if (favorito.length === 0) {
+    
+    if (favorito.length === 0 || !token ) {
         return (
             <>
                 <Card className="m-2 cardPackDate">

@@ -14,8 +14,13 @@ function Cartera({ token }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [saldoInsu, setSaldoInsu] = useState(false)
+
 
     const Valor = (e) => {
+        if (e.target.value < 0) {
+            e.target.value = 1
+        }
         const { name, value } = e.target;
         const changedInput = { ...depo, [name]: value };
         setDepo(changedInput);
@@ -32,6 +37,10 @@ function Cartera({ token }) {
     };
     const ExtractBalance = async () => {
         try {
+            if (card + depoTwo < 0){
+                handleShowSaldo()
+                return
+            }
             const headers = { 'x-auth-token': token };
             await axios.put('usuarios/cartera', { balance: depoTwo }, { headers });
             window.location.reload();
@@ -39,7 +48,14 @@ function Cartera({ token }) {
             console.log(error);
         }
     };
-    console.log(depoTwo);
+
+    const handleCloseSaldo = () => {
+        setSaldoInsu(false)
+    }
+    const handleShowSaldo = () => {
+        setSaldoInsu(true)
+    }
+
     return (
         <>
             <div className="barraLateral">
@@ -71,6 +87,7 @@ function Cartera({ token }) {
                                     type="number"
                                     placeholder="Ingresar saldo..."
                                     className="w-100 form-control"
+                                    min="0"
                                 />
                             </div>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -92,6 +109,21 @@ function Cartera({ token }) {
                     </div>
                 </div>
             </div>
+            <Modal show={saldoInsu} onHide={handleCloseSaldo}>
+                <Modal.Body>
+                    <div className="text-center">
+                        <b>
+                            <i>Usted no posee el monto que esta intentando extraer, por favor intente denuevo</i>
+                        </b>
+                    </div>
+                    <hr />
+                    <div className="d-flex flex-column ml-2">
+                        <Button onClick={handleCloseSaldo} variant="outline-secondary">
+                            cerrar
+                        </Button>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     );
 }
