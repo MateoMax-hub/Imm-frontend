@@ -158,46 +158,48 @@ function Usuarios() {
                             <option value="email">Email</option>
                         </select>
                         <Button onClick={() => handleMySubmit()} variant="primary">
-                           <b>Buscar</b>
+                            <b>Buscar</b>
                         </Button>
                     </div>
                     <div></div>
                 </div>
-                <table className="w-100">
-                    <thead className="thead">
-                        <tr className="m-2">
-                            <th className="text-center">Nombre</th>
-                            <th className="text-center">Apellido</th>
-                            <th className="text-center">Rol</th>
-                            <th className="text-center">Estado de cuenta</th>
-                            <th className="text-center">---</th>
-                        </tr>
-                    </thead>
-                    <tbody className="mt-2">
-                        {usersFiltrados.map((u) => (
-                            <>
-                                <tr>
-                                    <th className="text-center">{u.nombre}</th>
-                                    <th className="text-center">{u.apellido}</th>
-                                    <th className="text-center">{u.rol}</th>
-                                    <th className="text-center">{u.estadoCuenta}</th>
-                                    <th className="text-center">
-                                        <Button
-                                            variant="outline-dark"
-                                            onClick={() => setUser(u)}
-                                            className="mr-3"
-                                        >
-                                            mas info
-                                        </Button>
-                                        <Button variant="info" onClick={() => editModal(u)}>
-                                            editar
-                                        </Button>
-                                    </th>
-                                </tr>
-                            </>
-                        ))}
-                    </tbody>
-                </table>
+                <div style={{ "max-height": "790px", "overflow-y": "auto"}}>
+                    <table className="w-100">
+                        <thead className="thead">
+                            <tr className="m-2">
+                                <th className="text-center">Nombre</th>
+                                <th className="text-center">Apellido</th>
+                                <th className="text-center">Rol</th>
+                                <th className="text-center">Estado de cuenta</th>
+                                <th className="text-center">---</th>
+                            </tr>
+                        </thead>
+                        <tbody className="mt-2">
+                            {usersFiltrados.map((u) => (
+                                <>
+                                    <tr>
+                                        <th className="text-center">{u.nombre}</th>
+                                        <th className="text-center">{u.apellido}</th>
+                                        <th className="text-center">{u.rol}</th>
+                                        <th className="text-center">{u.estadoCuenta}</th>
+                                        <th className="text-center">
+                                            <Button
+                                                variant="outline-dark"
+                                                onClick={() => setUser(u)}
+                                                className="mr-3"
+                                            >
+                                                mas info
+                                            </Button>
+                                            <Button variant="info" onClick={() => editModal(u)}>
+                                                editar
+                                            </Button>
+                                        </th>
+                                    </tr>
+                                </>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Body>

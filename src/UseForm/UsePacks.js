@@ -20,6 +20,8 @@ function UsePacks({ token }) {
 
     const [spinnerNeed, setSpinnerNeed] = useState(true);
 
+    const [saldoInsu, setSaldoInsu] = useState(false)
+
     useEffect(() => {
         EffectPacksTodos();
     }, []);
@@ -64,6 +66,11 @@ function UsePacks({ token }) {
                 }
             );
             handleCloseBuy();
+            if (data === 'saldo insuficiente'){
+                handleShowSaldo()
+            } else {
+                window.location = '/servicios/pedidos'
+            }
         } catch (error) {
             console.log(error);
             handleCloseBuy();
@@ -78,6 +85,13 @@ function UsePacks({ token }) {
         setPedidoBuyShow(true);
         setPedidoInProgres(pack);
     };
+    
+    const handleCloseSaldo = () => {
+        setSaldoInsu(false)
+    }
+    const handleShowSaldo = () => {
+        setSaldoInsu(true)
+    }
 
     const CardPerfilTodos = (
         <>
@@ -104,7 +118,46 @@ function UsePacks({ token }) {
                 <></>
             )}
             {packTodos.map((pac, i) => {
-                if (favorito !== false) {
+                if (localStorage.getItem('token')) {
+                    if (favorito !== false) {
+                        return (
+                            <FavCard
+                                favorito={favorito}
+                                pac={pac}
+                                exampleImage={exampleImage}
+                                guardarFav={guardarFav}
+                                handleShowBuy={handleShowBuy}
+                            />
+                        );
+                    } else {
+                        return (
+                            <div className="d-flex flex-wrap">
+                                <div className="w-100 d-flex justify-content-center m-5">
+                                    <Button variant="primary" disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="border"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        <span className="sr-only">Loading...</span>
+                                    </Button>{' '}
+                                    <Button variant="primary" disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
+                                    </Button>
+                                </div>
+                            </div>
+                        );
+                    }
+                } else {
                     return (
                         <FavCard
                             favorito={favorito}
@@ -113,33 +166,6 @@ function UsePacks({ token }) {
                             guardarFav={guardarFav}
                             handleShowBuy={handleShowBuy}
                         />
-                    );
-                } else {
-                    return (
-                        <div className="d-flex flex-wrap">
-                            <div className="w-100 d-flex justify-content-center m-5">
-                                <Button variant="primary" disabled>
-                                    <Spinner
-                                        as="span"
-                                        animation="border"
-                                        size="sm"
-                                        role="status"
-                                        aria-hidden="true"
-                                    />
-                                    <span className="sr-only">Loading...</span>
-                                </Button>{' '}
-                                <Button variant="primary" disabled>
-                                    <Spinner
-                                        as="span"
-                                        animation="grow"
-                                        size="sm"
-                                        role="status"
-                                        aria-hidden="true"
-                                    />
-                                    Loading...
-                                </Button>
-                            </div>
-                        </div>
                     );
                 }
             })}
@@ -165,6 +191,21 @@ function UsePacks({ token }) {
                     </div>
                 </Modal.Body>
             </Modal>
+            <Modal show={saldoInsu} onHide={handleCloseSaldo}>
+                <Modal.Body>
+                    <div className="text-center">
+                        <b>
+                            <i>Saldo insuficiente para comprar el pack, porfavor recargue saldo e intente de nuevo</i>
+                        </b>
+                    </div>
+                    <hr />
+                    <div className="d-flex flex-column ml-2">
+                        <Button onClick={handleCloseSaldo} variant="outline-secondary">
+                            cerrar
+                        </Button>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     );
 
@@ -181,6 +222,8 @@ function UsePacks({ token }) {
         handleCloseBuy,
         comprarPack,
         pedidoInProgres,
+        saldoInsu,
+        handleCloseSaldo
     };
 }
 

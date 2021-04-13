@@ -105,28 +105,10 @@ function Packs() {
                 <BarraLateralAdmin />
             </div>
             <div className="w-100">
-                <div className="search-input d-flex justify-content-around">
-                    <div className="d-flex ">
-                        <input
-                            placeHolder="Buscar..."
-                            className="form-control"
-                            onChange={(e) => handleChangeSearch(e)}
-                        ></input>
-                        <select className="mx-2 form-control" onChange={(e) => handleSelect(e)}>
-                            <option disabled selected>
-                                Buscar por
-                            </option>
-                            <option value="nombre">Nombre</option>
-                            <option value="apellido">Apellido</option>
-                            <option value="rol">Rol</option>
-                            <option value="estadoCuenta">Estado de cuenta</option>
-                            <option value="email">Email</option>
-                        </select>
-                        <Button onClick={(e) => handleMySubmit(e)} variant="primary">
-                            <b>Buscar</b>
-                        </Button>
+                <div className="search-input d-flex justify-content-around border-0 p-0">
+                    <div className="d-flex " style={{height: "60px"}}>
+
                     </div>
-                    <div></div>
                 </div>
                 <table className="w-100">
                     <thead className="thead">

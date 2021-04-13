@@ -17,6 +17,8 @@ function FormPacks({ token }) {
         handleCloseBuy,
         comprarPack,
         pedidoInProgres,
+        handleCloseSaldo,
+        saldoInsu
     } = UsePacks({
         token,
     });
@@ -25,7 +27,7 @@ function FormPacks({ token }) {
     const [data, setData] = useState(false);
     const [deleting, setDeleting] = useState({});
     const [favExist, setFavExist] = useState(false);
-    const [completoExist, setCompletoExist] = useState(false)
+    const [completoExist, setCompletoExist] = useState(false);
 
     useEffect(() => {
         getCompletados();
@@ -123,7 +125,8 @@ function FormPacks({ token }) {
                                 <Card className="m-2 cardPackDate">
                                     <Card.Body>
                                         <p className="escrite">
-                                            Aca podras ver las imagenes que ya editamos para tí,¿falta alguna? revisa tus pedidos para corroborar el estado del tuyo!
+                                            Aca podras ver las imagenes que ya editamos para tí,¿falta alguna?
+                                            revisa tus pedidos para corroborar el estado del tuyo!
                                         </p>
                                     </Card.Body>
                                 </Card>
@@ -246,6 +249,24 @@ function FormPacks({ token }) {
                                         className="mt-2"
                                     >
                                         comprar
+                                    </Button>
+                                </div>
+                            </Modal.Body>
+                        </Modal>
+                        <Modal show={saldoInsu} onHide={handleCloseSaldo}>
+                            <Modal.Body>
+                                <div className="text-center">
+                                    <b>
+                                        <i>
+                                            Saldo insuficiente para comprar el pack, porfavor recargue saldo e
+                                            intente de nuevo
+                                        </i>
+                                    </b>
+                                </div>
+                                <hr />
+                                <div className="d-flex flex-column ml-2">
+                                    <Button onClick={handleCloseSaldo} variant="outline-secondary">
+                                        cerrar
                                     </Button>
                                 </div>
                             </Modal.Body>
