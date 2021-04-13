@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Spinner, Button, Modal } from 'react-bootstrap';
-import UseFavorito from './UseFavorito';
 import UseCard from './UseCard';
 import FavCard from './FavCard';
 

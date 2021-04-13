@@ -9,7 +9,6 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Header from './components/common/Header/NavBar';
 import Footer from './components/common/Footer/Footer';
-import HeaderSencillo from './components/common/HeaderSencillo/HeaderSencillo';
 import Home from './pages/Home/Home';
 import Servicios from './pages/Servicios/Servicios';
 import Admin from './pages/Admin/Admin';

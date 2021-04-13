@@ -104,9 +104,8 @@ function CrearUsuario(props) {
                             <i className="mr-2">descripcion</i>
                             <textarea
                                 maxLength="120"
-                                className="ta-modal-packs"
+                                className="ta-modal-packs form-control"
                                 onChange={(e) => handleCreate(e)}
-                                className="form-control"
                                 name="descripcion"
                             ></textarea>
                         </label>

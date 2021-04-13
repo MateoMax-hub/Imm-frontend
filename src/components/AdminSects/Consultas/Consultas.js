@@ -1,5 +1,5 @@
 import UseConsulta from '../../../UseForm/UseConsulta';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BarraLateralAdmin from '../../../components/BarraLateralAdmin/BarraLateralAdmin';
 import { Modal, Button } from 'react-bootstrap';
 import moment from 'moment'

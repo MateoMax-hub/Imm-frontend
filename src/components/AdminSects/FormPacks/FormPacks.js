@@ -10,7 +10,6 @@ function FormPacks({ token }) {
         CardPerfil,
         exampleImage,
         guardarFav,
-        packTodos,
         favorito,
         handleShowBuy,
         pedidoBuyShow,
