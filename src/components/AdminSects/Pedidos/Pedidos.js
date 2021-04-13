@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
 import Tr from './Tr';
 import BarraLateralAdmin from '../../../components/BarraLateralAdmin/BarraLateralAdmin';
+import moment from 'moment';
 
 function Pedidos() {
     // pedidos
@@ -197,6 +198,20 @@ function Pedidos() {
         setMasInfo(p);
     };
 
+    const momentParser = (d) => {
+        if (d === undefined){
+            return ''
+        }
+        moment.locale('es', {
+            months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
+            monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
+            weekdays: 'Domingo_Lunes_Martes_Miercoles_Jueves_Viernes_Sabado'.split('_'),
+            weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
+            weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_'),
+        });
+        return moment(d).format('lll');
+    };
+
     return (
         <div className="d-flex">
             <div className="barraLateralPed">
@@ -311,12 +326,14 @@ function Pedidos() {
                             </div>
                             <hr />
                             <div className="d-flex flex-column ml-2">
-                                <p>Consumidor: {masInfo.consumidor.nombre} {masInfo.consumidor.apellido}</p>
+                                <p>
+                                    Consumidor: {masInfo.consumidor.nombre} {masInfo.consumidor.apellido}
+                                </p>
                                 <p>Email consumidor: {masInfo.consumidor.email}</p>
-                                <p>Encargo realizado el: {masInfo.createdAt}</p>
-                                <p>Primera etapa completada el: {masInfo.primeraEtapa.at}</p>
-                                <p>Segunda etapa completada el: {masInfo.segundaEtapa.at}</p>
-                                <p>Tercera etapa completada el: {masInfo.terceraEtapa.at}</p>
+                                <p>Encargo realizado el: {momentParser(masInfo.createdAt)}</p>
+                                <p>Primera etapa completada el: {momentParser(masInfo.primeraEtapa.at)}</p>
+                                <p>Segunda etapa completada el: {momentParser(masInfo.segundaEtapa.at)}</p>
+                                <p>Tercera etapa completada el: {momentParser(masInfo.terceraEtapa.at)}</p>
                             </div>
                         </Modal.Body>
                     </Modal>
