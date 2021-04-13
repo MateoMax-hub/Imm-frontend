@@ -1,11 +1,11 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 
 const Login = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
-
+    const [validation, setValidation] = useState(false);
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const Login = ({ setToken }) => {
             setToken(data);
             window.location.href = '/';
         } catch (error) {
-            console.log(error);
+            setValidation(true)
         }
     };
 
@@ -41,12 +41,7 @@ const Login = ({ setToken }) => {
                         </h3>
                     </div>
                     <hr className="bg-light" />
-                    <Form
-                        className="mt-5"
-                        onSubmit={HandleSubmit}
-                        noValidate
-                        validated={validated}
-                    >
+                    <Form className="mt-5" onSubmit={HandleSubmit} noValidate validated={validated}>
                         <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Correo electrónico</b>
@@ -58,7 +53,7 @@ const Login = ({ setToken }) => {
                                 type="email"
                                 placeholder="Enter email"
                             />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            {validation === true && <Alert className="text-danger">Datos erroneos, revise su correo!</Alert>}
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom02">
@@ -72,7 +67,7 @@ const Login = ({ setToken }) => {
                                 type="password"
                                 placeholder="Password"
                             />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            {validation === true && <Alert className="text-danger">Datos erroneos, revise su contraseña!</Alert>}
                         </Form.Group>
                         <Button className="btn btn-primary mt-2" type="submit">
                             <b>Iniciar Sesion</b>

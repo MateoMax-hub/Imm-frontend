@@ -1,10 +1,12 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 import './Register.css';
 
 const Register = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
+    const [validation, setValidation] = useState(false);
+    const [habilitar, setHabilitar] = useState('disabled');
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +22,7 @@ const Register = ({ setToken }) => {
             setToken(data);
             window.location = './';
         } catch (error) {
-            console.log('datos de error', error);
+            setValidation(true);
         }
     };
 
@@ -40,12 +42,7 @@ const Register = ({ setToken }) => {
                         </h1>
                     </div>
                     <hr className="bg-light" />
-                    <Form
-                        className="mt-5"
-                        onSubmit={HandleSubmit}
-                        noValidate
-                        validated={validated}
-                    >
+                    <Form className="mt-5" onSubmit={HandleSubmit} noValidate validated={validated}>
                         <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Nombre</b>
@@ -56,7 +53,13 @@ const Register = ({ setToken }) => {
                                 name="nombre"
                                 type="text"
                                 placeholder="Nombre"
+                                maxLength="12"
                             />
+                            {validation === true && (
+                                <Alert className="text-danger">
+                                    Tiene que tener 12 caracteres como maximo!
+                                </Alert>
+                            )}
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
@@ -68,7 +71,13 @@ const Register = ({ setToken }) => {
                                 name="apellido"
                                 type="text"
                                 placeholder="Apellido"
+                                maxLength="12"
                             />
+                            {validation === true && (
+                                <Alert className="text-danger">
+                                    Tiene que tener 12 caracteres como maximo!
+                                </Alert>
+                            )}
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
@@ -80,7 +89,13 @@ const Register = ({ setToken }) => {
                                 name="email"
                                 type="email"
                                 placeholder="Email"
+                                maxLength="40"
                             />
+                            {validation === true && (
+                                <Alert className="text-danger">
+                                    Tiene que tener 40 caracteres como maximo!!
+                                </Alert>
+                            )}
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom01">
@@ -93,9 +108,24 @@ const Register = ({ setToken }) => {
                                 name="password"
                                 type="password"
                                 placeholder="Password"
+                                maxLength="10"
+                                minLength="5"
+                            />
+                            {validation === true && (
+                                <Alert className="text-danger">
+                                    Tiene que tener entre 5 y 15 caracteres!!
+                                </Alert>
+                            )}
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Check
+                                required
+                                label="Debe aceptar las condiciones"
+                                feedback="Acepto terminos y condiciones de uso."
+                                onClick={() => setHabilitar('')}
                             />
                         </Form.Group>
-                        <Button className="btn btn-primary w-100" type="submit">
+                        <Button className="btn btn-primary w-100" disabled={habilitar} type="submit">
                             <b>Register</b>
                         </Button>
                     </Form>
