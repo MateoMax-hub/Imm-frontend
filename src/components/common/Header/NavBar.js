@@ -73,7 +73,7 @@ const Login = ({ token }) => {
                                                     />
                                                 </svg>
                                             </Dropdown.Toggle>
-                                            <Dropdown.Menu>
+                                            <Dropdown.Menu className="NavbarRight">
                                                 <Dropdown.Item href="/perfil">Perfil</Dropdown.Item>
                                                 {isAdmin && (
                                                     <Dropdown.Item href="/admin/users">

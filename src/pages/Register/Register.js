@@ -4,6 +4,15 @@ import axios from 'axios';
 import './Register.css';
 
 const Register = ({ setToken }) => {
+    const [validated, setValidated] = useState(false);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        setValidated(true);
+    };
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
@@ -29,37 +38,48 @@ const Register = ({ setToken }) => {
             <div className="formulario">
                 <div className="DentroDeForm">
                     <div className="w-100">
-                        <h1 className="text-center"><b>Registro</b></h1>
+                        <h1 className="text-center">
+                            <b>Registro</b>
+                        </h1>
                     </div>
                     <hr className="bg-light" />
-                    <Form className="mt-5" onSubmit={HandleSubmit}>
-                        <Form.Group controlId="formBasicEmail">
+                    <Form
+                        className="mt-5"
+                        onSubmit={HandleSubmit}
+                        noValidate
+                        validated={validated}
+                        onSubmit={handleSubmit}
+                    >
+                        <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Nombre</b>
                             </Form.Label>
                             <Form.Control
+                                required
                                 onChange={(e) => HandleChange(e)}
                                 name="nombre"
                                 type="text"
                                 placeholder="Nombre"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Apellido</b>
                             </Form.Label>
                             <Form.Control
+                                required
                                 onChange={(e) => HandleChange(e)}
                                 name="apellido"
                                 type="text"
                                 placeholder="Apellido"
                             />
                         </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Email</b>
                             </Form.Label>
                             <Form.Control
+                                required
                                 onChange={(e) => HandleChange(e)}
                                 name="email"
                                 type="email"
@@ -67,11 +87,12 @@ const Register = ({ setToken }) => {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Contraseña</b>
                             </Form.Label>
                             <Form.Control
+                                required
                                 onChange={(e) => HandleChange(e)}
                                 name="password"
                                 type="password"

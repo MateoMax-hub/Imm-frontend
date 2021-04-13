@@ -4,9 +4,16 @@ import axios from 'axios';
 import './Login.css';
 
 const Login = ({ setToken }) => {
+    const [validated, setValidated] = useState(false);
+
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+        }
+        setValidated(true);
         try {
             const { data } = await axios.post('auth', input);
             localStorage.setItem('token', data);
@@ -34,29 +41,38 @@ const Login = ({ setToken }) => {
                         </h3>
                     </div>
                     <hr className="bg-light" />
-                    <Form className="mt-5" onSubmit={HandleSubmit}>
-                        <Form.Group controlId="formBasicEmail">
+                    <Form
+                        className="mt-5"
+                        onSubmit={HandleSubmit}
+                        noValidate
+                        validated={validated}
+                    >
+                        <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Correo electrónico</b>
                             </Form.Label>
                             <Form.Control
                                 onChange={(e) => HandleChange(e)}
+                                required
                                 name="email"
                                 type="email"
                                 placeholder="Enter email"
                             />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom02">
                             <Form.Label>
                                 <b>Contraseña</b>
                             </Form.Label>
                             <Form.Control
                                 onChange={(e) => HandleChange(e)}
+                                required
                                 name="password"
                                 type="password"
                                 placeholder="Password"
                             />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
                         <Button className="btn btn-primary mt-2" type="submit">
                             <b>Iniciar Sesion</b>

@@ -78,6 +78,9 @@
 .opcionts {
     margin: 0% 25px;
 }
+.NavbarRight{
+    right: 0;
+}
 .text {
     color: rgb(255, 255, 255);
     font-family: 'Russo One', sans-serif;
