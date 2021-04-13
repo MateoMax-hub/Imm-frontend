@@ -88,7 +88,7 @@ function Proyectos() {
                             <p>Email: {consultaModal.usuario.email}</p>
                             <p>Consulta realizada el: {momentParser(consultaModal.createdAt)}</p>
                             <p>Titulo: {consultaModal.titulo}</p>
-                            <p>Consulta: {consultaModal.descripcion}</p>
+                            <p className="consult">Consulta:{consultaModal.descripcion}</p>
                         </div>
                     </Modal.Body>
                 </Modal>

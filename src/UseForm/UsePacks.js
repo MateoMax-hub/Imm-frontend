@@ -16,6 +16,7 @@ function UsePacks({ token }) {
     const [pedidoInProgres, setPedidoInProgres] = useState({});
 
     const [packTodos, setPackTodos] = useState([]);
+
     const { favorito, nombre } = UseCard({ token });
 
     const [spinnerNeed, setSpinnerNeed] = useState(true);
@@ -38,6 +39,7 @@ function UsePacks({ token }) {
         try {
             const { data } = await axios.get(`packs`);
             setPackTodos(data);
+            console.log(data)
         } catch (error) {
             console.log('datos de error', error);
         }
