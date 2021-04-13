@@ -14,8 +14,7 @@ Este proyecto surgió como parte de un desafío en el cual se requería una apli
     con este comando instalamos todas las librerias necesarias
 ### `npm start`
 
-con este comando se abre de local el proyecto pero se recomienda/necesita tener abierto en local el backend del proyecto tambien para poder utilizar las funciones de la pagina
--->[back end del proyecto](https://github.com/MateoMax-hub/Imm-backend/tree/master) <--
+con este comando se abre de local el proyecto pero se recomienda/necesita tener abierto en local el [backend del proyecto](https://github.com/MateoMax-hub/Imm-backend/tree/master) tambien para poder utilizar las funciones de la pagina
 
 ## librerias que usamos
     axios
