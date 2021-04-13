@@ -1,4 +1,4 @@
-import { Carousel, Card, Button } from 'react-bootstrap';
+import { Carousel, Card, Button, Spinner } from 'react-bootstrap';
 import UsePacks from '../../../UseForm/UsePacks';
 import './LandPage.css';
 import Portada from '../Portada/Portada';

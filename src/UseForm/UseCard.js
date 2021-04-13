@@ -9,7 +9,7 @@ function UseCard({ token }) {
     const [imagen, SetImagen] = useState();
     const [rol, SetRol] = useState('');
     const [id, SetId] = useState();
-    const [favorito, SetFavorito] = useState([]);
+    const [favorito, SetFavorito] = useState(false);
     const isAdmin = rol === 'admin';
 
     useEffect(() => {
@@ -34,7 +34,6 @@ function UseCard({ token }) {
             SetRol(data.rol);
             SetId(data._id);
             SetFavorito(data.favorito);
-            console.log(data);
         } catch (error) {
             console.log(error);
         }
