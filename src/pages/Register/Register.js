@@ -5,18 +5,15 @@ import './Register.css';
 
 const Register = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-    };
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
-        console.log(input);
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setValidated(true);
         try {
             const { data } = await axios.post('usuarios', input);
             localStorage.setItem('token', data);
@@ -48,7 +45,6 @@ const Register = ({ setToken }) => {
                         onSubmit={HandleSubmit}
                         noValidate
                         validated={validated}
-                        onSubmit={handleSubmit}
                     >
                         <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
