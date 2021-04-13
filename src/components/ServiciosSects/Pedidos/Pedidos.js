@@ -64,7 +64,7 @@ function Pedidos() {
                                 <table className="w-100">
                                     <thead className="thead-pedidos">
                                         <tr className="">
-                                            <th className="text-center">editor</th>
+                                            <th className="text-center">fecha</th>
                                             <th className="text-center">estado</th>
                                             <th className="text-center"></th>
                                         </tr>

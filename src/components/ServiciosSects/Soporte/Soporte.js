@@ -1,11 +1,19 @@
 import './Soporte.css';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button, Modal, Alert } from 'react-bootstrap';
 import UseConsulta from '../../../UseForm/UseConsulta';
 import { useState } from 'react';
 import BarraLateral from '../../BarraLateral/BarraLateral';
 
 function Soporte() {
-    const { HandleSubmit, HandleChange, handleShow, handleClose, show } = UseConsulta();
+    const {
+        HandleSubmit,
+        HandleChange,
+        handleShow,
+        handleClose,
+        show,
+        tituloVal,
+        consultaVal,
+    } = UseConsulta();
 
     return (
         <>
@@ -26,6 +34,7 @@ function Soporte() {
                             <Form.Group>
                                 <Form.Label>Ayuda</Form.Label>
                                 <input
+                                    maxLength="20"
                                     className="form-control w-100"
                                     name="titulo"
                                     onChange={HandleChange}
@@ -33,15 +42,26 @@ function Soporte() {
                                     placeholder="Describa el conflicto o consulta que tenga"
                                 />
                             </Form.Group>
+                            {tituloVal === true && (
+                                <Alert className="text-danger">
+                                    Tienes que escribir un titulo para tu consulta!
+                                </Alert>
+                            )}
                             <Form.Group>
                                 <Form.Label>Especificacion</Form.Label>
                                 <textarea
+                                    maxLength="400"
                                     cols="34"
                                     rows="10"
                                     name="descripcion"
                                     onChange={HandleChange}
                                     placeholder="Detalladamente en conflicto o su consulta aqui..."
                                 ></textarea>
+                            {consultaVal === true && (
+                                <Alert className="text-danger">
+                                    Tienes que escribir una consulta!
+                                </Alert>
+                            )}
                             </Form.Group>
                             <Button className="btn btn-primary w-100" onClick={HandleSubmit}>
                                 Consulta

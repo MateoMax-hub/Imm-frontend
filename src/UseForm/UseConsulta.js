@@ -3,8 +3,13 @@ import axios from 'axios';
 
 function UseConsulta() {
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        window.location.reload()
+    };
     const handleShow = () => setShow(true);
+    const [tituloVal, setTituloVal] = useState(false)
+    const [consultaVal, setConsultaVal] = useState(false)
 
     const [getConsult, setGetConsult] = useState({});
     const [input, setInput] = useState({});
@@ -21,8 +26,19 @@ function UseConsulta() {
         const token = localStorage.getItem('token')
         const headers = { 'x-auth-token': token };
         try {
+            if (input.titulo === undefined || input.titulo.length <= 0){
+                setTituloVal(true)
+                return
+            } else {
+                setTituloVal(false)
+            }
+            if (input.descripcion === undefined || input.descripcion.length <= 0){
+                setConsultaVal(true)
+                return
+            } else {
+                setConsultaVal(false)
+            }
             const { data } = await axios.post('consulta', input, { headers })
-            console.log(data)
             handleShow()
         } catch (error) {
             console.log('error en submit', error)
@@ -43,7 +59,9 @@ function UseConsulta() {
         HandleChange,
         handleClose,
         getConsult,
-        show
+        show,
+        tituloVal,
+        consultaVal
     };
 }
 
