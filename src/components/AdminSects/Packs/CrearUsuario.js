@@ -84,6 +84,7 @@ function CrearUsuario(props) {
                         <label className="d-flex align-items-center">
                             <i className="mr-2">titulo</i>
                             <input
+                                maxLength="30"
                                 onChange={(e) => handleCreate(e)}
                                 className="form-control"
                                 name="titulo"
@@ -92,6 +93,7 @@ function CrearUsuario(props) {
                         <label className="d-flex align-items-center">
                             <i className="mr-2">precio</i>
                             <input
+                                maxLength="6"
                                 onChange={(e) => handleCreate(e)}
                                 className="form-control"
                                 name="precio"
@@ -101,6 +103,7 @@ function CrearUsuario(props) {
                         <label className="d-flex align-items-center">
                             <i className="mr-2">descripcion</i>
                             <textarea
+                                maxLength="120"
                                 className="ta-modal-packs"
                                 onChange={(e) => handleCreate(e)}
                                 className="form-control"

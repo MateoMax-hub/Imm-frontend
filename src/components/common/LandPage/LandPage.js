@@ -23,7 +23,7 @@ const LandPage = ({ token }) => {
                             </Card.Title>
                             <Card.Text className="card-landPage-mh">
                                 Pagina donde te pondes contactar con los mejores editores para tener tus fotos
-                                mas faceras.
+                                mas esteticas.
                             </Card.Text>
                         </Card.Body>
                     </Card>

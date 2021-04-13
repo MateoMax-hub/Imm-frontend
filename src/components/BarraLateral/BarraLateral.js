@@ -46,37 +46,16 @@ const Register = () => {
                             <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
                                 Pedidos pendientes
                             </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
-                                Mensajes pendientes
-                            </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/pedidos">
-                                Mensajes clientes
-                            </Nav.Link>
-                        </div>
-                    </div>
-                    <div className="cartera">
-                        <div className="TituloBorder">
-                            <b>
-                                <i>Cartera</i>
-                            </b>
-                        </div>
-                        <div>
                             <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Depositar dinero
                             </Nav.Link>
                             <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
                                 Extraer dinero
                             </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
-                                Historial
-                            </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/cartera">
-                                Publicidad
-                            </Nav.Link>
                         </div>
                     </div>
                     <div className="ayuda">
-                        <div className="TituloBorder">
+                        <div className="TituloBorder mt-5">
                             <b>
                                 <i>Configuracion</i>
                             </b>
@@ -85,26 +64,26 @@ const Register = () => {
                             <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
                                 Mis datos
                             </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
-                                Seguridad
-                            </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/config">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/segpr">
                                 Privacidad
+                            </Nav.Link>
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/segpr">
+                                Terminos y condiciones
                             </Nav.Link>
                         </div>
                     </div>
                     <div className="ayuda">
-                        <div className="TituloBorder">
+                        <div className="TituloBorder mt-5">
                             <b>
                                 <i>Ayuda</i>
                             </b>
                         </div>
                         <div>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
-                                FAQ
-                            </Nav.Link>
-                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/faab">
                                 About us
+                            </Nav.Link>
+                            <Nav.Link className="buttonOptions" as={Link} to="/servicios/faab">
+                                FAQ
                             </Nav.Link>
                             <Nav.Link className="buttonOptions" as={Link} to="/servicios/soporte">
                                 Contactos

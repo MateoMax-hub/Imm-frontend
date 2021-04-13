@@ -6,15 +6,33 @@ import './Register.css';
 const Register = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [validationSur, setValidationSur] = useState(false)
+    const [passLength, setPassLength] = useState(false)
     const [buttonVista, setButtonVista] = useState('password');
     const [habilitar, setHabilitar] = useState('disabled');
     const [input, setInput] = useState({});
+    const [emailVal, setEmailVal] = useState(false)
     const HandleSubmit = async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.preventDefault();
             e.stopPropagation();
+        }
+        if (input.apellido.length > 12){
+            setValidationSur(true)
+            e.stopPropagation();
+            return
+        }
+        if (input.nombre.length > 12){
+            setValidation(true)
+            e.stopPropagation();
+            return
+        }
+        if (input.password.length < 6){
+            setPassLength(true)
+            e.stopPropagation();
+            return
         }
         setValidated(true);
         try {
@@ -23,7 +41,7 @@ const Register = ({ setToken }) => {
             setToken(data);
             window.location = './';
         } catch (error) {
-            setValidation(true);
+            setEmailVal(true);
         }
     };
 
@@ -74,7 +92,7 @@ const Register = ({ setToken }) => {
                                 placeholder="Apellido"
                                 maxLength="12"
                             />
-                            {validation === true && (
+                            {validationSur === true && (
                                 <Alert className="text-danger">
                                     Tiene que tener 12 caracteres como maximo!
                                 </Alert>
@@ -92,9 +110,9 @@ const Register = ({ setToken }) => {
                                 placeholder="Email"
                                 maxLength="40"
                             />
-                            {validation === true && (
+                            {emailVal === true && (
                                 <Alert className="text-danger">
-                                    Tiene que tener 40 caracteres como maximo!!
+                                    el email ya esta en uso
                                 </Alert>
                             )}
                         </Form.Group>
@@ -110,16 +128,16 @@ const Register = ({ setToken }) => {
                                     name="password"
                                     type={buttonVista}
                                     placeholder="Password"
-                                    maxLength="10"
-                                    minLength="5"
+                                    maxLength="12"
+                                    minLength="6"
                                 />
                                 <div>
                                     <button type="button" onClick={() => setButtonVista('text')} className="btn btn-primary">O</button>
                                 </div>
                             </div>
-                            {validation === true && (
+                            {passLength === true && (
                                 <Alert className="text-danger">
-                                    Tiene que tener entre 5 y 15 caracteres!!
+                                    Tiene que tener entre 6 y 12 caracteres!!
                                 </Alert>
                             )}
                         </Form.Group>

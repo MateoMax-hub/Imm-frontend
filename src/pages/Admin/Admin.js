@@ -11,7 +11,6 @@ import BarraLateralAdmin from '../../components/BarraLateralAdmin/BarraLateralAd
 import HeaderAdmin from '../../components/HeaderAdmin/HeaderAdmin'
 import Packs from '../../components/AdminSects/Packs/Packs'
 import Pedidos from '../../components/AdminSects/Pedidos/Pedidos'
-import Proyectos from '../../components/AdminSects/Proyectos/Proyectos'
 import Usuarios from '../../components/AdminSects/Usuarios/Usuarios'
 import Consultas from '../../components/AdminSects/Consultas/Consultas'
 import "./admin.css"
@@ -54,10 +53,6 @@ function Admin() {
 
                             <Route path="/admin/pedidos">
                                 <Pedidos />
-                            </Route>
-
-                            <Route path="/admin/proyectos">
-                                <Proyectos />
                             </Route>
 
                             <Route path="/admin/packs">

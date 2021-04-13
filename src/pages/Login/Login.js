@@ -30,6 +30,15 @@ const Login = ({ setToken }) => {
         const changedInput = { ...input, [name]: value };
         setInput(changedInput);
     };
+
+    const hideOrShowPass = () => {
+        if (buttonVista === 'password') {
+            setButtonVista('text');
+        } else {
+            setButtonVista('password');
+        }
+    };
+
     return (
         <div className="bodyDeLogin">
             <div className="formulario">
@@ -65,6 +74,7 @@ const Login = ({ setToken }) => {
                             </Form.Label>
                             <div className="d-flex">
                                 <Form.Control
+                                    maxLength="12"
                                     onChange={(e) => HandleChange(e)}
                                     required
                                     name="password"
@@ -74,7 +84,7 @@ const Login = ({ setToken }) => {
                                 <div>
                                     <button
                                         type="button"
-                                        onClick={() => setButtonVista('text')}
+                                        onClick={hideOrShowPass}
                                         className="btn btn-primary"
                                     >
                                         O

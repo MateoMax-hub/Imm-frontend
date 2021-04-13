@@ -241,6 +241,7 @@ function Usuarios() {
                                             placeholder="balance"
                                             type="number"
                                             defaultValue={user.balance}
+                                            maxLength="7"
                                         ></input>
                                         <Button variant="primary" className="w-100 mt-2" type="submit">
                                             Actualizar

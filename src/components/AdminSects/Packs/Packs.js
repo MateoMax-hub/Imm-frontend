@@ -165,6 +165,7 @@ function Packs() {
                                         <div className="d-flex mb-2 align-items-center">
                                             <p className="mr-3">Titulo:</p>
                                             <input
+                                                maxLength="30"
                                                 defaultValue={modalData.titulo}
                                                 name="titulo"
                                                 onChange={(e) => handleEditData(e)}
@@ -173,6 +174,7 @@ function Packs() {
                                         <div className="d-flex mb-2 align-items-center">
                                             <p className="mr-3">Precio:</p>
                                             <input
+                                                maxLength="6"
                                                 defaultValue={modalData.precio}
                                                 name="precio"
                                                 onChange={(e) => handleEditData(e)}
@@ -181,6 +183,7 @@ function Packs() {
                                         <div className="d-flex mb-2 align-items-center">
                                             <p className="mr-3">Descripcion:</p>
                                             <textarea
+                                                maxLength="120"
                                                 defaultValue={modalData.descripcion}
                                                 name="descripcion"
                                                 className="ta-modal-packs"

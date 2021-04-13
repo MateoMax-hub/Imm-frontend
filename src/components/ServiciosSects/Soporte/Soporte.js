@@ -62,7 +62,7 @@ function Soporte() {
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Body>
                             <b>
-                                <i>Tu consulta fue recibida, muchas gracias!! ;)</i>
+                                <i>Tu consulta fue recibida, muchas gracias!!</i>
                             </b>
                         </Modal.Body>
                         <Modal.Footer>

@@ -7,6 +7,8 @@ import Pedidos from '../../components/ServiciosSects/Pedidos/Pedidos';
 import Cartera from '../../components/ServiciosSects/Cartera/Cartera';
 import Config from '../../components/ServiciosSects/Config/Config';
 import Soporte from '../../components/ServiciosSects/Soporte/Soporte';
+import Faab from '../../components/ServiciosSects/faab/Faab';
+import Segpr from '../../components/ServiciosSects/segpr/Segpr';
 
 
 function Servicios({ token }) {
@@ -32,6 +34,14 @@ function Servicios({ token }) {
 
                             <Route path="/servicios/soporte">
                                 <Soporte />
+                            </Route>
+                            
+                            <Route path="/servicios/segpr">
+                                <Segpr />
+                            </Route>
+
+                            <Route path="/servicios/faab">
+                                <Faab />
                             </Route>
 
                             <Route path="/servicios/">

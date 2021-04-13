@@ -1,0 +1,15 @@
+.bg-faab {
+    background-color: rgba(161, 161, 161, 0.274);
+    border: 2px rgba(71, 71, 71, 0.473) solid;
+    border-radius: 1%;
+    max-height: 250px;
+}
+.bg-faab2 {
+    background-color: rgba(161, 161, 161, 0.274);
+    border: 2px rgba(71, 71, 71, 0.473) solid;
+    border-radius: 1%;
+    max-height: 250px;
+}
+.about-mh {
+    max-height: 250px;
+}
