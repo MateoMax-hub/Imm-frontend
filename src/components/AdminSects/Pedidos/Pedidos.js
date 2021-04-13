@@ -27,6 +27,11 @@ function Pedidos() {
     // modal confirmar foto
     const [showFile, setShowFile] = useState(false);
 
+    // modal para mas datos
+    const [masInfoShow, setMasInfoShow] = useState(false);
+    // datos para el modal de mas info
+    const [masInfo, setMasInfo] = useState(false);
+
     // get pedidos
     useEffect(() => {
         setPedido([]);
@@ -181,6 +186,17 @@ function Pedidos() {
         }
         setPrimerFiltro([]);
     };
+
+    // abrir o cerrar modal de mas info
+    const handleCloseModalInfo = () => {
+        setMasInfoShow(false);
+        setMasInfo(false);
+    };
+    const handleShowModalInfo = (p) => {
+        setMasInfoShow(true);
+        setMasInfo(p);
+    };
+
     return (
         <div className="d-flex">
             <div className="barraLateralPed">
@@ -219,29 +235,33 @@ function Pedidos() {
                     </div>
                     <div></div>
                 </div>
-                <table className="tablePedidos">
-                    <thead className="thead-pedidos">
-                        <tr className="m-2">
-                            <th className="text-center">Consumidor</th>
-                            <th className="text-center">Pack</th>
-                            <th className="text-center">Fecha de iniciacion</th>
-                            <th className="text-center">Estado</th>
-                            <th className="text-center">---</th>
-                        </tr>
-                    </thead>
-                    <tbody className="mt-5">
-                        {filtrado.map((u) => (
-                            <>
-                                <Tr
-                                    pedidoTr={u}
-                                    setPedido={setPedido}
-                                    setFile={setFile}
-                                    setPedidoActualizar={setPedidoActualizar}
-                                />
-                            </>
-                        ))}
-                    </tbody>
-                </table>
+                <div style={{ 'max-height': '790px', 'overflow-y': 'auto' }}>
+                    <table className="tablePedidos">
+                        <thead className="thead-pedidos">
+                            <tr className="m-2">
+                                <th className="text-center">Consumidor</th>
+                                <th className="text-center">Pack</th>
+                                <th className="text-center">Estado</th>
+                                <th className="text-center">---</th>
+                                <th className="text-center">---</th>
+                            </tr>
+                        </thead>
+                        <tbody className="mt-5">
+                            {filtrado.map((u) => (
+                                <>
+                                    <Tr
+                                        pedidoTr={u}
+                                        setPedido={setPedido}
+                                        setFile={setFile}
+                                        setPedidoActualizar={setPedidoActualizar}
+                                        handleShowModalInfo={handleShowModalInfo}
+                                    />
+                                </>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Body>
                         <div className="text-center">
@@ -281,6 +301,28 @@ function Pedidos() {
                         </Button>
                     </Modal.Body>
                 </Modal>
+                {masInfo ? (
+                    <Modal show={masInfoShow} onHide={handleCloseModalInfo}>
+                        <Modal.Body>
+                            <div className="text-center">
+                                <b>
+                                    <i>Datos del pedido</i>
+                                </b>
+                            </div>
+                            <hr />
+                            <div className="d-flex flex-column ml-2">
+                                <p>Consumidor: {masInfo.consumidor.nombre} {masInfo.consumidor.apellido}</p>
+                                <p>Email consumidor: {masInfo.consumidor.email}</p>
+                                <p>Encargo realizado el: {masInfo.createdAt}</p>
+                                <p>Primera etapa completada el: {masInfo.primeraEtapa.at}</p>
+                                <p>Segunda etapa completada el: {masInfo.segundaEtapa.at}</p>
+                                <p>Tercera etapa completada el: {masInfo.terceraEtapa.at}</p>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     );

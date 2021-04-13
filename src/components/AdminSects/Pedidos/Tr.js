@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import FileButton from './FileButton';
 
 function Tr(props) {
-    const { pedidoTr, setPedido, setFile, setPedidoActualizar } = props;
+    const { pedidoTr, setPedido, setFile, setPedidoActualizar, handleShowModalInfo } = props;
     const handleFile = () => {
         setPedidoActualizar(pedidoTr)
     }
@@ -33,9 +33,11 @@ function Tr(props) {
                     {pedidoTr.pack.titulo}
                 </Button>
             </th>
-            <th className="text-center tr">{pedidoTr.createdAt}</th>
             <th className="text-center tr">{estado}</th>
             <th className="text-center tr">{enviarFoto ? <FileButton setFile={setFile} handleFile={handleFile}/> : <></>}</th>
+            <th className="text-center tr">
+                <Button onClick={() => handleShowModalInfo(pedidoTr)} variant="outline-info">mas info</Button>
+            </th>
         </tr>
     );
 }
