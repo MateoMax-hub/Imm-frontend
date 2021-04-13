@@ -1,19 +1,27 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 
 const Login = ({ setToken }) => {
+    const [validated, setValidated] = useState(false);
+    const [validation, setValidation] = useState(false);
+    const [buttonVista, setButtonVista] = useState('password');
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+        }
+        setValidated(true);
         try {
             const { data } = await axios.post('auth', input);
             localStorage.setItem('token', data);
             setToken(data);
             window.location.href = '/';
         } catch (error) {
-            console.log(error);
+            setValidation(true);
         }
     };
 
@@ -34,29 +42,48 @@ const Login = ({ setToken }) => {
                         </h3>
                     </div>
                     <hr className="bg-light" />
-                    <Form className="mt-5" onSubmit={HandleSubmit}>
-                        <Form.Group controlId="formBasicEmail">
+                    <Form className="mt-5" onSubmit={HandleSubmit} noValidate validated={validated}>
+                        <Form.Group controlId="formBasicEmail" md="4" controlId="validationCustom01">
                             <Form.Label>
                                 <b>Correo electrónico</b>
                             </Form.Label>
                             <Form.Control
                                 onChange={(e) => HandleChange(e)}
+                                required
                                 name="email"
                                 type="email"
                                 placeholder="Enter email"
                             />
+                            {validation === true && (
+                                <Alert className="text-danger">Datos erroneos, revise su correo!</Alert>
+                            )}
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
+                        <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom02">
                             <Form.Label>
                                 <b>Contraseña</b>
                             </Form.Label>
-                            <Form.Control
-                                onChange={(e) => HandleChange(e)}
-                                name="password"
-                                type="password"
-                                placeholder="Password"
-                            />
+                            <div className="d-flex">
+                                <Form.Control
+                                    onChange={(e) => HandleChange(e)}
+                                    required
+                                    name="password"
+                                    type={buttonVista}
+                                    placeholder="Password"
+                                />
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={() => setButtonVista('text')}
+                                        className="btn btn-primary"
+                                    >
+                                        O
+                                    </button>
+                                </div>
+                            </div>
+                            {validation === true && (
+                                <Alert className="text-danger">Datos erroneos, revise su contraseña!</Alert>
+                            )}
                         </Form.Group>
                         <Button className="btn btn-primary mt-2" type="submit">
                             <b>Iniciar Sesion</b>
