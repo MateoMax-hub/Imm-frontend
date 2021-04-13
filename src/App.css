@@ -133,6 +133,9 @@
 .CardsImagenes{
     height: 180px;
 }
+p.consult{
+    word-break: break-all;
+}
 @media (max-width: 748px) {
     .PhotoCard {
         width: 138px;

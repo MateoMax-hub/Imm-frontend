@@ -72,7 +72,7 @@ function Proyectos() {
                             <p>Apellido: {consultaModal.usuario.apellido}</p>
                             <p>Email: {consultaModal.usuario.email}</p>
                             <p>Titulo: {consultaModal.titulo}</p>
-                            <p>Consulta: {consultaModal.descripcion}</p>
+                            <p className="consult">Consulta:{consultaModal.descripcion}</p>
                         </div>
                     </Modal.Body>
                 </Modal>
