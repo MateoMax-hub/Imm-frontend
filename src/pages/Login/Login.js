@@ -6,6 +6,7 @@ import './Login.css';
 const Login = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [buttonVista, setButtonVista] = useState('password');
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ const Login = ({ setToken }) => {
             setToken(data);
             window.location.href = '/';
         } catch (error) {
-            setValidation(true)
+            setValidation(true);
         }
     };
 
@@ -53,21 +54,36 @@ const Login = ({ setToken }) => {
                                 type="email"
                                 placeholder="Enter email"
                             />
-                            {validation === true && <Alert className="text-danger">Datos erroneos, revise su correo!</Alert>}
+                            {validation === true && (
+                                <Alert className="text-danger">Datos erroneos, revise su correo!</Alert>
+                            )}
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword" md="4" controlId="validationCustom02">
                             <Form.Label>
                                 <b>Contraseña</b>
                             </Form.Label>
-                            <Form.Control
-                                onChange={(e) => HandleChange(e)}
-                                required
-                                name="password"
-                                type="password"
-                                placeholder="Password"
-                            />
-                            {validation === true && <Alert className="text-danger">Datos erroneos, revise su contraseña!</Alert>}
+                            <div className="d-flex">
+                                <Form.Control
+                                    onChange={(e) => HandleChange(e)}
+                                    required
+                                    name="password"
+                                    type={buttonVista}
+                                    placeholder="Password"
+                                />
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={() => setButtonVista('text')}
+                                        className="btn btn-primary"
+                                    >
+                                        O
+                                    </button>
+                                </div>
+                            </div>
+                            {validation === true && (
+                                <Alert className="text-danger">Datos erroneos, revise su contraseña!</Alert>
+                            )}
                         </Form.Group>
                         <Button className="btn btn-primary mt-2" type="submit">
                             <b>Iniciar Sesion</b>

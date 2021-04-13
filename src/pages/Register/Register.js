@@ -6,6 +6,7 @@ import './Register.css';
 const Register = ({ setToken }) => {
     const [validated, setValidated] = useState(false);
     const [validation, setValidation] = useState(false);
+    const [buttonVista, setButtonVista] = useState('password');
     const [habilitar, setHabilitar] = useState('disabled');
     const [input, setInput] = useState({});
     const HandleSubmit = async (e) => {
@@ -102,15 +103,20 @@ const Register = ({ setToken }) => {
                             <Form.Label>
                                 <b>Contraseña</b>
                             </Form.Label>
-                            <Form.Control
-                                required
-                                onChange={(e) => HandleChange(e)}
-                                name="password"
-                                type="password"
-                                placeholder="Password"
-                                maxLength="10"
-                                minLength="5"
-                            />
+                            <div className="d-flex">
+                                <Form.Control
+                                    required
+                                    onChange={(e) => HandleChange(e)}
+                                    name="password"
+                                    type={buttonVista}
+                                    placeholder="Password"
+                                    maxLength="10"
+                                    minLength="5"
+                                />
+                                <div>
+                                    <button type="button" onClick={() => setButtonVista('text')} className="btn btn-primary">O</button>
+                                </div>
+                            </div>
                             {validation === true && (
                                 <Alert className="text-danger">
                                     Tiene que tener entre 5 y 15 caracteres!!
