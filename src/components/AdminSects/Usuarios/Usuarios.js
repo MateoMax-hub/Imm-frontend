@@ -117,12 +117,6 @@ function Usuarios() {
             );
             setUsersFiltrados(filteredUsers);
         }
-        if (select === 'estadoCuenta') {
-            const filteredUsers = users.filter((u) =>
-                u.estadoCuenta.toLowerCase().includes(filtro.filter.toLowerCase())
-            );
-            setUsersFiltrados(filteredUsers);
-        }
         if (select === 'email') {
             const filteredUsers = users.filter((u) =>
                 u.email.toLowerCase().includes(filtro.filter.toLowerCase())
@@ -154,7 +148,6 @@ function Usuarios() {
                             <option value="nombre">Nombre</option>
                             <option value="apellido">Apellido</option>
                             <option value="rol">Rol</option>
-                            <option value="estadoCuenta">Estado de cuenta</option>
                             <option value="email">Email</option>
                         </select>
                         <Button onClick={() => handleMySubmit()} variant="primary">
@@ -170,7 +163,7 @@ function Usuarios() {
                                 <th className="text-center">Nombre</th>
                                 <th className="text-center">Apellido</th>
                                 <th className="text-center">Rol</th>
-                                <th className="text-center">Estado de cuenta</th>
+
                                 <th className="text-center">---</th>
                             </tr>
                         </thead>
@@ -181,7 +174,6 @@ function Usuarios() {
                                         <th className="text-center">{u.nombre}</th>
                                         <th className="text-center">{u.apellido}</th>
                                         <th className="text-center">{u.rol}</th>
-                                        <th className="text-center">{u.estadoCuenta}</th>
                                         <th className="text-center">
                                             <Button
                                                 variant="outline-dark"
@@ -224,14 +216,6 @@ function Usuarios() {
                                             >
                                                 <Option1 rol={user.rol} />
                                             </select>
-                                            <label>estado de cuenta</label>
-                                            <select
-                                                onChange={(e) => handleChange(e)}
-                                                name="estadoCuenta"
-                                                className="mb-3 form-control"
-                                            >
-                                                <Option2 estado={user.estadoCuenta} />
-                                            </select>
                                         </div>
                                         <p>Email: {user.email}</p>
                                         <input
@@ -253,7 +237,6 @@ function Usuarios() {
                                     <p>Nombre: {user.nombre}</p>
                                     <p>Apellido: {user.apellido}</p>
                                     <p>Rol: {user.rol}</p>
-                                    <p>Estado de cuenta: {user.estadoCuenta}</p>
                                     <p>Email: {user.email}</p>
                                     <p>Balance: {user.balance}</p>
                                 </>
