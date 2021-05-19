@@ -314,7 +314,7 @@ function Pedidos() {
                         <Modal.Title id="example-modal-sizes-title-lg">Confirmar imagen</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="d-flex flex-column align-items-center justify-content-center">
-                        <img src={file}></img>
+                        <img src={file} style={{"max-width": "770px","max-height":" 472px"}}></img>
                         <Button variant="outline-success" className="mt-3" onClick={sendImg}>
                             Enviar
                         </Button>
