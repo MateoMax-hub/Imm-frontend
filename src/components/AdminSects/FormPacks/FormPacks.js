@@ -121,7 +121,7 @@ function FormPacks({ token }) {
                         )}
                         {completoExist ? (
                             <>
-                                <Card className="m-2 cardPackDate">
+                                <Card className="m-2 cardPackDate" style={{"background-color": "#fff"}}>
                                     <Card.Body>
                                         <p className="escrite">
                                             Aca podras ver las imagenes que ya editamos para tí,¿falta alguna?

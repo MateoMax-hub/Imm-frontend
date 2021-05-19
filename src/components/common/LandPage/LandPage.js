@@ -12,7 +12,7 @@ const LandPage = ({ token }) => {
             </div>
             <div className="ladnPage d-flex flex-wrap mt-5">
                 <div className="ml-2">
-                    <Card className="cards">
+                    <Card className="cards" style={{"background-color": "#fff"}}>
                         <Card.Img
                             variant="top"
                             src="https://siglodata.com/wp-content/uploads/2018/09/influencers_fotografos_monitoreo_medios_comunicacion_y_redes_sociales.jpg"
