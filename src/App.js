@@ -15,7 +15,7 @@ import Admin from './pages/Admin/Admin';
 import Perfil from './pages/Perfil/Perfil';
 import Pag404 from './components/404/Pag404';
 
-axios.defaults.baseURL = 'http://localhost:4000/api/';
+axios.defaults.baseURL = 'https://immback.herokuapp.com/api/';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));

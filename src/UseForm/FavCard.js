@@ -14,7 +14,7 @@ function FavCard(props) {
     if (favorito.length === 0 || !token) {
         return (
             <>
-                <Card className="m-2 cardPackDate">
+                <Card className="m-2 cardPackDate" style={{"background-color": "#fff"}}>
                     <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <div className="d-flex justify-content-between">
@@ -70,7 +70,7 @@ function FavCard(props) {
         const isFav = favorito.filter((f) => f.pack._id === pac._id);
         if (isFav.length !== 0) {
             return (
-                <Card className="m-2 cardPackDate">
+                <Card className="m-2 cardPackDate" style={{"background-color": "#fff"}}>
                     <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <div className="d-flex justify-content-between">
@@ -123,7 +123,7 @@ function FavCard(props) {
             );
         } else {
             return (
-                <Card className="m-2 cardPackDate">
+                <Card className="m-2 cardPackDate" style={{"background-color": "#fff"}}>
                     <Card.Img variant="top" className="CardsImagenes" src={pac.imagen || exampleImage} />
                     <Card.Body>
                         <div className="d-flex justify-content-between">
