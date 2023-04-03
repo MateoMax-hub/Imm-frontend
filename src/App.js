@@ -15,7 +15,7 @@ import Admin from './pages/Admin/Admin';
 import Perfil from './pages/Perfil/Perfil';
 import Pag404 from './components/404/Pag404';
 
-axios.defaults.baseURL = 'https://immback.herokuapp.com/api/';
+axios.defaults.baseURL = 'https://imm-backend-production.up.railway.app/api/';
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
